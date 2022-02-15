@@ -12,8 +12,11 @@ module.exports = {
       },
       padding: {
         cartPadding: "0.15rem"
+      },
+      gridTemplateColumns: {
+        shoesGrid: 'repeat(auto-fit, minmax(260px, 1fr))'
       }
-    },
+    }
   },
   plugins: [],
 };

@@ -22,6 +22,7 @@ export const data = [
         colors: ["Blue"],
         size: [39, 40, 41],
         available: true,
+        stars: 0,
         details: "Step out in ultimate comfort and style in a pair of these men's blue lace up casual shoes by Podium. They showcase fine stitch detailing, a rounded toe front, comfortable memory foam insole and a gripped outer sole. Perfect for both sportswear and everyday use.",
         image: s1,
         id: "s1"
@@ -34,6 +35,7 @@ export const data = [
         colors: ["Blue", "Black", "White"],
         size: [38, 39, 40, 41, 41],
         available: true,
+        stars: 0,
         details: "Designed by Original Penguin, these men’s trainers embrace a black upper with classic Penguin branding. They feature a lace up fastening for a secure fit, while their memory foam insole provides all day comfort.",
         image: s2,
         id: "s2"
@@ -46,6 +48,7 @@ export const data = [
         colors: ["Black", "White"],
         size: [38, 39, 40, 41, 41],
         available: true,
+        stars: 0,
         details: "From Skechers, these men’s trainers embrace a black upper with tan and grey detailing in a relaxed fit. They feature a lace up fastening for a secure fit, while their air cooled memory foam insole ensures comfort underfoot.",
         image: s3,
         id: "s3"
@@ -58,6 +61,7 @@ export const data = [
         colors: ["Green", "White"],
         size: [40, 41, 41],
         available: false,
+        stars: 0,
         details: "From Lambretta, these men's shoes embrace a white upper with tan detailing. They feature a lace up fastening for a secure fit, while their padded insole and flexible outsole ensures comfort and support beneath your feet.",
         image: s4,
         id: "s4"
@@ -70,6 +74,7 @@ export const data = [
         colors: ["Green", "Black"],
         size: [40, 41, 41],
         available: true,
+        stars: 0,
         details: "This men's black shoe evokes the Gibson style with a rounded toe ensuring plenty of room within and a traditional stitch line across the toe. There is a lace up fastening ensuring a secure fit for all and a low sole for comfort purposes. This style of shoe would be perfect for a classic look at both school and work.",
         image: o1,
         id: "o1"
@@ -82,6 +87,7 @@ export const data = [
         colors: ["Green", "Black"],
         size: [40, 41, 42],
         available: true,
+        stars: 0,
         details: "Cotswold Sudeley 2 Waterproof Mens Lace up shoe is perfect for the rainy days. It has a smooth leather upper and has a mirtex membrane in the lining to protect your feet from getting wet. It also has a durable flexible outsole.",
         image: o2,
         id: "o2"
@@ -94,6 +100,7 @@ export const data = [
         colors: ["Grey", "Black"],
         size: [41, 42],
         available: false,
+        stars: 0,
         details: "By Amblers Safety, unisex shoes in black. Smart formal leather safety shoe, ideal for industrial office wear and uniform. Steel toe, non-metal anti-penetration midsole, antistatic and durable PU outsole. Complies with P SRC S1 EN ISO 20345:2011 Safety Regulations.",
         image: o3,
         id: "o3"
@@ -106,6 +113,7 @@ export const data = [
         colors: ["Black"],
         size: [40, 41, 42],
         available: true,
+        stars: 0,
         details: "From Bottesini, these men's shoes embrace a black leather upper. They feature a lace up fastening for a secure fit, while their padded insole and light weight outsole ensures comfort underfoot. Perfect for work or a formal occasion.",
         image: o4,
         id: "o4"
@@ -118,6 +126,7 @@ export const data = [
         colors: ["Black", "Brown"],
         size: [38, 40, 41, 42],
         available: true,
+        stars: 0,
         details: "By Earth Works Safety Footwear, these men’s safety boots embrace a brown coated leather upper with a lace up fastening. They feature a steel toe cap, steel midsole, slip resistant outsole, shock absorption and are oil resistant. They conform to safety regulations EN ISO 20345.",
         image: b1,
         id: "b1"
@@ -130,6 +139,7 @@ export const data = [
         colors: ["Black", "Grey"],
         size: [40, 41, 42],
         available: false,
+        stars: 0,
         details: "By CAT, Striver Mid S3 men’s leather boots in black. The Striver Mid S3 is a smart safety boot with a 200 Joules Steel Toe Cap in premium leather uppers. Including a lightweight chunky PU sole unit, steel midsole - min. 1100N and antistatic protection. they comply with S3 SRC EN ISO 20345:2011 safety standards.",
         image: b2,
         id: "b2"
@@ -142,6 +152,7 @@ export const data = [
         colors: ["Black", "Blue"],
         size: [39, 40, 41, 42],
         available: true,
+        stars: 0,
         details: "By Amblers Safety, mens boots in black. Versatile boot incorporating a steel midsole and padded top. Coloured rubber outsole. Mir-tex waterproof breathable membrane. Features handy pull-on loops on tongue and back. Hardwearing lace holds with speed lacing hooks. Complies with WR SRC S3 EN SIO 20345:2011 Safety Regulations.",
         image: b3,
         id: "b3"
@@ -154,6 +165,7 @@ export const data = [
         colors: ["Black", "Brown", "Grey"],
         size: [39, 40, 41],
         available: true,
+        stars: 0,
         details: "By Groundwork Safety Footwear, these unisex safety boots embrace a black leather upper with a lace up fastening for a secure fit. Additionally, they feature a steel toe cap, slip resistant outsole, shock absorption and are oil resistant. They conform to safety regulations EN ISO 20345.",
         image: b4,
         id: "b4"

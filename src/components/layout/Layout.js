@@ -4,7 +4,8 @@ import { FaShoePrints, FaBars, FaSignInAlt, FaShoppingCart } from 'react-icons/f
 const Layout = (props) => {
   return (
     <div className="min-h-screen relative pb-10">
-      <header className="bg-zinc-800 text-white px-4 py-2">
+
+      <header className="fixed sm:relative w-full bg-zinc-800 text-white px-4 py-2">
         <nav className="flex justify-between items-center">
           <h1 className="font-headerFont text-2xl italic flex text-headerColor">
             <FaShoePrints className="w-auto h-8 mr-2" />
@@ -19,7 +20,6 @@ const Layout = (props) => {
             absolute 
             sm:relative 
             top-0
-            sm:top-0 
             pt-16
             sm:pt-0
             px-4
@@ -28,7 +28,7 @@ const Layout = (props) => {
             bg-zinc-800
             bg-opacity-90 
             sm:bg-opacity-100 
-            h-full
+            h-screen
             sm:h-fit"
           >
             <li>
@@ -81,7 +81,7 @@ const Layout = (props) => {
         </nav>
       </header>
 
-      <main className="min-h-full p-2">{props.children}</main>
+      <main className="min-h-full pt-16 p-5 sm:p-8">{props.children}</main>
 
       <footer className="bg-zinc-800 absolute bottom-0 w-full text-center text-slate-50 py-2">
         All rights reserved.
