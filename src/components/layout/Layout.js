@@ -33,32 +33,22 @@ const Layout = (props) => {
           >
             <li>
               <NavLink
-                to="/Sneakers"
+                to="/Home"
                 className={(x) =>
                   x.isActive ? 'bg-zinc-50 text-zinc-900' : ''
                 }
               >
-                Sneakers
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/Oxfords"
-                className={(x) =>
-                  x.isActive ? 'bg-zinc-50 text-zinc-900' : ''
-                }
-              >
-                Oxfords
+                Home
               </NavLink>
             </li>
             <li className="border-b-2 sm:border-0">
               <NavLink
-                to="/Boots"
+                to="/Shoes"
                 className={(x) =>
                   x.isActive ? 'bg-zinc-50 text-zinc-900' : ''
                 }
               >
-                Boots
+                Shoes
               </NavLink>
             </li>
             <li className='px-2 py-3'>
