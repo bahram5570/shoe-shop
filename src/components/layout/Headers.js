@@ -63,7 +63,8 @@ const Headers = () => {
             >
               <FaShoppingCart className="h-auto w-6 pt-2 sm:pt-0" />
               <span
-                className="absolute 
+                className="
+                        absolute 
                         top-2
                         sm:top-0
                         right-4 

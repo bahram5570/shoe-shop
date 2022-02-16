@@ -1,9 +1,9 @@
-import { FaFilter } from 'react-icons/fa';
+import { FaSlidersH } from 'react-icons/fa';
 
 const FilterButton = () => {
   return (
-    <button className="flex items-center text-neutral-50 px-1 border-2 rounded-lg">
-      <FaFilter className="mr-1" />
+    <button className="flex items-center text-neutral-50 ">
+      <FaSlidersH className="mr-2" />
       Filters
     </button>
   );
