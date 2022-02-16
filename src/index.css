@@ -18,10 +18,10 @@
     }
 
     li {
-        @apply px-1 py-2 sm:py-1 sm:text-base hover:scale-110 duration-200 italic
+        @apply sm:px-2 py-2 sm:py-1 sm:text-base sm:hover:scale-110 duration-200 italic
     }
 
     a {
-        @apply px-2 py-1 rounded w-max
+        @apply px-2 py-1 sm:rounded w-full justify-center flex
     }
 }
