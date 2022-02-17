@@ -1,27 +1,52 @@
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2222ff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #33ffff;
+  border-radius: 10px;
+  margin-block: 0.2rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: Lora;
-        src: url(components/layout/fonts/Lora-Regular.ttf);
-    }
+  @font-face {
+    font-family: Lora;
+    src: url(components/layout/fonts/Lora-Regular.ttf);
+  }
 
-    @font-face {
-        font-family: Akaya;
-        src: url(components/layout/fonts/AkayaTelivigala-Regular.ttf);
-    }
+  @font-face {
+    font-family: Akaya;
+    src: url(components/layout/fonts/AkayaTelivigala-Regular.ttf);
+  }
 
-    body {
-        @apply font-mainFont;
-    }
+  body {
+    @apply font-mainFont;
+  }
 
-    li {
-        @apply sm:px-2 py-2 sm:py-1 sm:text-base sm:hover:scale-110 duration-200 italic
-    }
+  li {
+    @apply sm:px-2 py-2 sm:py-1 sm:text-base sm:hover:scale-110 duration-200 italic;
+  }
 
-    a {
-        @apply px-2 py-1 sm:rounded w-full justify-center flex
-    }
+  a {
+    @apply px-2 py-1 sm:rounded w-full justify-center flex;
+  }
+}
+
+@layer components {
+  .filter_section {
+    @apply border-2 border-zinc-400 rounded-md p-2 mb-6 relative;
+  }
+
+  .filter_h2 {
+    @apply text-zinc-400 absolute -top-4 left-3 bg-neutral-50 px-1;
+  }
 }

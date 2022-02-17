@@ -4,6 +4,7 @@ import ShoeStructure from './ShoeStructure';
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
 import FilterButton from '../menu/FilterButton';
+import Filters from '../menu/Filters';
 
 const Shoes = () => {
   const output = data.map((x) => <ShoeStructure items={x} key={x.id} />);
@@ -34,6 +35,8 @@ const Shoes = () => {
           <FilterButton />
         </div>
       </div>
+
+      {/* <Filters /> */}
 
       <div className="grid grid-cols-shoesGrid gap-8 sm:gap-14">{output}</div>
     </Fragment>

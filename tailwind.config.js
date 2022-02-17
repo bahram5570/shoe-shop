@@ -8,7 +8,8 @@ module.exports = {
       },
       colors: {
         headerColor: "#ffff00",
-        cartColor: "#ff0000"
+        cartColor: "#ff0000",
+        modalColor: '#000000aa'
       },
       padding: {
         cartPadding: "0.15rem"
