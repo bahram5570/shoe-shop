@@ -1,28 +1,19 @@
 import {useNavigate} from "react-router-dom";
-import { FaStar } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 
 const ShoeStructure = ({ items }) => {
     const navigate = useNavigate();
     
   return (
     <div onClick={() => navigate(items.id)}
-      className="
-            bg-neutral-50 
-            shadow-md 
-            shadow-neutral-300 
-            rounded-xl 
-            overflow-hidden 
-            sm:cursor-pointer 
-            ring-neutral-400 
-            sm:hover:ring-4 
-            duration-150"
+      className="overflow-hidden duration-150 shadow-md bg-neutral-50 shadow-neutral-300 rounded-xl sm:cursor-pointer ring-neutral-400 sm:hover:ring-4"
     >
       <img src={items.cover} alt={items.id} />
       <section className="flex justify-between px-2 py-1">
         <h1 className="text-xl italic">{items.brand}</h1>
         <span className="flex items-center">
-          <p className="text-sm mr-1 text-slate-600">{items.stars}</p>
-          <FaStar className="text-yellow-400" />
+          <p className="mr-1 text-sm text-slate-600">{items.likes}</p>
+          <FaHeart className="text-redColor" />
         </span>
       </section>
       <section className="flex justify-between px-2 py-1">

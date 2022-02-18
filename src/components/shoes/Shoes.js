@@ -12,22 +12,7 @@ const Shoes = () => {
   return (
     <Fragment>
       <div
-        className="
-                bg-red-800
-                sm:relative
-                flex 
-                flex-col
-                sm:flex-row
-                max-w-sm
-                sm:max-w-none
-                sm:w-max
-                rounded-lg 
-                px-4 
-                py-2 
-                mb-6 
-                mx-auto
-                sm:mx-auto
-                text-sm"
+        className="flex flex-col max-w-sm px-4 py-2 mx-auto mb-6 text-sm bg-red-800 rounded-lg sm:relative sm:flex-row sm:max-w-none sm:w-max sm:mx-auto"
       >
         <Search />
         <div className="flex justify-between">
@@ -38,7 +23,7 @@ const Shoes = () => {
 
       {/* <Filters /> */}
 
-      <div className="grid grid-cols-shoesGrid gap-8 sm:gap-14">{output}</div>
+      <div className="grid gap-8 grid-cols-shoesGrid sm:gap-14">{output}</div>
     </Fragment>
   );
 };

@@ -5,7 +5,10 @@ const SlideShow = ({ items }) => {
   let itemKey = 0;
 
   return (
-    <div id="itemImages" className="relative overflow-hidden rounded-xl carousel slide">
+    <div
+      id="itemImages"
+      className="relative w-full overflow-hidden rounded-xl carousel slide"
+    >
       <div className="relative w-full overflow-hidden carousel-inner">
         {items.map((x) => (
           <div

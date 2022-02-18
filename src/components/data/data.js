@@ -54,7 +54,7 @@ export const data = {
             brand: "Podium",
             price: 20,
             off: 0,
-            stars: 0,
+            likes: 0,
             cover: s1_cover
         },
         {
@@ -62,7 +62,7 @@ export const data = {
             brand: "Penguin",
             price: 52,
             off: 20,
-            stars: 0,
+            likes: 0,
             cover: s2_cover
         },
         {
@@ -70,7 +70,7 @@ export const data = {
             brand: "Skechers",
             price: 70,
             off: 5,
-            stars: 0,
+            likes: 0,
             cover: s3_cover
         },
         {
@@ -78,7 +78,7 @@ export const data = {
             brand: "Lambretta",
             price: 32,
             off: 10,
-            stars: 0,
+            likes: 0,
             cover: s4_cover
         },
         {
@@ -86,7 +86,7 @@ export const data = {
             brand: "Beckett",
             price: 30,
             off: 3,
-            stars: 0,
+            likes: 0,
             cover: o1_cover
         },
         {
@@ -94,7 +94,7 @@ export const data = {
             brand: "Cotswold",
             price: 78,
             off: 0,
-            stars: 0,
+            likes: 0,
             cover: o2_cover
         },
         {
@@ -102,7 +102,7 @@ export const data = {
             brand: "Amblers",
             price: 35,
             off: 5,
-            stars: 0,
+            likes: 0,
             cover: o3_cover
         },
         {
@@ -110,7 +110,7 @@ export const data = {
             brand: "Bottesini",
             price: 42,
             off: 6,
-            stars: 0,
+            likes: 0,
             cover: o4_cover
         },
         {
@@ -118,7 +118,7 @@ export const data = {
             brand: "Earth Works",
             price: 50,
             off: 0,
-            stars: 0,
+            likes: 0,
             cover: b1_cover
         },
         {
@@ -126,7 +126,7 @@ export const data = {
             brand: "CAT",
             price: 73,
             off: 5,
-            stars: 0,
+            likes: 0,
             cover: b2_cover
         },
         {
@@ -134,7 +134,7 @@ export const data = {
             brand: "Amblers",
             price: 68,
             off: 0,
-            stars: 0,
+            likes: 0,
             cover: b3_cover
         },
         {
@@ -142,7 +142,7 @@ export const data = {
             brand: "Groundwork",
             price: 46,
             off: 10,
-            stars: 0,
+            likes: 0,
             cover: b4_cover
         }
     ],
@@ -153,10 +153,10 @@ export const data = {
             brand: "Podium",
             price: 20,
             off: 0,
-            stars: 0,
+            likes: 0,
             images: [s1_cover, s1_a, s1_b],
             category: "Sneaker",
-            colors: ["Blue"],
+            colors: [{name: "Blue", code: "#0000ff"}],
             size: [39, 40, 41],
             available: true,
             description: "Step out in ultimate comfort and style in a pair of these men's blue lace up casual shoes by Podium. They showcase fine stitch detailing, a rounded toe front, comfortable memory foam insole and a gripped outer sole. Perfect for both sportswear and everyday use.",
@@ -166,10 +166,10 @@ export const data = {
             category: "Sneaker",
             price: 52,
             off: 20,
-            colors: ["Blue", "Black", "White"],
-            size: [38, 39, 40, 41, 41],
+            colors: [{name: "Blue", code: "#0000ff"}, {name: "Black", code: "#000000"}, {name: "White", code: "#ffffff"}],
+            size: [38, 39, 40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "Designed by Original Penguin, these men’s trainers embrace a black upper with classic Penguin branding. They feature a lace up fastening for a secure fit, while their memory foam insole provides all day comfort.",
             images: [s2_cover, s2_a, s2_b],
             id: "s2"
@@ -179,10 +179,10 @@ export const data = {
             category: "Sneaker",
             price: 70,
             off: 5,
-            colors: ["Black", "White"],
-            size: [38, 39, 40, 41, 41],
+            colors: [{name: "Black", code: "#000000"}, {name: "White", code: "#ffffff"}],
+            size: [38, 39, 40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "From Skechers, these men’s trainers embrace a black upper with tan and grey detailing in a relaxed fit. They feature a lace up fastening for a secure fit, while their air cooled memory foam insole ensures comfort underfoot.",
             images: [s3_cover, s3_a, s3_b],
             id: "s3"
@@ -192,10 +192,10 @@ export const data = {
             category: "Sneaker",
             price: 32,
             off: 10,
-            colors: ["Green", "White"],
-            size: [40, 41, 41],
+            colors: [{name: "Green", code: "#00ff00"}, {name: "White", code: "#ffffff"}],
+            size: [40, 41, 42],
             available: false,
-            stars: 0,
+            likes: 0,
             description: "From Lambretta, these men's shoes embrace a white upper with tan detailing. They feature a lace up fastening for a secure fit, while their padded insole and flexible outsole ensures comfort and support beneath your feet.",
             images: [s4_cover, s4_a, s4_b],
             id: "s4"
@@ -205,10 +205,10 @@ export const data = {
             category: "Oxford",
             price: 30,
             off: 3,
-            colors: ["Green", "Black"],
-            size: [40, 41, 41],
+            colors: [{name: "Green", code: "#00ff00"}, {name: "Black", code: "#000000"}],
+            size: [40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "This men's black shoe evokes the Gibson style with a rounded toe ensuring plenty of room within and a traditional stitch line across the toe. There is a lace up fastening ensuring a secure fit for all and a low sole for comfort purposes. This style of shoe would be perfect for a classic look at both school and work.",
             images: [o1_cover, o1_a, o1_b],
             id: "o1"
@@ -218,10 +218,10 @@ export const data = {
             category: "Oxford",
             price: 78,
             off: 0,
-            colors: ["Green", "Black"],
-            size: [40, 41, 42],
+            colors: [{name: "Green", code: "#00ff00"}, {name: "Black", code: "#000000"}],
+            size: [39, 40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "Cotswold Sudeley 2 Waterproof Mens Lace up shoe is perfect for the rainy days. It has a smooth leather upper and has a mirtex membrane in the lining to protect your feet from getting wet. It also has a durable flexible outsole.",
             images: [o2_cover, o2_a, o2_b],
             id: "o2"
@@ -231,10 +231,10 @@ export const data = {
             category: "Oxford",
             price: 35,
             off: 5,
-            colors: ["Grey", "Black"],
+            colors: [{name: "Grey", code: "#555555"}, {name: "Black", code: "#000000"}],
             size: [41, 42],
             available: false,
-            stars: 0,
+            likes: 0,
             description: "By Amblers Safety, unisex shoes in black. Smart formal leather safety shoe, ideal for industrial office wear and uniform. Steel toe, non-metal anti-penetration midsole, antistatic and durable PU outsole. Complies with P SRC S1 EN ISO 20345:2011 Safety Regulations.",
             images: [o3_cover, o3_a, o3_b],
             id: "o3"
@@ -244,10 +244,10 @@ export const data = {
             category: "Oxford",
             price: 42,
             off: 6,
-            colors: ["Black"],
+            colors: [{name: "Black", code: "#000000"}],
             size: [40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "From Bottesini, these men's shoes embrace a black leather upper. They feature a lace up fastening for a secure fit, while their padded insole and light weight outsole ensures comfort underfoot. Perfect for work or a formal occasion.",
             images: [o4_cover, o4_a, o4_b],
             id: "o4"
@@ -257,10 +257,10 @@ export const data = {
             category: "Boot",
             price: 50,
             off: 0,
-            colors: ["Black", "Brown"],
+            colors: [{name: "Brown", code: "#804000"}, {name: "Black", code: "#000000"}],
             size: [38, 40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "By Earth Works Safety Footwear, these men’s safety boots embrace a brown coated leather upper with a lace up fastening. They feature a steel toe cap, steel midsole, slip resistant outsole, shock absorption and are oil resistant. They conform to safety regulations EN ISO 20345.",
             images: [b1_cover, b1_a, b1_b],
             id: "b1"
@@ -270,10 +270,10 @@ export const data = {
             category: "Boot",
             price: 73,
             off: 5,
-            colors: ["Black", "Grey"],
+            colors: [{name: "Grey", code: "#555555"}, {name: "Black", code: "#000000"}],
             size: [40, 41, 42],
             available: false,
-            stars: 0,
+            likes: 0,
             description: "By CAT, Striver Mid S3 men’s leather boots in black. The Striver Mid S3 is a smart safety boot with a 200 Joules Steel Toe Cap in premium leather uppers. Including a lightweight chunky PU sole unit, steel midsole - min. 1100N and antistatic protection. they comply with S3 SRC EN ISO 20345:2011 safety standards.",
             images: [b2_cover, b2_a, b2_b],
             id: "b2"
@@ -283,10 +283,10 @@ export const data = {
             category: "Boot",
             price: 68,
             off: 0,
-            colors: ["Black", "Blue"],
+            colors: [{name: "Blue", code: "#0000ff"}, {name: "Black", code: "#000000"}],
             size: [39, 40, 41, 42],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "By Amblers Safety, mens boots in black. Versatile boot incorporating a steel midsole and padded top. Coloured rubber outsole. Mir-tex waterproof breathable membrane. Features handy pull-on loops on tongue and back. Hardwearing lace holds with speed lacing hooks. Complies with WR SRC S3 EN SIO 20345:2011 Safety Regulations.",
             images: [b3_cover, b3_a, b3_b],
             id: "b3"
@@ -296,10 +296,10 @@ export const data = {
             category: "Boot",
             price: 46,
             off: 10,
-            colors: ["Black", "Brown", "Grey"],
+            colors: [{name: "Brown", code: "#804000"}, {name: "Black", code: "#000000"}, {name: "Grey", code: "#555555"}],
             size: [39, 40, 41],
             available: true,
-            stars: 0,
+            likes: 0,
             description: "By Groundwork Safety Footwear, these unisex safety boots embrace a black leather upper with a lace up fastening for a secure fit. Additionally, they feature a steel toe cap, slip resistant outsole, shock absorption and are oil resistant. They conform to safety regulations EN ISO 20345.",
             images: [b4_cover, b4_a, b4_b],
             id: "b4"

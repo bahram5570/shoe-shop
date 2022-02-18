@@ -7,8 +7,9 @@ module.exports = {
         headerFont: ['Akaya']
       },
       colors: {
-        headerColor: "#ffff00",
-        cartColor: "#ff0000",
+        yellowColor: "#ffff00",
+        redColor: "#ff0000",
+        greenColor: "#00ff00",
         modalColor: '#000000aa',
         sliderBackground: "#00000022"
       },
@@ -16,7 +17,8 @@ module.exports = {
         cartPadding: "0.15rem"
       },
       gridTemplateColumns: {
-        shoesGrid: 'repeat(auto-fit, minmax(260px, 1fr))'
+        shoesGrid: 'repeat(auto-fit, minmax(260px, 1fr))',
+        radioGrid: 'repeat(auto-fit, minmax(30px, 1fr))'
       }
     }
   },
