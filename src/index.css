@@ -49,4 +49,8 @@
   .filter_h2 {
     @apply text-zinc-400 absolute -top-4 left-3 bg-neutral-50 px-1;
   }
+
+  .slideShow_button {
+    @apply carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center hover:bg-sliderBackground;
+  }
 }

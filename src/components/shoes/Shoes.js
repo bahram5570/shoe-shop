@@ -4,10 +4,10 @@ import ShoeStructure from './ShoeStructure';
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
 import FilterButton from '../menu/FilterButton';
-import Filters from '../menu/Filters';
+// import Filters from '../menu/Filters';
 
 const Shoes = () => {
-  const output = data.map((x) => <ShoeStructure items={x} key={x.id} />);
+  const output = data.products_brief.map((x) => <ShoeStructure items={x} key={x.id} />);
 
   return (
     <Fragment>

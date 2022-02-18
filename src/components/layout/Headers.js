@@ -46,7 +46,7 @@ const Headers = () => {
           </li>
 
           <li className="">
-            <NavLink
+            <NavLink end
               to="/Shoes"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
