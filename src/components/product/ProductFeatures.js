@@ -1,7 +1,12 @@
-import { FaRegPlusSquare, FaRegMinusSquare } from "react-icons/fa";
-
 const ProductFeatures = ({ items }) => {
-  const { colors, size } = items;
+  const { colors, size, qt } = items;
+
+  const quantityList = [];
+
+  for(let i = 1; i < qt; i++) {
+     quantityList.push(<option key={i} value={i}>{i}</option>)
+  }
+  
 
   return (
     <div className="block sm:w-24 min-w-[96px] md:min-w-[160px] sm:mx-2 md:mx-6 mb-8 sm:mb-0">
@@ -21,8 +26,20 @@ const ProductFeatures = ({ items }) => {
                 type="radio"
                 name="size"
                 value={x}
-                className="w-full h-full duration-200 border-2 rounded-md outline-none appearance-none border-neutral-800 checked:bg-neutral-800"
-              />
+                defaultChecked={x === size[0]}
+                className="
+                  w-full 
+                  h-full 
+                  duration-200 
+                  border-2
+                  rounded-md 
+                  outline-none 
+                  appearance-none 
+                  border-neutral-800 
+                  ring-greenColor
+                  checked:ring-4
+                  checked:border-0"
+                  />
             </div>
           ))}
         </div>
@@ -38,8 +55,21 @@ const ProductFeatures = ({ items }) => {
                 type="radio"
                 name="colors"
                 value={x}
+                defaultChecked={x.name === colors[0].name}
                 style={{ background: x.code }}
-                className={`w-full h-full border-2 rounded-full outline-none appearance-none border-neutral-400 checked:ring-4 ring-greenColor ring-offset-2 cursor-pointer duration-200`}
+                className="
+                  w-full 
+                  h-full 
+                  border-2 
+                  rounded-full 
+                  outline-none 
+                  appearance-none 
+                  border-neutral-400 
+                  checked:ring-4 
+                  ring-greenColor 
+                  ring-offset-2 
+                  cursor-pointer 
+                  duration-200"
               />
             </div>
           ))}
@@ -48,7 +78,9 @@ const ProductFeatures = ({ items }) => {
 
       <section>
         <h2 className="ml-2 text-lg font-bold mb-2">Quantity:</h2>
-            qt
+        <select className="pl-2 pr-10 py-1 rounded-md outline-none sm:cursor-pointer ml-2 border-2 border-neutral-600">
+          {quantityList} 
+        </select>
       </section>
     </div>
   );

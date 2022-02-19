@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const ProductDetails = ({items}) => {
     const {brand, category, description, likes, price, off} = items;
@@ -10,8 +10,8 @@ const ProductDetails = ({items}) => {
                 <div className='flex justify-between'>
                     <h1 className='text-2xl font-bold'>{brand}</h1>
                     <span className='flex items-center mr-20'>
-                        <p className='mr-1 text-neutral-600'>{likes}</p>
-                        <FaHeart className='text-xl text-redColor' />
+                        <p className='mr-2 text-xl text-neutral-600'>{likes}</p>
+                        <FaRegHeart className='text-xl text-redColor w-7 h-7 cursor-pointer active:scale-75 duration-100' />
                     </span>
                 </div>
                 <h2 className='mb-4 text-neutral-600'>{category}</h2>
