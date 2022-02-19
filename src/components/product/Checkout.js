@@ -1,9 +1,6 @@
-import { Fragment } from 'react';
-
 const Checkout = () => {
   return (
-    <div className="p-4 shadow-[0_0_12px_#999999] rounded-xl sm:w-56 sm:min-w-[224px] h-fit">
-      <Fragment>
+    <div className="p-4 shadow-[0_0_12px_#999999] rounded-xl sm:w-56 sm:min-w-[224px] h-fit relative">
         <h1 className="mb-2 text-xl font-bold text-center">Order Summery</h1>
         <p className="mb-3 italic text-center">date</p>
         <span className="flex justify-between mb-3">
@@ -29,7 +26,6 @@ const Checkout = () => {
         <button className="w-full py-1 duration-100 bg-greenColor rounded-2xl text-neutral-50 active:scale-90">
           +Add To Cart
         </button>
-      </Fragment>
     </div>
   );
 };

@@ -51,6 +51,6 @@
   }
 
   .slideShow_button {
-    @apply carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center hover:bg-sliderBackground;
+    @apply carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center sm:hover:bg-sliderBackground;
   }
 }

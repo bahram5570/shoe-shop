@@ -3,10 +3,13 @@ const ProductFeatures = ({ items }) => {
 
   const quantityList = [];
 
-  for(let i = 1; i < qt; i++) {
-     quantityList.push(<option key={i} value={i}>{i}</option>)
+  for (let i = 1; i < qt; i++) {
+    quantityList.push(
+      <option key={i} value={i}>
+        {i}
+      </option>
+    );
   }
-  
 
   return (
     <div className="block sm:w-24 min-w-[96px] md:min-w-[160px] sm:mx-2 md:mx-6 mb-8 sm:mb-0">
@@ -39,7 +42,7 @@ const ProductFeatures = ({ items }) => {
                   ring-greenColor
                   checked:ring-4
                   checked:border-0"
-                  />
+              />
             </div>
           ))}
         </div>
@@ -79,7 +82,7 @@ const ProductFeatures = ({ items }) => {
       <section>
         <h2 className="ml-2 text-lg font-bold mb-2">Quantity:</h2>
         <select className="pl-2 pr-10 py-1 rounded-md outline-none sm:cursor-pointer ml-2 border-2 border-neutral-600">
-          {quantityList} 
+          {quantityList}
         </select>
       </section>
     </div>
