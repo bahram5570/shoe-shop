@@ -1,4 +1,4 @@
-const Checkout = () => {
+const AddToCart = () => {
   return (
     <div className="p-4 shadow-[0_0_12px_#999999] rounded-xl sm:w-56 sm:min-w-[224px] h-fit relative">
         <h1 className="mb-2 text-xl font-bold text-center">Order Summery</h1>
@@ -30,4 +30,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default AddToCart;

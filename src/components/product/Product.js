@@ -3,7 +3,7 @@ import { data } from '../data/data';
 import SlideShow from './SlideShow';
 import ProductDetails from './ProductDetails';
 import ProductFeatures from './ProductFeatures';
-import Checkout from './Checkout';
+import AddToCart from './AddToCart';
 
 const Product = () => {
   const params = useParams();
@@ -22,7 +22,7 @@ const Product = () => {
 
       <section className="sm:flex">
         <ProductFeatures items={item} />
-        <Checkout />
+        <AddToCart />
       </section>
     </div>
   );
