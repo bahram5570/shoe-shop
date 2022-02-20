@@ -1,14 +1,24 @@
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 
 const ShoeStructure = ({ items }) => {
-    const navigate = useNavigate();
-    
+  const navigate = useNavigate();
+
   return (
-    <div onClick={() => navigate(items.id)}
-      className="overflow-hidden duration-150 shadow-md bg-neutral-50 shadow-neutral-300 rounded-xl sm:cursor-pointer ring-neutral-400 sm:hover:ring-4"
+    <div
+      onClick={() => navigate(items.id)}
+      className="
+        overflow-hidden 
+        duration-150 
+        shadow-md 
+        bg-neutral-50 
+        shadow-neutral-300 
+        rounded-xl 
+        sm:cursor-pointer 
+        ring-neutral-400 
+        sm:hover:ring-4"
     >
-      <img src={items.cover} alt={items.id} />
+      <img src={items.images[0]} alt={items.id} />
       <section className="flex justify-between px-2 py-1">
         <h1 className="text-xl italic">{items.brand}</h1>
         <span className="flex items-center">

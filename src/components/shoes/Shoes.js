@@ -7,12 +7,32 @@ import FilterButton from '../menu/FilterButton';
 // import Filters from '../menu/Filters';
 
 const Shoes = () => {
-  const output = data.products_brief.map((x) => <ShoeStructure items={x} key={x.id} />);
+  const allData = [];
+  for (const x in data) {
+    allData.push(data[x])
+  };
+  
+  const output = allData.map((x) => <ShoeStructure items={x} key={x.id} />);
 
   return (
     <Fragment>
       <div
-        className="flex flex-col max-w-sm px-4 py-2 mx-auto mb-6 text-sm bg-red-800 rounded-lg sm:relative sm:flex-row sm:max-w-none sm:w-max sm:mx-auto"
+        className="
+          flex 
+          flex-col 
+          max-w-sm 
+          px-4 
+          py-2 
+          mx-auto 
+          mb-6 
+          text-sm 
+          bg-red-800 
+          rounded-lg 
+          sm:relative 
+          sm:flex-row 
+          sm:max-w-none 
+          sm:w-max 
+          sm:mx-auto"
       >
         <Search />
         <div className="flex justify-between">

@@ -7,7 +7,7 @@ import AddToCart from './AddToCart';
 
 const Product = () => {
   const params = useParams();
-  const item = data.products_datails[params.id];
+  const item = data[params.id];
 
   return (
     <div className="block sm:flex">
