@@ -21,7 +21,17 @@ const Filters = () => {
 
   return (
     <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor">
-      <div className="bg-neutral-50 rounded-md mx-auto mt-14 sm:mt-20 px-4 py-6 w-fit h-3/4 overflow-y-scroll">
+      <div className="
+        bg-neutral-50 
+        rounded-md 
+        mx-auto 
+        mt-14 
+        sm:mt-20 
+        px-4 
+        py-6 
+        w-fit 
+        h-3/4 
+        overflow-y-scroll">
         <section className="filter_section">
           <h2 className="filter_h2">Brand</h2>
           <FiltersCheckbox items={currentBrands} />

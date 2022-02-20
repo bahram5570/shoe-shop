@@ -8,7 +8,18 @@ const ButtonsSection = () => {
         <input
           type="checkbox"
           id="available"
-          className="w-5 h-5 duration-150 border-2 rounded-sm outline-none appearance-none cursor-pointer border-cyan-500 bg-neutral-50 checked:bg-cyan-500"
+          className="
+            w-5 
+            h-5 
+            duration-150 
+            border-2 
+            rounded-sm 
+            outline-none 
+            appearance-none 
+            cursor-pointer 
+            border-cyan-500 
+            bg-neutral-50 
+            checked:bg-cyan-500"
         />
         <label htmlFor="available" className="ml-1 text-sm cursor-pointer">
           Only Availables
@@ -16,13 +27,47 @@ const ButtonsSection = () => {
         </label>
       </div>
       <div className="flex justify-end">
-        <button className="px-3 ml-4 text-sm duration-100 border-2 rounded-md text-neutral-900 border-neutral-800 active:scale-90">
+        <button
+          className="
+          px-3 
+          ml-4 
+          text-sm 
+          duration-100 
+          border-2 
+          rounded-md 
+          text-neutral-900 
+          border-neutral-800 
+          active:scale-90"
+        >
           Reset
         </button>
-        <button className="px-3 ml-4 text-sm duration-100 border-2 rounded-md border-redColor active:scale-90 text-redColor">
+        <button
+          className="
+          px-3 
+          ml-4 
+          text-sm 
+          duration-100 
+          border-2 
+          rounded-md 
+          border-redColor 
+          active:scale-90 
+          text-redColor"
+        >
           Cancel
         </button>
-        <button className="px-4 py-1 ml-4 text-sm duration-100 rounded-md text-neutral-50 h-min bg-cyan-600 active:scale-90">
+        <button
+          className="
+          px-4 
+          py-1 
+          ml-4 
+          text-sm 
+          duration-100 
+          rounded-md 
+          text-neutral-50 
+          h-min 
+          bg-cyan-600 
+          active:scale-90"
+        >
           Apply
         </button>
       </div>

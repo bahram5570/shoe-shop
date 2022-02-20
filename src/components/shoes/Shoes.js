@@ -1,18 +1,14 @@
 import { Fragment } from 'react';
-import { data } from '../data/data';
 import ShoeStructure from './ShoeStructure';
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
 import FilterButton from '../menu/FilterButton';
 // import Filters from '../menu/Filters';
+import { useData } from '../store/providers';
 
 const Shoes = () => {
-  const allData = [];
-  for (const x in data) {
-    allData.push(data[x])
-  };
-  
-  const output = allData.map((x) => <ShoeStructure items={x} key={x.id} />);
+  const finalData = useData();
+  const output = finalData.map((x) => <ShoeStructure items={x} key={x.id} />);
 
   return (
     <Fragment>

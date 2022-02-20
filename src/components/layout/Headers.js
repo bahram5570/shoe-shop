@@ -18,7 +18,24 @@ const Headers = () => {
         <FaBars className="z-10 w-auto h-6 cursor-pointer sm:hidden" />
 
         <ul
-          className="absolute top-0 right-0 flex flex-col w-20 h-screen sm:w-fit sm:flex-row sm:items-center sm:relative pt-14 sm:pt-0 bg-zinc-800 bg-opacity-90 sm:bg-opacity-100 sm:h-fit"
+          className="
+            absolute 
+            top-0 
+            right-0 
+            flex 
+            flex-col 
+            w-20 
+            h-screen 
+            sm:w-fit 
+            sm:flex-row 
+            sm:items-center 
+            sm:relative 
+            pt-14 
+            sm:pt-0 
+            bg-zinc-800 
+            bg-opacity-90 
+            sm:bg-opacity-100 
+            sm:h-fit"
         >
           <li className="flex">
             <NavLink
@@ -30,7 +47,8 @@ const Headers = () => {
           </li>
 
           <li className="">
-            <NavLink end
+            <NavLink
+              end
               to="/Shoes"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
@@ -47,7 +65,20 @@ const Headers = () => {
             >
               <FaShoppingCart className="w-6 h-auto pt-2 sm:pt-0" />
               <span
-                className="absolute flex items-center justify-center w-5 h-5 top-2 sm:top-0 right-4 sm:right-0 bg-redColor text-zinc-50 rounded-xl"
+                className="
+                  absolute 
+                  flex 
+                  items-center 
+                  justify-center 
+                  w-5 
+                  h-5 
+                  top-2 
+                  sm:top-0 
+                  right-4 
+                  sm:right-0 
+                  bg-redColor 
+                  text-zinc-50 
+                  rounded-xl"
               >
                 <p className="text-xs">55</p>
               </span>
@@ -62,7 +93,6 @@ const Headers = () => {
               <FaSignInAlt className="w-6 h-auto" />
             </NavLink>
           </li>
-          
         </ul>
       </nav>
     </header>
