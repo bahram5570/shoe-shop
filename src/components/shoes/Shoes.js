@@ -1,14 +1,16 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import ShoeStructure from './ShoeStructure';
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
 import FilterButton from '../menu/FilterButton';
-// import Filters from '../menu/Filters';
+import Filters from '../menu/Filters';
 import { useData } from '../store/providers';
 
 const Shoes = () => {
   const finalData = useData();
   const output = finalData.map((x) => <ShoeStructure items={x} key={x.id} />);
+
+  const [showFilters, setShowFilters] = useState(false);
 
   return (
     <Fragment>
@@ -33,11 +35,11 @@ const Shoes = () => {
         <Search />
         <div className="flex justify-between">
           <Sort />
-          <FilterButton />
+          <FilterButton onShowFilters={() => setShowFilters(true)} />
         </div>
       </div>
 
-      {/* <Filters /> */}
+      {showFilters && <Filters onCloseFilters={() => setShowFilters(false)} />}
 
       <div className="grid gap-8 grid-cols-shoesGrid sm:gap-14">{output}</div>
     </Fragment>

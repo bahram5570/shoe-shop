@@ -4,9 +4,9 @@ import { reducer } from './reducer';
 import { ContextProvider } from './providers';
 import { ContextDispatcher } from './providers';
 
-const initialValue = [];
-for (const x in data) {
-  initialValue.push(data[x]);
+export const initialValue = [];
+for (const i in data) {
+  initialValue.push(data[i]);
 }
 
 const ContextWrapper = ({ children }) => {

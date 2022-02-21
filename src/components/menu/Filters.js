@@ -1,27 +1,35 @@
+import { useState } from 'react';
+import { useDispatch } from '../store/providers';
 import FiltersCheckbox from './FiltersCheckbox';
 import PriceRange from './PriceRange';
 import ButtonsSection from './ButtonsSection';
 
-const Filters = () => {
-  const currentBrands = [
-    'Podium',
-    'Penguin',
-    'Skechers',
-    'Lambretta',
-    'Beckett',
-    'Cotswold',
-    'Amblers',
-    'Bottesini',
-    'Earth Works',
-    'CAT',
-    'Groundwork',
-  ];
+const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
 
+  const [categoryFilter, setCategoryFilter] = useState([]);
+  const [sizeFilter, setSizeFilter] = useState([]);
+  const [priceFilter, setPriceFilter] = useState({ min: 0, max: 500 });
+
+  const dispatch = useDispatch();
+
+  const applyFilterHandler = () => {
+    dispatch({
+      type: 'filter',
+      payload: {
+        categoryFilter,
+        sizeFilter,
+        priceFilter,
+      },
+    });
+    props.onCloseFilters();
+  };
+
   return (
     <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor">
-      <div className="
+      <div
+        className="
         bg-neutral-50 
         rounded-md 
         mx-auto 
@@ -31,20 +39,22 @@ const Filters = () => {
         py-6 
         w-fit 
         h-3/4 
-        overflow-y-scroll">
-        <section className="filter_section">
-          <h2 className="filter_h2">Brand</h2>
-          <FiltersCheckbox items={currentBrands} />
-        </section>
-
+        overflow-y-scroll"
+      >
         <section className="filter_section">
           <h2 className="filter_h2">Category</h2>
-          <FiltersCheckbox items={currentCategories} />
+          <FiltersCheckbox
+            onFilter={(value) => setCategoryFilter(value)}
+            items={currentCategories}
+          />
         </section>
 
         <section className="filter_section">
           <h2 className="filter_h2">Size</h2>
-          <FiltersCheckbox items={currentSizes} />
+          <FiltersCheckbox
+            onFilter={(value) => setSizeFilter(value)}
+            items={currentSizes}
+          />
         </section>
 
         <section className="filter_section">
@@ -53,7 +63,10 @@ const Filters = () => {
         </section>
 
         <section className="filter_section">
-          <ButtonsSection />
+          <ButtonsSection
+            onCloseFilters={() => props.onCloseFilters()}
+            onApplyFilters={applyFilterHandler}
+          />
         </section>
       </div>
     </div>

@@ -57,7 +57,7 @@ export const data = {
     images: [s1_cover, s1_a, s1_b],
     category: 'Sneaker',
     colors: [{ name: 'Blue', code: '#0000ff' }],
-    size: [39, 40, 41],
+    size: [39, 40],
     qt: 5,
     description:
       "Step out in ultimate comfort and style in a pair of these men's blue lace up casual shoes by Podium. They showcase fine stitch detailing, a rounded toe front, comfortable memory foam insole and a gripped outer sole. Perfect for both sportswear and everyday use.",
@@ -72,7 +72,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
       { name: 'White', code: '#ffffff' },
     ],
-    size: [38, 39, 40, 41, 42],
+    size: [39, 40, 41, 42],
     qt: 2,
     likes: 0,
     description:
@@ -141,7 +141,7 @@ export const data = {
       { name: 'Grey', code: '#555555' },
       { name: 'Black', code: '#000000' },
     ],
-    size: [39, 40, 41, 42],
+    size: [39, 40, 41],
     qt: 4,
     likes: 0,
     description:
@@ -189,7 +189,7 @@ export const data = {
       { name: 'Brown', code: '#804000' },
       { name: 'Black', code: '#000000' },
     ],
-    size: [38, 40, 41, 42],
+    size: [38, 39, 40, 41],
     qt: 6,
     likes: 0,
     description:

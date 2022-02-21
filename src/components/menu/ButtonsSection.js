@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
-const ButtonsSection = () => {
+const ButtonsSection = (props) => {
   return (
     <Fragment>
       <div className="flex items-center py-1 mb-4 duration-200 hover:translate-x-1">
@@ -42,6 +42,7 @@ const ButtonsSection = () => {
           Reset
         </button>
         <button
+          onClick={() => props.onCloseFilters()}
           className="
           px-3 
           ml-4 
@@ -56,6 +57,7 @@ const ButtonsSection = () => {
           Cancel
         </button>
         <button
+          onClick={() => props.onApplyFilters()}
           className="
           px-4 
           py-1 

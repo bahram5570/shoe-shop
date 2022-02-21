@@ -5,7 +5,7 @@ const Search = () => {
   const dispatch = useDispatch();
 
   const searchHandler = (e) => {
-    dispatch(e.target.value);
+    dispatch({type: "search", payload: e.target.value});
   };
 
   return (
