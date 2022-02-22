@@ -1,14 +1,18 @@
-import { initialValue } from './store';
+import { productsData } from './store';
+let initialSearchValue = [];
 
 export const reducer = (state, action) => {
-  const currentState = [...initialValue];
+  const currentState = [...productsData];
 
   switch (action.type) {
     case 'search':
-      const searchedData = currentState.filter((x) =>
-        x.brand.toLowerCase().includes(action.payload.toLowerCase())
-      );
-      return searchedData;
+      if (action.payload.trim().length > 0) {
+        return currentState.filter((x) =>
+          x.brand.toLowerCase().includes(action.payload.toLowerCase())
+        );
+      } else {
+        return initialSearchValue;
+      }
 
     case 'filter':
       const categoryFiltering = currentState.filter((x) =>
@@ -35,8 +39,16 @@ export const reducer = (state, action) => {
           x.price > action.payload.priceFilter.min &&
           x.price < action.payload.priceFilter.max
       );
+      const availableFiltering = action.payload.availableFilter
+        ? priceFiltering.filter((x) => x.qt > 0)
+        : priceFiltering;
 
-      return priceFiltering;
+      const outputData = [...new Set(availableFiltering)];
+      initialSearchValue = outputData;
+
+      localStorage.setItem('outputData', JSON.stringify(outputData));
+
+      return outputData;
 
     default:
       return state;

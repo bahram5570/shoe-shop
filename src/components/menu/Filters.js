@@ -4,6 +4,7 @@ import FiltersCheckbox from './FiltersCheckbox';
 import PriceRange from './PriceRange';
 import ButtonsSection from './ButtonsSection';
 
+
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
@@ -11,20 +12,28 @@ const Filters = (props) => {
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [sizeFilter, setSizeFilter] = useState([]);
   const [priceFilter, setPriceFilter] = useState({ min: 0, max: 500 });
+  const [availableFilter, setAvailableFilter] = useState(false);
 
   const dispatch = useDispatch();
 
   const applyFilterHandler = () => {
+    localStorage.setItem('category', JSON.stringify(categoryFilter));
+    localStorage.setItem('size', JSON.stringify(sizeFilter));
+    localStorage.setItem('price', JSON.stringify(priceFilter));
+    localStorage.setItem('availables', JSON.stringify(availableFilter));
+
     dispatch({
       type: 'filter',
       payload: {
         categoryFilter,
         sizeFilter,
         priceFilter,
+        availableFilter
       },
     });
     props.onCloseFilters();
   };
+
 
   return (
     <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor">
@@ -46,6 +55,7 @@ const Filters = (props) => {
           <FiltersCheckbox
             onFilter={(value) => setCategoryFilter(value)}
             items={currentCategories}
+            type="category"
           />
         </section>
 
@@ -54,6 +64,7 @@ const Filters = (props) => {
           <FiltersCheckbox
             onFilter={(value) => setSizeFilter(value)}
             items={currentSizes}
+            type="size"
           />
         </section>
 
@@ -64,6 +75,7 @@ const Filters = (props) => {
 
         <section className="filter_section">
           <ButtonsSection
+            onAvailable={x => setAvailableFilter(x)}
             onCloseFilters={() => props.onCloseFilters()}
             onApplyFilters={applyFilterHandler}
           />

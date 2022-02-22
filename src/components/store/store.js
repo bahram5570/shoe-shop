@@ -4,13 +4,14 @@ import { reducer } from './reducer';
 import { ContextProvider } from './providers';
 import { ContextDispatcher } from './providers';
 
-export const initialValue = [];
-for (const i in data) {
-  initialValue.push(data[i]);
-}
+
+export const productsData = Object.values(data);
+const initialFilterData = localStorage.getItem('outputData')
+  ? JSON.parse(localStorage.getItem('outputData'))
+  : productsData;
 
 const ContextWrapper = ({ children }) => {
-  const [filteredData, dispatch] = useReducer(reducer, initialValue);
+  const [filteredData, dispatch] = useReducer(reducer, initialFilterData);
 
   return (
     <ContextProvider.Provider value={filteredData}>

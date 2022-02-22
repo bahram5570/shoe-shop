@@ -1,14 +1,21 @@
-import { useState, useEffect } from 'react';
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
 
-const FiltersCheckbox = ({ items, onFilter }) => {
-  const [checkedList, setCheckedList] = useState([]);
+const FiltersCheckbox = ({ items, type, onFilter }) => {
+  const initialState = () => {
+    if (localStorage.getItem(type)) {
+      return JSON.parse(localStorage.getItem(type));
+    } else {
+      return [];
+    }
+  };
 
-  useEffect( () => {
-    onFilter(checkedList)
-  }, [checkedList, onFilter])
+  const [checkedList, setCheckedList] = useState(initialState);
+
+  useEffect(() => {
+    onFilter(checkedList);
+  }, [checkedList, type, onFilter]);
 
   const checkedHandler = (e) => {
     if (checkedList.includes(e)) {
@@ -32,6 +39,7 @@ const FiltersCheckbox = ({ items, onFilter }) => {
     >
       <input
         onChange={(w) => checkedHandler(x)}
+        defaultChecked={checkedList.includes(x)}
         id={x}
         type="checkbox"
         className="
