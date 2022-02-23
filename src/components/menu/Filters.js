@@ -59,18 +59,19 @@ const Filters = (props) => {
   };
 
   return (
-    <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor">
+    <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor z-50">
       <div
         className="
         bg-neutral-50 
         rounded-md 
         mx-auto 
-        mt-14 
-        sm:mt-20 
+        mt-10
+        sm:mt-14 
         px-4 
-        py-6 
+        pt-6 
+        h-5/6
         w-fit 
-        h-3/4 
+        sm:h-3/4 
         overflow-y-scroll"
       >
         <section className="filter_section">

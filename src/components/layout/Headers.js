@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   FaHome,
@@ -8,22 +9,35 @@ import {
 } from 'react-icons/fa';
 
 const Headers = () => {
+  const [show, setShow] = useState(false);
+
+  const sideBarHandler = () => {
+    setShow(!show);
+  };
+
   return (
-    <header className="fixed w-full px-4 py-2 text-white sm:relative bg-zinc-800">
-      <nav className="flex items-center justify-between">
+    <header className="fixed w-full px-4 py-2 text-white sm:relative bg-zinc-800 z-40">
+      <nav className="flex items-center justify-between w-full">
         <h1 className="flex text-2xl italic font-headerFont text-yellowColor">
           <FaShoePrints className="w-auto h-8 mr-2" />
           Shoe Shop
         </h1>
-        <FaBars className="z-10 w-auto h-6 cursor-pointer sm:hidden" />
+        <FaBars
+          onClick={() => sideBarHandler()}
+          className={`z-10 w-auto h-6 cursor-pointer sm:hidden duration-300 ${
+            show && 'rotate-90'
+          }`}
+        />
 
         <ul
-          className="
+          className={`
+            ${show ? 'right-0' : '-right-20'}
             absolute 
             top-0 
-            right-0 
+            sm:right-0
             flex 
             flex-col 
+            duration-300
             w-20 
             h-screen 
             sm:w-fit 
@@ -35,7 +49,7 @@ const Headers = () => {
             bg-zinc-800 
             bg-opacity-90 
             sm:bg-opacity-100 
-            sm:h-fit"
+            sm:h-fit`}
         >
           <li className="flex">
             <NavLink
