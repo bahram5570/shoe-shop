@@ -8,11 +8,14 @@ import ButtonsSection from './ButtonsSection';
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
-  const currentPrices = {minPrice: 20, maxPrice: 78};
+  const currentPrices = { minPrice: 20, maxPrice: 78 };
 
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [sizeFilter, setSizeFilter] = useState([]);
-  const [priceFilter, setPriceFilter] = useState({ min: 0, max: 500 });
+  const [priceFilter, setPriceFilter] = useState({
+    min: currentPrices.min,
+    max: currentPrices.max,
+  });
   const [availableFilter, setAvailableFilter] = useState(false);
 
   const dispatch = useDispatch();
@@ -29,12 +32,11 @@ const Filters = (props) => {
         categoryFilter,
         sizeFilter,
         priceFilter,
-        availableFilter
+        availableFilter,
       },
     });
     props.onCloseFilters();
   };
-
 
   return (
     <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor">
@@ -71,12 +73,15 @@ const Filters = (props) => {
 
         <section className="filter_section">
           <h2 className="filter_h2">Price</h2>
-          <PriceRange items={currentPrices} onPrice={(value) => setPriceFilter(value)} />
+          <PriceRange
+            items={currentPrices}
+            onPrice={(value) => setPriceFilter(value)}
+          />
         </section>
 
         <section className="filter_section">
           <ButtonsSection
-            onAvailable={x => setAvailableFilter(x)}
+            onAvailable={(x) => setAvailableFilter(x)}
             onCloseFilters={() => props.onCloseFilters()}
             onApplyFilters={applyFilterHandler}
           />

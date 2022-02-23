@@ -19,6 +19,18 @@ module.exports = {
       gridTemplateColumns: {
         shoesGrid: 'repeat(auto-fit, minmax(260px, 1fr))',
         radioGrid: 'repeat(auto-fit, minmax(30px, 1fr))'
+      },
+      keyframes: {
+        animStyle: {
+          "0%": {transform: 'rotate(0deg)'},
+          "25%": {transform: 'rotate(20deg)'},
+          "50%": {transform: 'rotate(0deg)'},
+          "75%": {transform: 'rotate(-20deg)'},
+          "100%": {transform: 'rotate(0deg)'},
+        }
+      },
+      animation: {
+        nothingFoundAnim: "animStyle 1.5s linear infinite"
       }
     }
   },
