@@ -3,6 +3,7 @@ import { useDispatch } from '../store/providers';
 import FiltersCheckbox from './FiltersCheckbox';
 import PriceRange from './PriceRange';
 import ButtonsSection from './ButtonsSection';
+import { FaAngleDown } from 'react-icons/fa';
 
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
@@ -59,56 +60,88 @@ const Filters = (props) => {
   };
 
   return (
-    <div className="fixed top-0 right-0 left-0 bottom-0 bg-modalColor z-50">
-      <div
-        className="
-        bg-neutral-50 
+    <div
+      className={`
+        accordion
+        fixed
+        top-6
+        ${props.showFilters ? 'left-8' : '-left-80'}
+        ${props.showFilters ? 'sm:left-0' : '-left-80'}
+        duration-300
+        bg-neutral-600
         rounded-md 
         mx-auto 
         mt-10
         sm:mt-14 
         px-4 
         pt-6 
-        h-5/6
         w-fit 
-        sm:h-3/4 
-        overflow-y-scroll"
-      >
-        <section className="filter_section">
-          <h2 className="filter_h2">Category</h2>
+        `}
+    >
+      <section className="filter_section">
+        <button
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center"
+          data-bs-toggle="collapse"
+          data-bs-target="#a1"
+          aria-expanded="true"
+        >
+          Category
+          <FaAngleDown className="w-6 h-auto text-neutral-600" />
+        </button>
+        <div id="a1" className="accordion-collapse collapse pb-2">
           <FiltersCheckbox
             onFilter={(value) => setCategoryFilter(value)}
             items={currentCategories}
             type="category"
           />
-        </section>
+        </div>
+      </section>
 
-        <section className="filter_section">
-          <h2 className="filter_h2">Size</h2>
+      <section className="filter_section">
+        <button
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center"
+          data-bs-toggle="collapse"
+          data-bs-target="#a2"
+          aria-expanded="true"
+        >
+          Size
+          <FaAngleDown className="w-6 h-auto text-neutral-600" />
+        </button>
+        <div id="a2" className="accordion-collapse collapse pb-2">
           <FiltersCheckbox
             onFilter={(value) => setSizeFilter(value)}
             items={currentSizes}
             type="size"
           />
-        </section>
+        </div>
+      </section>
 
-        <section className="filter_section">
-          <h2 className="filter_h2">Price</h2>
+      <section className="filter_section">
+        <button
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center"
+          data-bs-toggle="collapse"
+          data-bs-target="#a3"
+          aria-expanded="true"
+        >
+          Price
+          <FaAngleDown className="w-6 h-auto text-neutral-600" />
+        </button>
+        <div id="a3" className="accordion-collapse collapse pb-2">
           <PriceRange
             items={currentPrices}
             onPrice={(value) => setPriceFilter(value)}
           />
-        </section>
+        </div>
+      </section>
 
-        <section className="filter_section">
-          <ButtonsSection
-            onReset={() => resetHandler()}
-            onAvailable={(x) => setAvailableFilter(x)}
-            onCloseFilters={() => props.onCloseFilters()}
-            onApplyFilters={applyFilterHandler}
-          />
-        </section>
-      </div>
+      <section className="filter_section">
+        <ButtonsSection
+          onReset={() => resetHandler()}
+          onAvailable={(x) => setAvailableFilter(x)}
+          onCloseFilters={() => props.onCloseFilters()}
+          onApplyFilters={applyFilterHandler}
+        />
+      </section>
     </div>
   );
 };

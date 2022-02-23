@@ -50,7 +50,7 @@ const ButtonsSection = (props) => {
           <FaCheck className="absolute w-3 h-auto top-1 -left-5 text-neutral-50" />
         </label>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-end mb-3">
         <button
           onClick={() => props.onReset()}
           className="

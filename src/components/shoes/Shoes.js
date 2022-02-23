@@ -36,11 +36,11 @@ const Shoes = () => {
         <Search />
         <div className="flex justify-between">
           <Sort />
-          <FilterButton onShowFilters={() => setShowFilters(true)} />
+          <FilterButton onShowFilters={() => setShowFilters(!showFilters)} />
         </div>
       </div>
 
-      {showFilters && <Filters onCloseFilters={() => setShowFilters(false)} />}
+      <Filters onCloseFilters={() => setShowFilters(!showFilters)} showFilters={showFilters} />
 
       {output.length !== 0 && (
         <div className="grid gap-8 grid-cols-shoesGrid sm:gap-14">{output}</div>
