@@ -1,7 +1,10 @@
 import { createContext, useContext } from 'react';
 
-export const ContextProvider = createContext();
-export const useData = () => useContext(ContextProvider);
+export const FilterProvider = createContext();
+export const useData = () => useContext(FilterProvider);
 
-export const ContextDispatcher = createContext();
-export const useDispatch = () => useContext(ContextDispatcher);
+export const FilterDispatcher = createContext();
+export const useDispatch = () => useContext(FilterDispatcher);
+
+export const ResetProvider = createContext();
+export const useReset = () => useContext(ResetProvider);

@@ -52,6 +52,7 @@ const ButtonsSection = (props) => {
       </div>
       <div className="flex justify-end">
         <button
+          onClick={() => props.onReset()}
           className="
             px-3 
             ml-4 

@@ -10,7 +10,6 @@ import NothingFound from './NothingFound';
 const Shoes = () => {
   const finalData = useData();
   const output = finalData.map((x) => <ShoeStructure items={x} key={x.id} />);
-  console.log(output);
 
   const [showFilters, setShowFilters] = useState(false);
 

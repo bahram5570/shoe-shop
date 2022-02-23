@@ -4,7 +4,6 @@ import FiltersCheckbox from './FiltersCheckbox';
 import PriceRange from './PriceRange';
 import ButtonsSection from './ButtonsSection';
 
-
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
@@ -13,10 +12,31 @@ const Filters = (props) => {
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [sizeFilter, setSizeFilter] = useState([]);
   const [priceFilter, setPriceFilter] = useState({
-    min: currentPrices.min,
-    max: currentPrices.max,
+    min: currentPrices.minPrice,
+    max: currentPrices.maxPrice,
   });
   const [availableFilter, setAvailableFilter] = useState(false);
+
+  const resetHandler = () => {
+    dispatch({
+      type: 'filter',
+      payload: {
+        categoryFilter: [],
+        sizeFilter: [],
+        priceFilter: {
+          min: currentPrices.minPrice,
+          max: currentPrices.maxPrice,
+        },
+        availableFilter: false,
+      },
+    });
+
+    localStorage.removeItem('category');
+    localStorage.removeItem('size');
+    localStorage.removeItem('price');
+    localStorage.removeItem('availables');
+    props.onCloseFilters();
+  };
 
   const dispatch = useDispatch();
 
@@ -81,6 +101,7 @@ const Filters = (props) => {
 
         <section className="filter_section">
           <ButtonsSection
+            onReset={() => resetHandler()}
             onAvailable={(x) => setAvailableFilter(x)}
             onCloseFilters={() => props.onCloseFilters()}
             onApplyFilters={applyFilterHandler}

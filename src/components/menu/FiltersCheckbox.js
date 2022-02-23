@@ -13,6 +13,7 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
 
   const [checkedList, setCheckedList] = useState(initialState);
 
+
   useEffect(() => {
     onFilter(checkedList);
   }, [checkedList, type, onFilter]);

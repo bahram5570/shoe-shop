@@ -1,9 +1,9 @@
-import { useReducer } from 'react';
+import { useReducer, useState, useEffect } from 'react';
 import { data } from '../data/data';
 import { reducer } from './reducer';
-import { ContextProvider } from './providers';
-import { ContextDispatcher } from './providers';
-
+import { FilterProvider } from './providers';
+import { FilterDispatcher } from './providers';
+import { ResetProvider } from './providers';
 
 export const productsData = Object.values(data);
 const initialFilterData = localStorage.getItem('outputData')
@@ -13,12 +13,24 @@ const initialFilterData = localStorage.getItem('outputData')
 const ContextWrapper = ({ children }) => {
   const [filteredData, dispatch] = useReducer(reducer, initialFilterData);
 
+  const [hasFilter, setHasFilter] = useState(false);
+
+  useEffect(() => {
+    if (Object.keys(data).length === filteredData.length) {
+      setHasFilter(false);
+    } else {
+      setHasFilter(true);
+    }
+  }, [filteredData]);
+
   return (
-    <ContextProvider.Provider value={filteredData}>
-      <ContextDispatcher.Provider value={dispatch}>
-        {children}
-      </ContextDispatcher.Provider>
-    </ContextProvider.Provider>
+    <FilterProvider.Provider value={filteredData}>
+      <FilterDispatcher.Provider value={dispatch}>
+        <ResetProvider.Provider value={hasFilter}>
+          {children}
+        </ResetProvider.Provider>
+      </FilterDispatcher.Provider>
+    </FilterProvider.Provider>
   );
 };
 
