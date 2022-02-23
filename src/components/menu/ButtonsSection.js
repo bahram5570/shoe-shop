@@ -5,20 +5,20 @@ const ButtonsSection = (props) => {
   const initialState = () => {
     if (localStorage.getItem('availables')) {
       const value = localStorage.getItem('availables');
-      return value === "true" ? true : false;
+      return value === 'true' ? true : false;
     } else {
-      return false
+      return false;
     }
   };
-  
+
   const [availableChecked, setAvailableChecked] = useState(initialState);
 
-  useEffect( () => {
+  useEffect(() => {
     props.onAvailable(availableChecked);
   }, [availableChecked, props]);
 
   const checkedHandler = () => {
-    setAvailableChecked(!availableChecked)
+    setAvailableChecked(!availableChecked);
   };
 
   return (
@@ -42,9 +42,12 @@ const ButtonsSection = (props) => {
             bg-neutral-50 
             checked:bg-cyan-500"
         />
-        <label htmlFor="available" className="ml-1 text-sm cursor-pointer">
+        <label
+          htmlFor="available"
+          className="ml-1 text-sm cursor-pointer relative"
+        >
           Only Availables
-          <FaCheck className="absolute w-3 h-auto -left-6 top-1 text-neutral-50" />
+          <FaCheck className="absolute w-3 h-auto top-1 -left-5 text-neutral-50" />
         </label>
       </div>
       <div className="flex justify-end">

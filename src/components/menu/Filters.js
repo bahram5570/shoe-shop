@@ -8,6 +8,7 @@ import ButtonsSection from './ButtonsSection';
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
+  const currentPrices = {minPrice: 20, maxPrice: 78};
 
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [sizeFilter, setSizeFilter] = useState([]);
@@ -70,7 +71,7 @@ const Filters = (props) => {
 
         <section className="filter_section">
           <h2 className="filter_h2">Price</h2>
-          <PriceRange />
+          <PriceRange items={currentPrices} onPrice={(value) => setPriceFilter(value)} />
         </section>
 
         <section className="filter_section">

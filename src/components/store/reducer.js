@@ -39,6 +39,7 @@ export const reducer = (state, action) => {
           x.price > action.payload.priceFilter.min &&
           x.price < action.payload.priceFilter.max
       );
+
       const availableFiltering = action.payload.availableFilter
         ? priceFiltering.filter((x) => x.qt > 0)
         : priceFiltering;

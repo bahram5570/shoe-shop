@@ -2,7 +2,7 @@ import { FaSortAmountDown } from 'react-icons/fa';
 
 const Sort = () => {
   return (
-    <div className="flex mr-8">
+    <div className="flex mr-2 sm:mr-8">
       <label className="flex items-center text-neutral-50 mr-2">
         <FaSortAmountDown className="mr-1" />
         Sort By:
