@@ -6,12 +6,18 @@ import { FilterDispatcher } from './providers';
 import { ResetProvider } from './providers';
 
 export const productsData = Object.values(data);
-const initialFilterData = localStorage.getItem('outputData')
-  ? JSON.parse(localStorage.getItem('outputData'))
-  : productsData;
+
+const initialFilterData = () => {
+  if (localStorage.getItem('outputDataID')) {
+    const dataId = JSON.parse(localStorage.getItem('outputDataID'));
+    return productsData.filter((x) => dataId.includes(x.id));
+  } else {
+    return productsData;
+  }
+};
 
 const ContextWrapper = ({ children }) => {
-  const [filteredData, dispatch] = useReducer(reducer, initialFilterData);
+  const [filteredData, dispatch] = useReducer(reducer, initialFilterData());
 
   const [hasFilter, setHasFilter] = useState(false);
 

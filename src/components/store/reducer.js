@@ -10,7 +10,12 @@ export const reducer = (state, action) => {
           x.brand.toLowerCase().includes(action.payload.toLowerCase())
         );
       } else {
-        return JSON.parse(localStorage.getItem('outputData')) || [];
+        if (localStorage.getItem('outputDataID')) {
+          const dataId = JSON.parse(localStorage.getItem('outputDataID'));
+          return productsData.filter((x) => dataId.includes(x.id));
+        } else {
+          return [];
+        }
       }
 
     case 'filter':
@@ -45,7 +50,9 @@ export const reducer = (state, action) => {
 
       const outputData = [...new Set(availableFiltering)];
 
-      localStorage.setItem('outputData', JSON.stringify(outputData));
+      let outputDataID = [];
+      outputData.forEach((x) => outputDataID.push(x.id));
+      localStorage.setItem('outputDataID', JSON.stringify(outputDataID));
 
       return outputData;
 
