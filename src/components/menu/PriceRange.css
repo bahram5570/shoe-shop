@@ -1,0 +1,27 @@
+.priceRange {
+  position: absolute;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  pointer-events: none;
+}
+
+.priceRange::-webkit-slider-thumb {
+  pointer-events: all;
+  -webkit-appearance: none;
+  /* background: #ff000055; */
+  transform: translateY(-5px);
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.priceRange::-moz-range-thumb {
+  pointer-events: all;
+  -moz-appearance: none;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}

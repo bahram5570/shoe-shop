@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './PriceRange.css';
 
 const PriceRange = (props) => {
   const { minPrice, maxPrice } = props.items;
@@ -40,7 +41,7 @@ const PriceRange = (props) => {
   };
 
   return (
-    <div className="pb-7 px-2">
+    <div className="pb-7 mt-4 px-2">
       <div className="flex justify-between pb-2">
         <p>${priceValue.min}</p>
         <p>${priceValue.max}</p>
@@ -64,11 +65,12 @@ const PriceRange = (props) => {
           }}
           className={`absolute top-2 h-1 bg-cyan-300`}
         >
-          <span className="w-5 h-5 bg-blue-800 absolute -left-1 -top-2 rounded-xl" />
-          <span className="w-5 h-5 bg-blue-800 absolute -right-1 -top-2 rounded-xl" />
+          <span className="w-4 h-7 bg-blue-800 absolute left-0 -top-3 rounded" />
+          <span className="w-4 h-7 bg-blue-800 absolute right-0 -top-3 rounded" />
         </div>
         <input
           type="range"
+          className="priceRange"
           style={{ width: linePosition(priceValue.max, 'maxLength') }}
           defaultValue={priceValue.min}
           min={minPrice}
@@ -78,6 +80,7 @@ const PriceRange = (props) => {
         />
         <input
           type="range"
+          className="priceRange"
           style={{ right: 0, width: linePosition(priceValue.min, 'minLength') }}
           defaultValue={priceValue.max}
           min={priceValue.min}
