@@ -18,6 +18,8 @@ const Filters = (props) => {
   });
   const [availableFilter, setAvailableFilter] = useState(false);
 
+  const dispatch = useDispatch();
+
   const resetHandler = () => {
     dispatch({
       type: 'filter',
@@ -36,10 +38,9 @@ const Filters = (props) => {
     localStorage.removeItem('size');
     localStorage.removeItem('price');
     localStorage.removeItem('availables');
+    localStorage.removeItem('outputDataID');
     props.onCloseFilters();
   };
-
-  const dispatch = useDispatch();
 
   const applyFilterHandler = () => {
     localStorage.setItem('category', JSON.stringify(categoryFilter));
@@ -67,8 +68,8 @@ const Filters = (props) => {
         top-6
         ${props.showFilters ? 'left-8' : '-left-80'}
         ${props.showFilters ? 'sm:left-0' : '-left-80'}
-        duration-300
-        bg-neutral-600
+        duration-500
+        bg-neutral-800
         rounded-md 
         mx-auto 
         mt-10

@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
-
+import { useReset } from '../store/providers';
 
 const FiltersCheckbox = ({ items, type, onFilter }) => {
   const initialState = () => {
@@ -12,7 +12,6 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
   };
 
   const [checkedList, setCheckedList] = useState(initialState);
-
 
   useEffect(() => {
     onFilter(checkedList);
@@ -27,6 +26,14 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
     }
   };
 
+  const beenReset = useReset();
+
+  useEffect(() => {
+    if (!beenReset) {
+      setCheckedList([]);
+    }
+  }, [beenReset]);
+
   const outputs = items.map((x) => (
     <span
       className="
@@ -40,7 +47,7 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
     >
       <input
         onChange={(w) => checkedHandler(x)}
-        defaultChecked={checkedList.includes(x)}
+        checked={checkedList.includes(x)}
         id={x}
         type="checkbox"
         className="

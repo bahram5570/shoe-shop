@@ -8,8 +8,10 @@ import Filters from '../menu/Filters';
 import NothingFound from './NothingFound';
 
 const Shoes = () => {
-  const finalData = useData();
-  const output = finalData.map((x) => <ShoeStructure items={x} key={x.id} />);
+  const filteredData = useData();
+  const output = filteredData.map((x) => (
+    <ShoeStructure items={x} key={x.id} />
+  ));
 
   const [showFilters, setShowFilters] = useState(false);
 
@@ -40,7 +42,10 @@ const Shoes = () => {
         </div>
       </div>
 
-      <Filters onCloseFilters={() => setShowFilters(!showFilters)} showFilters={showFilters} />
+      <Filters
+        onCloseFilters={() => setShowFilters(!showFilters)}
+        showFilters={showFilters}
+      />
 
       {output.length !== 0 && (
         <div className="grid gap-8 grid-cols-shoesGrid sm:gap-14">{output}</div>

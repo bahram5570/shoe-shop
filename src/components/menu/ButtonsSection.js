@@ -1,5 +1,5 @@
-import { FaCheck } from 'react-icons/fa';
 import { Fragment, useEffect, useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
 
 const ButtonsSection = (props) => {
   const initialState = () => {
@@ -17,16 +17,25 @@ const ButtonsSection = (props) => {
     props.onAvailable(availableChecked);
   }, [availableChecked, props]);
 
-  const checkedHandler = () => {
-    setAvailableChecked(!availableChecked);
+  const checkedHandler = (mode) => {
+    if (mode === 'reset') {
+      setAvailableChecked(false);
+    } else {
+      setAvailableChecked(!availableChecked);
+    }
+  };
+
+  const resetHandler = () => {
+    checkedHandler('reset');
+    props.onReset();
   };
 
   return (
     <Fragment>
       <div className="flex items-center py-1 mb-4 duration-200 hover:translate-x-1">
         <input
-          defaultChecked={availableChecked}
-          onChange={checkedHandler}
+          checked={availableChecked}
+          onChange={() => checkedHandler('change')}
           type="checkbox"
           id="available"
           className="
@@ -52,7 +61,7 @@ const ButtonsSection = (props) => {
       </div>
       <div className="flex justify-end mb-3">
         <button
-          onClick={() => props.onReset()}
+          onClick={() => resetHandler()}
           className="
             px-3 
             ml-4 

@@ -74,7 +74,7 @@ export const data = {
     ],
     size: [39, 40, 41, 42],
     qt: 2,
-    likes: 0,
+    likes: 1,
     description:
       'Designed by Original Penguin, these men’s trainers embrace a black upper with classic Penguin branding. They feature a lace up fastening for a secure fit, while their memory foam insole provides all day comfort.',
     images: [s2_cover, s2_a, s2_b],
@@ -108,7 +108,7 @@ export const data = {
     ],
     size: [40, 41, 42],
     qt: 0,
-    likes: 0,
+    likes: 3,
     description:
       "From Lambretta, these men's shoes embrace a white upper with tan detailing. They feature a lace up fastening for a secure fit, while their padded insole and flexible outsole ensures comfort and support beneath your feet.",
     images: [s4_cover, s4_a, s4_b],

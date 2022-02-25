@@ -1,22 +1,13 @@
 import { productsData } from './store';
+import { sortingLogic } from './sortingLogic';
+import { searchLogic } from './searchLogic';
 
 export const reducer = (state, action) => {
   const currentState = [...productsData];
 
   switch (action.type) {
     case 'search':
-      if (action.payload.trim().length > 0) {
-        return currentState.filter((x) =>
-          x.brand.toLowerCase().includes(action.payload.toLowerCase())
-        );
-      } else {
-        if (localStorage.getItem('outputDataID')) {
-          const dataId = JSON.parse(localStorage.getItem('outputDataID'));
-          return productsData.filter((x) => dataId.includes(x.id));
-        } else {
-          return [];
-        }
-      }
+      return searchLogic(action.payload, currentState);
 
     case 'filter':
       const categoryFiltering = currentState.filter((x) =>
@@ -54,7 +45,17 @@ export const reducer = (state, action) => {
       outputData.forEach((x) => outputDataID.push(x.id));
       localStorage.setItem('outputDataID', JSON.stringify(outputDataID));
 
-      return outputData;
+      return (
+        sortingLogic(
+          JSON.parse(localStorage.getItem('sortMode')),
+          outputData
+        ) || outputData
+      );
+
+    case 'sort':
+      localStorage.setItem('sortMode', JSON.stringify(action.payload));
+      const result = sortingLogic(action.payload, state);
+      return result;
 
     default:
       return state;

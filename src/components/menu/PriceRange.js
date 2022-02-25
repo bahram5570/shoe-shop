@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './PriceRange.css';
+import { useReset } from '../store/providers';
 
 const PriceRange = (props) => {
   const { minPrice, maxPrice } = props.items;
@@ -40,6 +41,17 @@ const PriceRange = (props) => {
     return result + 'px';
   };
 
+  const beenReset = useReset();
+
+  useEffect(() => {
+    if (beenReset) {
+      setPriceValue({
+        min: filterPrices.min,
+        max: filterPrices.max,
+      });
+    }
+  }, [beenReset, filterPrices.max, filterPrices.min]);
+
   return (
     <div className="pb-7 mt-4 px-2">
       <div className="flex justify-between pb-2">
@@ -72,7 +84,7 @@ const PriceRange = (props) => {
           type="range"
           className="priceRange"
           style={{ width: linePosition(priceValue.max, 'maxLength') }}
-          defaultValue={priceValue.min}
+          value={priceValue.min}
           min={minPrice}
           max={priceValue.max}
           name="min"
@@ -82,7 +94,7 @@ const PriceRange = (props) => {
           type="range"
           className="priceRange"
           style={{ right: 0, width: linePosition(priceValue.min, 'minLength') }}
-          defaultValue={priceValue.max}
+          value={priceValue.max}
           min={priceValue.min}
           max={maxPrice}
           name="max"

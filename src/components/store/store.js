@@ -4,8 +4,15 @@ import { reducer } from './reducer';
 import { FilterProvider } from './providers';
 import { FilterDispatcher } from './providers';
 import { ResetProvider } from './providers';
+import { SortDispatcher } from './providers';
+import { sortingLogic } from './sortingLogic';
 
-export const productsData = Object.values(data);
+const sortedData = localStorage.getItem('sortMode');
+
+const originalData = Object.values(data);
+export const productsData = sortedData
+  ? sortingLogic(JSON.parse(sortedData), originalData)
+  : originalData;
 
 const initialFilterData = () => {
   if (localStorage.getItem('outputDataID')) {
@@ -19,7 +26,9 @@ const initialFilterData = () => {
 const ContextWrapper = ({ children }) => {
   const [filteredData, dispatch] = useReducer(reducer, initialFilterData());
 
-  const [hasFilter, setHasFilter] = useState(false);
+  const [hasFilter, setHasFilter] = useState(
+    Object.keys(data).length !== filteredData.length
+  );
 
   useEffect(() => {
     if (Object.keys(data).length === filteredData.length) {
@@ -33,7 +42,9 @@ const ContextWrapper = ({ children }) => {
     <FilterProvider.Provider value={filteredData}>
       <FilterDispatcher.Provider value={dispatch}>
         <ResetProvider.Provider value={hasFilter}>
-          {children}
+          <SortDispatcher.Provider value={dispatch}>
+            {children}
+          </SortDispatcher.Provider>
         </ResetProvider.Provider>
       </FilterDispatcher.Provider>
     </FilterProvider.Provider>
