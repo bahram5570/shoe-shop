@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+
 const ProductFeatures = ({ items }) => {
   const { colors, size, qt } = items;
 
@@ -11,13 +13,15 @@ const ProductFeatures = ({ items }) => {
     );
   }
 
+  const dark = useSelector((state) => state.darkMode);
+
   return (
     <div className="block sm:w-24 min-w-[96px] md:min-w-[160px] sm:mx-2 md:mx-6 mb-8 sm:mb-0">
       <section>
         <h2 className="ml-2 text-lg font-bold">Size:</h2>
         <div className="flex flex-wrap">
           {size.map((x) => (
-            <div key={x} className="relative w-8 h-8 m-2">
+            <div key={x} className="relative w-8 h-8 m-2 b">
               <label
                 htmlFor={x}
                 className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center cursor-pointer"
@@ -30,18 +34,17 @@ const ProductFeatures = ({ items }) => {
                 name="size"
                 value={x}
                 defaultChecked={x === size[0]}
-                className="
-                  w-full 
+                className={`w-full 
                   h-full 
                   duration-200 
                   border-2
                   rounded-md 
                   outline-none 
                   appearance-none 
-                  border-neutral-800 
                   ring-greenColor
                   checked:ring-4
-                  checked:border-0"
+                  checked:border-0
+                  ${dark ? '' : 'border-neutral-800 '}`}
               />
             </div>
           ))}
@@ -81,7 +84,18 @@ const ProductFeatures = ({ items }) => {
 
       <section>
         <h2 className="ml-2 text-lg font-bold mb-2">Quantity:</h2>
-        <select className="pl-2 pr-10 py-1 rounded-md outline-none sm:cursor-pointer ml-2 border-2 border-neutral-600">
+        <select
+          className={`
+          pl-2 
+          pr-10 
+          py-1 
+          rounded-md 
+          outline-none 
+          sm:cursor-pointer 
+          ml-2 border-2 
+          border-neutral-600
+          ${dark ? 'bg-neutral-200 text-black border-none' : ''}`}
+        >
           {quantityList}
         </select>
       </section>

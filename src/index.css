@@ -44,7 +44,7 @@
 
 @layer components {
   .filter_section {
-    @apply bg-neutral-50 rounded-md px-2 pt-2 pb-1 mb-4;
+    @apply rounded-md px-2 pt-2 pb-1 mb-4;
   }
 
   .slideShow_button {

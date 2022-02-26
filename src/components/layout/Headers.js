@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { mode } from '../redux/slices/darkModeSlice';
 import {
   FaHome,
   FaShoePrints,
   FaBars,
   FaSignInAlt,
   FaShoppingCart,
+  FaSun,
+  FaMoon,
 } from 'react-icons/fa';
 
 const Headers = () => {
@@ -15,8 +19,16 @@ const Headers = () => {
     setShow(!show);
   };
 
+  const dispatch = useDispatch();
+  const dark = useSelector((state) => state.darkMode);
+
+  useEffect( () => {
+    localStorage.setItem("darkMode", dark)
+  }, [dark]);
+  
+
   return (
-    <header className="fixed w-full px-4 py-2 text-white sm:relative bg-zinc-800 z-40">
+    <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
       <nav className="flex items-center justify-between w-full">
         <h1 className="flex text-2xl italic font-headerFont text-yellowColor">
           <FaShoePrints className="w-auto h-8 mr-2" />
@@ -70,7 +82,15 @@ const Headers = () => {
             </NavLink>
           </li>
 
-          <li className="flex justify-center">dark</li>
+          <li className="flex justify-center">
+            <button
+              onClick={() => dispatch(mode())}
+              className="border-2 rounded-2xl flex justify-center items-center w-8 h-8 outline-none"
+            >
+              {!dark && <FaSun />}
+              {dark && <FaMoon />}
+            </button>
+          </li>
 
           <li className="relative flex sm:mx-2">
             <NavLink

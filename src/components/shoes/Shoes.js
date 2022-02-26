@@ -36,6 +36,7 @@ const Shoes = () => {
           sm:max-w-none 
           sm:w-max 
           sm:mx-auto"
+          
       >
         <Search />
         <div className="flex justify-between">

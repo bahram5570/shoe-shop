@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filtering } from '../redux/slices/filtersSlice';
 import FiltersCheckbox from './FiltersCheckbox';
 import ButtonsSection from './ButtonsSection';
@@ -49,6 +49,8 @@ const Filters = (props) => {
     props.onCloseFilters();
   };
 
+  const dark = useSelector((state) => state.darkMode);
+
   return (
     <div
       className={`
@@ -68,7 +70,7 @@ const Filters = (props) => {
         w-fit 
         `}
     >
-      <section className="filter_section">
+      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`} >
         <button
           className="w-full px-4 mb-2 outline-none flex justify-between items-center"
           data-bs-toggle="collapse"
@@ -89,7 +91,7 @@ const Filters = (props) => {
         </div>
       </section>
 
-      <section className="filter_section">
+      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`}>
         <button
           className="w-full px-4 mb-2 outline-none flex justify-between items-center"
           data-bs-toggle="collapse"
@@ -108,7 +110,7 @@ const Filters = (props) => {
         </div>
       </section>
 
-      <section className="filter_section">
+      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`}>
         <button
           className="w-full px-4 mb-2 outline-none flex justify-between items-center"
           data-bs-toggle="collapse"
@@ -126,7 +128,7 @@ const Filters = (props) => {
         </div>
       </section>
 
-      <section className="filter_section">
+      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`}>
         <ButtonsSection
           onReset={() => resetHandler()}
           onAvailable={(x) => setAvailableFilter(x)}
