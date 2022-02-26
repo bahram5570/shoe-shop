@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { mode } from '../redux/slices/darkModeSlice';
@@ -21,11 +21,6 @@ const Headers = () => {
 
   const dispatch = useDispatch();
   const dark = useSelector((state) => state.darkMode);
-
-  useEffect( () => {
-    localStorage.setItem("darkMode", dark)
-  }, [dark]);
-  
 
   return (
     <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
@@ -87,8 +82,7 @@ const Headers = () => {
               onClick={() => dispatch(mode())}
               className="border-2 rounded-2xl flex justify-center items-center w-8 h-8 outline-none"
             >
-              {!dark && <FaSun />}
-              {dark && <FaMoon />}
+              {dark ? <FaMoon /> : <FaSun />}
             </button>
           </li>
 
