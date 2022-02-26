@@ -8,6 +8,7 @@ const ShoeStructure = ({ items }) => {
     <div
       onClick={() => navigate(items.id)}
       className="
+        sm:max-w-xs
         overflow-hidden 
         duration-150 
         shadow-md 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import './PriceRange.css';
-import { useReset } from '../store/providers';
 
 const PriceRange = (props) => {
   const { minPrice, maxPrice } = props.items;
@@ -13,6 +13,16 @@ const PriceRange = (props) => {
     min: filterPrices.min,
     max: filterPrices.max,
   });
+
+  const filterStatus = useSelector((state) => state.filterResult);
+  useEffect(() => {
+    if (!filterStatus.hasFilter) {
+      setPriceValue({
+        min: filterPrices.min,
+        max: filterPrices.max,
+      });
+    }
+  }, [filterStatus, filterPrices.min, filterPrices.max]);
 
   useEffect(() => {
     props.onPrice(priceValue);
@@ -40,17 +50,6 @@ const PriceRange = (props) => {
 
     return result + 'px';
   };
-
-  const beenReset = useReset();
-
-  useEffect(() => {
-    if (beenReset) {
-      setPriceValue({
-        min: filterPrices.min,
-        max: filterPrices.max,
-      });
-    }
-  }, [beenReset, filterPrices.max, filterPrices.min]);
 
   return (
     <div className="pb-7 mt-4 px-2">

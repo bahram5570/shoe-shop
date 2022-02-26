@@ -9,7 +9,6 @@
 .priceRange::-webkit-slider-thumb {
   pointer-events: all;
   -webkit-appearance: none;
-  /* background: #ff000055; */
   transform: translateY(-5px);
   height: 30px;
   width: 30px;

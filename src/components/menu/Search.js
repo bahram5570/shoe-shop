@@ -1,11 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { searching } from '../redux/slices/filtersSlice';
 import { FaSearch } from 'react-icons/fa';
-import { useDispatch } from '../store/providers';
 
 const Search = () => {
-  const dispatch = useDispatch();
+  const diapatch = useDispatch();
 
   const searchHandler = (e) => {
-    dispatch({type: "search", payload: e.target.value});
+    diapatch(searching(e.target.value));
   };
 
   return (

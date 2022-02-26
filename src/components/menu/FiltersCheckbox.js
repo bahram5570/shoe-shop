@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { FaCheck } from 'react-icons/fa';
-import { useReset } from '../store/providers';
 
 const FiltersCheckbox = ({ items, type, onFilter }) => {
   const initialState = () => {
@@ -12,6 +12,13 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
   };
 
   const [checkedList, setCheckedList] = useState(initialState);
+
+  const filterStatus = useSelector((state) => state.filterResult);
+  useEffect(() => {
+    if (!filterStatus.hasFilter) {
+      setCheckedList([]);
+    }
+  }, [filterStatus]);
 
   useEffect(() => {
     onFilter(checkedList);
@@ -25,14 +32,6 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
       setCheckedList([...checkedList, e]);
     }
   };
-
-  const beenReset = useReset();
-
-  useEffect(() => {
-    if (!beenReset) {
-      setCheckedList([]);
-    }
-  }, [beenReset]);
 
   const outputs = items.map((x) => (
     <span

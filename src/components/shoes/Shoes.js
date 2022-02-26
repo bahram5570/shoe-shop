@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import { useData } from '../store/providers';
+import { useSelector } from 'react-redux';
 import ShoeStructure from './ShoeStructure';
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
@@ -8,8 +8,10 @@ import Filters from '../menu/Filters';
 import NothingFound from './NothingFound';
 
 const Shoes = () => {
-  const filteredData = useData();
-  const output = filteredData.map((x) => (
+  const filteredData = useSelector((state) => state.filterResult);
+  // console.log(filteredData)
+
+  const output = filteredData.outputData.map((x) => (
     <ShoeStructure items={x} key={x.id} />
   ));
 
@@ -48,7 +50,7 @@ const Shoes = () => {
       />
 
       {output.length !== 0 && (
-        <div className="grid gap-8 grid-cols-shoesGrid sm:gap-14">{output}</div>
+        <div className="grid grid-cols-shoesGrid gap-8 sm:gap-14">{output}</div>
       )}
       {output.length === 0 && <NothingFound />}
     </Fragment>

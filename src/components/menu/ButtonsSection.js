@@ -1,4 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { reseting } from '../redux/slices/filtersSlice';
 import { FaCheck } from 'react-icons/fa';
 
 const ButtonsSection = (props) => {
@@ -25,8 +27,11 @@ const ButtonsSection = (props) => {
     }
   };
 
+  const dispatch = useDispatch();
+
   const resetHandler = () => {
     checkedHandler('reset');
+    dispatch(reseting());
     props.onReset();
   };
 

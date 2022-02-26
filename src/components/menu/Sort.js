@@ -1,9 +1,10 @@
+import { useDispatch } from 'react-redux';
+import { sorting } from '../redux/slices/filtersSlice';
 import { FaSortAmountDown } from 'react-icons/fa';
-import { useSortDispatch } from '../store/providers';
 
 const Sort = () => {
   const sortedData = localStorage.getItem('sortMode');
-  const dispatch = useSortDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div className="flex mr-2 sm:mr-8">
@@ -14,7 +15,7 @@ const Sort = () => {
 
       <select
         defaultValue={sortedData ? JSON.parse(sortedData) : 'Relevace'}
-        onChange={(e) => dispatch({ type: 'sort', payload: e.target.value })}
+        onChange={(e) => dispatch(sorting(e.target.value))}
         className="px-2 py-1 rounded-md outline-none sm:cursor-pointer"
       >
         <option value="Relevace">Relevace</option>

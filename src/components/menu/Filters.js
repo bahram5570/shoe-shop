@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from '../store/providers';
-import FiltersCheckbox from './FiltersCheckbox';
-import PriceRange from './PriceRange';
-import ButtonsSection from './ButtonsSection';
 import { FaAngleDown } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { filtering } from '../redux/slices/filtersSlice';
+import FiltersCheckbox from './FiltersCheckbox';
+import ButtonsSection from './ButtonsSection';
+import PriceRange from './PriceRange';
 
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
@@ -21,42 +22,30 @@ const Filters = (props) => {
   const dispatch = useDispatch();
 
   const resetHandler = () => {
-    dispatch({
-      type: 'filter',
-      payload: {
-        categoryFilter: [],
-        sizeFilter: [],
-        priceFilter: {
-          min: currentPrices.minPrice,
-          max: currentPrices.maxPrice,
-        },
-        availableFilter: false,
-      },
-    });
-
     localStorage.removeItem('category');
     localStorage.removeItem('size');
     localStorage.removeItem('price');
     localStorage.removeItem('availables');
     localStorage.removeItem('outputDataID');
+
     props.onCloseFilters();
   };
 
   const applyFilterHandler = () => {
+    dispatch(
+      filtering({
+        categoryFilter,
+        sizeFilter,
+        priceFilter,
+        availableFilter,
+      })
+    );
+
     localStorage.setItem('category', JSON.stringify(categoryFilter));
     localStorage.setItem('size', JSON.stringify(sizeFilter));
     localStorage.setItem('price', JSON.stringify(priceFilter));
     localStorage.setItem('availables', JSON.stringify(availableFilter));
 
-    dispatch({
-      type: 'filter',
-      payload: {
-        categoryFilter,
-        sizeFilter,
-        priceFilter,
-        availableFilter,
-      },
-    });
     props.onCloseFilters();
   };
 
@@ -91,7 +80,9 @@ const Filters = (props) => {
         </button>
         <div id="a1" className="accordion-collapse collapse pb-2">
           <FiltersCheckbox
-            onFilter={(value) => setCategoryFilter(value)}
+            onFilter={(value) => {
+              setCategoryFilter(value);
+            }}
             items={currentCategories}
             type="category"
           />

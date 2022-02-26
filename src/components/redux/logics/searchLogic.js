@@ -1,4 +1,5 @@
 import { sortingLogic } from './sortingLogic';
+import { productsData } from '../initialData';
 
 const sorting = (results) => {
   if (localStorage.getItem('sortMode')) {
@@ -8,18 +9,18 @@ const sorting = (results) => {
   }
 };
 
-export const searchLogic = (text, inputData) => {
+export const searchLogic = (text) => {
   if (text.trim().length > 0) {
-    return inputData.filter((x) =>
+    return productsData.filter((x) =>
       x.brand.toLowerCase().includes(text.toLowerCase())
     );
   } else {
     if (localStorage.getItem('outputDataID')) {
       const dataId = JSON.parse(localStorage.getItem('outputDataID'));
-      const output = inputData.filter((x) => dataId.includes(x.id));
+      const output = productsData.filter((x) => dataId.includes(x.id));
       return sorting(output);
     } else {
-      return sorting(inputData);
+      return sorting(productsData);
     }
   }
 };
