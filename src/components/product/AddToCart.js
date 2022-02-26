@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-const AddToCart = () => {
+const AddToCart = ({ items }) => {
   const dark = useSelector((state) => state.darkMode);
 
   return (
@@ -36,7 +36,19 @@ const AddToCart = () => {
         <p>Sale Price:</p>
         <p>00</p>
       </span>
-      <button className="w-full py-1 duration-100 bg-greenColor rounded-2xl text-neutral-50 active:scale-90">
+      <button
+        disabled={items === 0}
+        className="
+          w-full 
+          py-1 
+          duration-100 
+          bg-greenColor 
+          rounded-2xl 
+          text-neutral-50 
+          active:scale-90 
+          disabled:bg-neutral-400 
+          disabled:cursor-not-allowed"
+      >
         +Add To Cart
       </button>
     </div>

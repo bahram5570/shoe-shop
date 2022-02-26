@@ -25,7 +25,7 @@ const Product = () => {
 
       <section className="sm:flex">
         <ProductFeatures items={item} />
-        <AddToCart />
+        <AddToCart items={item.qt} />
       </section>
     </div>
   );

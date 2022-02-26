@@ -25,7 +25,7 @@ const Headers = () => {
   return (
     <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
       <nav className="flex items-center justify-between w-full">
-        <h1 className="flex text-2xl italic font-headerFont text-yellowColor">
+        <h1 className="flex text-2xl italic font-headerFont text-yellowColor pointer-events-none">
           <FaShoePrints className="w-auto h-8 mr-2" />
           Shoe Shop
         </h1>

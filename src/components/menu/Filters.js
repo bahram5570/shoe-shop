@@ -68,9 +68,14 @@ const Filters = (props) => {
         px-4 
         pt-6 
         w-fit 
+        z-10
         `}
     >
-      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`} >
+      <section
+        className={`filter_section ${
+          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+        }`}
+      >
         <button
           className="w-full px-4 mb-2 outline-none flex justify-between items-center"
           data-bs-toggle="collapse"
@@ -91,7 +96,11 @@ const Filters = (props) => {
         </div>
       </section>
 
-      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`}>
+      <section
+        className={`filter_section ${
+          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+        }`}
+      >
         <button
           className="w-full px-4 mb-2 outline-none flex justify-between items-center"
           data-bs-toggle="collapse"
@@ -110,7 +119,11 @@ const Filters = (props) => {
         </div>
       </section>
 
-      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`}>
+      <section
+        className={`filter_section ${
+          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+        }`}
+      >
         <button
           className="w-full px-4 mb-2 outline-none flex justify-between items-center"
           data-bs-toggle="collapse"
@@ -128,7 +141,11 @@ const Filters = (props) => {
         </div>
       </section>
 
-      <section className={`filter_section ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}`}>
+      <section
+        className={`filter_section ${
+          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+        }`}
+      >
         <ButtonsSection
           onReset={() => resetHandler()}
           onAvailable={(x) => setAvailableFilter(x)}

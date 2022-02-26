@@ -11,6 +11,7 @@ const ShoeStructure = ({ items }) => {
     <div
       onClick={() => navigate(items.id)}
       className={`
+        relative
         sm:max-w-xs
         overflow-hidden 
         duration-150 
@@ -22,6 +23,11 @@ const ShoeStructure = ({ items }) => {
         ${dark ? 'shadow-none bg-neutral-200' : ''}`}
     >
       <img src={items.images[0]} alt={items.id} />
+      {items.qt === 0 && (
+        <p className="absolute top-1/3 left-1/4 text-redColor text-5xl rotate-45">
+          Sold Out!
+        </p>
+      )}
       <section className="flex justify-between px-4 py-2">
         <h1 className="text-xl italic">{items.brand}</h1>
         <span className="flex items-center">
