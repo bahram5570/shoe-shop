@@ -1,5 +1,5 @@
 import { sortingLogic } from './sortingLogic';
-import { productsData } from '../initialData';
+import { productsData } from '../initialProductsData';
 
 const sorting = (results) => {
   if (localStorage.getItem('sortMode')) {

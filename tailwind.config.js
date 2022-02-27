@@ -20,6 +20,9 @@ module.exports = {
         shoesGrid: 'repeat(auto-fit, minmax(260px, 1fr))',
         radioGrid: 'repeat(auto-fit, minmax(30px, 1fr))'
       },
+      boxShadow: {
+        loginShadow: "5px 5px 5px #aaaaaa, -1px -1px 5px #bbbbbb"
+      },
       keyframes: {
         animStyle: {
           "0%": {transform: 'rotate(0deg)'},
