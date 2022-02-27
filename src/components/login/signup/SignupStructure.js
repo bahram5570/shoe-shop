@@ -1,12 +1,27 @@
-const SignupStructure = ({ type, name, dark, icon }) => {
+const SignupStructure = ({ type, name, dark, icon, formik }) => {
   return (
-    <div className="mb-6 w-full relative">
+    <div className="mt-8 w-full relative">
+      <p
+        className={`
+        absolute
+        -top-6
+        right-0
+        text-right 
+        text-sm mb-1 
+        text-redColor
+        ${formik.touched[name] ? '' : 'opacity-0'}
+      `}
+      >
+        {formik.errors[name]}
+      </p>
+
       {icon}
 
       <input
         type={type}
         name={name}
         placeholder={name}
+        {...formik.getFieldProps(name)}
         className={`
           w-full 
           pl-8 

@@ -9,7 +9,6 @@ import NothingFound from './NothingFound';
 
 const Shoes = () => {
   const filteredData = useSelector((state) => state.filterResult);
-  // console.log(filteredData)
 
   const output = filteredData.outputData.map((x) => (
     <ShoeStructure items={x} key={x.id} />

@@ -1,4 +1,8 @@
+// import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import SignupStructure from './SignupStructure';
 import {
   FaUserAlt,
   FaUserCircle,
@@ -8,13 +12,54 @@ import {
   FaAngleLeft,
 } from 'react-icons/fa';
 
-import SignupStructure from './SignupStructure';
+const initialValues = {
+  Name: '',
+  Username: '',
+  Phone: '',
+  Email: '',
+  Password: '',
+  ConfirmPassword: '',
+};
+
+const validationSchema = yup.object({
+  Name: yup.string().required('Please enter your name'),
+  Username: yup.string().required('Please enter your username'),
+  Phone: yup
+    .string()
+    .matches(/^[0-9]{11}$/, 'Phone number is not valid!')
+    .required('Please enter your phone number'),
+  Email: yup.string().required('Please enter your email'),
+  Password: yup
+    .string()
+    .required('Please enter your password')
+    .min(4, 'At least 4 characters'),
+  ConfirmPassword: yup
+    .string()
+    .required('Please enter your password')
+    .min(4, 'At least 4 characters')
+    .oneOf([yup.ref('Password')], 'Passwords must be equal'),
+});
 
 const Signup = ({ onShow }) => {
   const dark = useSelector((state) => state.darkMode);
 
+  // const [list, setList] = useState([]);
+
+  const onSubmit = (e) => {
+    console.log(e);
+  };
+
+  const formik = useFormik({
+    onSubmit,
+    initialValues,
+    validationSchema,
+    validateOnMount: true,
+    enableReinitialize: true,
+  });
+
   return (
     <form
+      onSubmit={formik.handleSubmit}
       className={`
         ${dark ? 'bg-neutral-900' : 'bg-white'}
         ${dark ? '' : 'shadow-[0_0_10px_#777777]'}
@@ -22,7 +67,7 @@ const Signup = ({ onShow }) => {
         overflow-hidden
         w-80
         p-4
-        pt-16
+        pt-12
         rounded-xl
         flex
         flex-col
@@ -48,6 +93,7 @@ const Signup = ({ onShow }) => {
         name={'Name'}
         dark={dark}
         icon={<FaUserAlt className="absolute top-2 left-2 text-neutral-600" />}
+        formik={formik}
       />
 
       {/* Username */}
@@ -58,6 +104,7 @@ const Signup = ({ onShow }) => {
         icon={
           <FaUserCircle className="absolute top-2 left-2 text-neutral-600" />
         }
+        formik={formik}
       />
 
       {/* Phone */}
@@ -66,6 +113,7 @@ const Signup = ({ onShow }) => {
         name={'Phone'}
         dark={dark}
         icon={<FaPhoneAlt className="absolute top-2 left-2 text-neutral-600" />}
+        formik={formik}
       />
 
       {/* Email */}
@@ -74,6 +122,7 @@ const Signup = ({ onShow }) => {
         name={'Email'}
         dark={dark}
         icon={<FaEnvelope className="absolute top-2 left-2 text-neutral-600" />}
+        formik={formik}
       />
 
       {/* Password */}
@@ -84,16 +133,18 @@ const Signup = ({ onShow }) => {
         icon={
           <FaUnlockAlt className="absolute top-2 left-2 text-neutral-600" />
         }
+        formik={formik}
       />
 
       {/* Confirm Password */}
       <SignupStructure
         type={'password'}
-        name={'Confirm Password'}
+        name={'ConfirmPassword'}
         dark={dark}
         icon={
           <FaUnlockAlt className="absolute top-2 left-2 text-neutral-600" />
         }
+        formik={formik}
       />
 
       {/* Signup Button */}
@@ -101,6 +152,7 @@ const Signup = ({ onShow }) => {
         type="submit"
         className={`
           w-full 
+          mt-6
           py-1.5 
           ${dark ? 'bg-purple-600' : 'bg-purple-700'}
           text-neutral-50 

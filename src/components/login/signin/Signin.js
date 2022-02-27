@@ -1,21 +1,47 @@
 import { useSelector } from 'react-redux';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import { FaUserCircle, FaUnlockAlt, FaAngleLeft } from 'react-icons/fa';
 import SigninStructure from './SigninStructure';
 
+const initialValues = {
+  Username: '',
+  Password: '',
+};
+
+const validationSchema = yup.object({
+  Username: yup.string().required('Please enter your username'),
+  Password: yup
+    .string()
+    .required('Please enter your password')
+    .min(4, 'At least 4 characters'),
+});
+
 const Signin = ({ onShow }) => {
   const dark = useSelector((state) => state.darkMode);
+  const onSubmit = (e) => {
+    console.log(e);
+  };
+
+  const formik = useFormik({
+    onSubmit,
+    initialValues,
+    validationSchema,
+    validateOnMount: true,
+    enableReinitialize: true,
+  });
 
   return (
     <form
+      onSubmit={formik.handleSubmit}
       className={`
         ${dark ? 'bg-neutral-900' : 'bg-white'}
         ${dark ? '' : 'shadow-[0_0_10px_#777777]'}
         relative
         overflow-hidden
         w-80
-        h-fit
         p-4
-        pt-16
+        pt-12
         rounded-xl
         flex
         flex-col
@@ -43,6 +69,7 @@ const Signin = ({ onShow }) => {
         icon={
           <FaUserCircle className="absolute top-2 left-2 text-neutral-600" />
         }
+        formik={formik}
       />
 
       {/* Password */}
@@ -53,12 +80,14 @@ const Signin = ({ onShow }) => {
         icon={
           <FaUnlockAlt className="absolute top-2 left-2 text-neutral-600" />
         }
+        formik={formik}
       />
 
       <button
         type="submit"
         className={`
           w-full 
+          mt-6
           py-1.5 
           ${dark ? 'bg-cyan-400' : 'bg-cyan-500'}
           text-neutral-50 
