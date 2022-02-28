@@ -19,6 +19,7 @@ const validationSchema = yup.object({
 
 const Signin = ({ onShow }) => {
   const dark = useSelector((state) => state.darkMode);
+  
   const onSubmit = (e) => {
     console.log(e);
   };
@@ -85,6 +86,7 @@ const Signin = ({ onShow }) => {
 
       <button
         type="submit"
+        disabled={!formik.isValid}
         className={`
           w-full 
           mt-6
@@ -93,6 +95,8 @@ const Signin = ({ onShow }) => {
           text-neutral-50 
           text-lg 
           rounded-md
+          disabled:cursor-not-allowed
+          disabled:bg-neutral-400
         `}
       >
         Login

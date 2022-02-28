@@ -1,5 +1,6 @@
-// import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { userSignup } from '../../redux/slices/loginSlice';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import SignupStructure from './SignupStructure';
@@ -42,12 +43,20 @@ const validationSchema = yup.object({
 
 const Signup = ({ onShow }) => {
   const dark = useSelector((state) => state.darkMode);
+  const signupStatus = useSelector((state) => state.loginStatus);
 
-  // const [list, setList] = useState([]);
+  const dispatch = useDispatch();
 
   const onSubmit = (e) => {
-    console.log(e);
+    dispatch(userSignup(e));
   };
+
+  useEffect(() => {
+    if (signupStatus.event === 1) {
+      dispatch(userSignup(null));
+      onShow();
+    }
+  }, [signupStatus, dispatch, onShow]);
 
   const formik = useFormik({
     onSubmit,
@@ -147,9 +156,17 @@ const Signup = ({ onShow }) => {
         formik={formik}
       />
 
+      {/* Existense user */}
+      {signupStatus.event === 0 && (
+        <p className="text-redColor mt-4">
+          This username already exists! Please select another one.
+        </p>
+      )}
+
       {/* Signup Button */}
       <button
         type="submit"
+        disabled={!formik.isValid}
         className={`
           w-full 
           mt-6
@@ -158,6 +175,8 @@ const Signup = ({ onShow }) => {
           text-neutral-50 
           text-lg 
           rounded-md
+          disabled:cursor-not-allowed
+          disabled:bg-neutral-500
         `}
       >
         Sign up
@@ -176,9 +195,9 @@ const Signup = ({ onShow }) => {
           w-full 
           py-1  
           ${dark ? 'text-purple-200' : 'text-purple-700'}
+          ${dark ? 'border-purple-600' : 'border-purple-700'}
           border-2 
           text-lg 
-          ${dark ? 'border-purple-600' : 'border-purple-700'}
           rounded-md
         `}
       >
