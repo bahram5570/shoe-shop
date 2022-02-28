@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { userSignin } from '../../redux/slices/signinSlice';
 import { useFormik } from 'formik';
@@ -20,7 +18,7 @@ const validationSchema = yup.object({
     .min(4, 'At least 4 characters'),
 });
 
-const Signin = ({ onShow }) => {
+const Signin = ({ onShow, onUserLoggedin }) => {
   const dark = useSelector((state) => state.darkModeRedux);
   const signinStatus = useSelector((state) => state.signinRedux).loggedUser;
 
@@ -29,18 +27,6 @@ const Signin = ({ onShow }) => {
   const onSubmit = (e) => {
     dispatch(userSignin(e));
   };
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (
-      signinStatus !== null &&
-      signinStatus !== 'wrong' &&
-      signinStatus !== 'fail'
-    ) {
-      navigate('/Home');
-    }
-  }, [navigate, signinStatus]);
 
   const formik = useFormik({
     onSubmit,

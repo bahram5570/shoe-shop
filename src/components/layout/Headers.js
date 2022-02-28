@@ -24,7 +24,6 @@ const Headers = () => {
   const dark = useSelector((state) => state.darkModeRedux);
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
 
-  console.log(userStatus);
 
   return (
     <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">

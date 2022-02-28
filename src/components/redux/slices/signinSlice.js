@@ -24,8 +24,24 @@ const signinSlice = createSlice({
         return { loggedUser: 'fail' };
       }
     },
+
+    userSignout: () => {
+      localStorage.removeItem('currentUser');
+      return { loggedUser: null };
+    },
+
+    userEdit: (_, action) => {
+      const user = JSON.parse(localStorage.getItem('currentUser'));
+      localStorage.removeItem('user_' + user.Username);
+      localStorage.setItem(
+        'user_' + user.Username,
+        JSON.stringify(action.payload)
+      );
+      localStorage.removeItem('currentUser');
+      return { loggedUser: null };
+    },
   },
 });
 
-export const { userSignin } = signinSlice.actions;
+export const { userSignin, userSignout, userEdit } = signinSlice.actions;
 export default signinSlice.reducer;
