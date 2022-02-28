@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { userSignup } from '../../redux/slices/loginSlice';
+import { userSignup } from '../../redux/slices/signupSlice';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import SignupStructure from './SignupStructure';
@@ -42,8 +42,8 @@ const validationSchema = yup.object({
 });
 
 const Signup = ({ onShow }) => {
-  const dark = useSelector((state) => state.darkMode);
-  const signupStatus = useSelector((state) => state.loginStatus);
+  const dark = useSelector((state) => state.darkModeRedux);
+  const signupStatus = useSelector((state) => state.signupRedux).event;
 
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const Signup = ({ onShow }) => {
   };
 
   useEffect(() => {
-    if (signupStatus.event === 1) {
+    if (signupStatus === "success") {
       dispatch(userSignup(null));
       onShow();
     }
@@ -157,7 +157,7 @@ const Signup = ({ onShow }) => {
       />
 
       {/* Existense user */}
-      {signupStatus.event === 0 && (
+      {signupStatus === "fail" && (
         <p className="text-redColor mt-4">
           This username already exists! Please select another one.
         </p>

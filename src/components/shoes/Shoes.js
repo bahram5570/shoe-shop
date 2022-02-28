@@ -8,7 +8,8 @@ import Filters from '../menu/Filters';
 import NothingFound from './NothingFound';
 
 const Shoes = () => {
-  const filteredData = useSelector((state) => state.filterResult);
+  const filteredData = useSelector((state) => state.filterResultRedux);
+  console.log(filteredData)
 
   const output = filteredData.outputData.map((x) => (
     <ShoeStructure items={x} key={x.id} />

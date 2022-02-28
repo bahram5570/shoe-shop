@@ -5,7 +5,7 @@ import { FaHeart } from 'react-icons/fa';
 const ShoeStructure = ({ items }) => {
   const navigate = useNavigate();
 
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div

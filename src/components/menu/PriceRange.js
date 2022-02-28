@@ -14,7 +14,7 @@ const PriceRange = (props) => {
     max: filterPrices.max,
   });
 
-  const filterStatus = useSelector((state) => state.filterResult);
+  const filterStatus = useSelector((state) => state.filterResultRedux);
   useEffect(() => {
     if (!filterStatus.hasFilter) {
       setPriceValue({

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { FaSearch, FaRegMeh } from 'react-icons/fa';
 
 const NothingFound = () => {
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div className="flex flex-col items-center">

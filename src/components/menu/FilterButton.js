@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { FaSlidersH } from 'react-icons/fa';
 
 const FilterButton = (props) => {
-  const filterStatus = useSelector((state) => state.filterResult);
+  const filterStatus = useSelector((state) => state.filterResultRedux);
 
   return (
     <button

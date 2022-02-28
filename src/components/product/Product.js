@@ -10,7 +10,7 @@ const Product = () => {
   const params = useParams();
   const item = data[params.id];
 
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div className={`block sm:flex ${dark ? 'text-white' : ''}`}>

@@ -2,7 +2,7 @@ import Headers from './Headers';
 import { useSelector } from 'react-redux';
 
 const Layout = (props) => {
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div className="min-h-screen relative">

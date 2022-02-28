@@ -1,4 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { userSignin } from '../../redux/slices/signinSlice';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { FaUserCircle, FaUnlockAlt, FaAngleLeft } from 'react-icons/fa';
@@ -18,11 +21,26 @@ const validationSchema = yup.object({
 });
 
 const Signin = ({ onShow }) => {
-  const dark = useSelector((state) => state.darkMode);
-  
+  const dark = useSelector((state) => state.darkModeRedux);
+  const signinStatus = useSelector((state) => state.signinRedux).loggedUser;
+
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
-    console.log(e);
+    dispatch(userSignin(e));
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      signinStatus !== null &&
+      signinStatus !== 'wrong' &&
+      signinStatus !== 'fail'
+    ) {
+      navigate('/Home');
+    }
+  }, [navigate, signinStatus]);
 
   const formik = useFormik({
     onSubmit,
@@ -83,6 +101,15 @@ const Signin = ({ onShow }) => {
         }
         formik={formik}
       />
+
+      {/* User Status */}
+      {signinStatus === 'wrong' && (
+        <p className="text-redColor mt-4">Username or password is wrong!</p>
+      )}
+
+      {signinStatus === 'fail' && (
+        <p className="text-redColor mt-4">This username is not registered!</p>
+      )}
 
       <button
         type="submit"

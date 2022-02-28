@@ -5,7 +5,7 @@ import { FaRegHeart } from 'react-icons/fa';
 const ProductDetails = ({ items }) => {
   const { brand, category, description, likes, price, off } = items;
 
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <Fragment>

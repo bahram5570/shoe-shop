@@ -49,7 +49,7 @@ const Filters = (props) => {
     props.onCloseFilters();
   };
 
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div

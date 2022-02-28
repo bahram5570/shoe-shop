@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 const AddToCart = ({ items }) => {
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div

@@ -13,7 +13,7 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
 
   const [checkedList, setCheckedList] = useState(initialState);
 
-  const filterStatus = useSelector((state) => state.filterResult);
+  const filterStatus = useSelector((state) => state.filterResultRedux);
   useEffect(() => {
     if (!filterStatus.hasFilter) {
       setCheckedList([]);

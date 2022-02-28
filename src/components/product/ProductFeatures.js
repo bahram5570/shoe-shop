@@ -13,7 +13,7 @@ const ProductFeatures = ({ items }) => {
     );
   }
 
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <div className="block sm:w-24 min-w-[96px] md:min-w-[160px] sm:mx-2 md:mx-6 mb-8 sm:mb-0">

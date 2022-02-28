@@ -10,6 +10,7 @@ import {
   FaShoppingCart,
   FaSun,
   FaMoon,
+  FaUserCircle,
 } from 'react-icons/fa';
 
 const Headers = () => {
@@ -20,7 +21,10 @@ const Headers = () => {
   };
 
   const dispatch = useDispatch();
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
+  const userStatus = useSelector((state) => state.signinRedux).loggedUser;
+
+  console.log(userStatus);
 
   return (
     <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
@@ -118,7 +122,8 @@ const Headers = () => {
               to="/Login"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <FaSignInAlt className="w-6 h-auto" />
+              {userStatus && <FaUserCircle className="w-6 h-auto" />}
+              {!userStatus && <FaSignInAlt className="w-6 h-auto" />}
             </NavLink>
           </li>
         </ul>
