@@ -18,7 +18,7 @@ const validationSchema = yup.object({
     .min(4, 'At least 4 characters'),
 });
 
-const Signin = ({ onShow, onUserLoggedin }) => {
+const Signin = ({ onShow }) => {
   const dark = useSelector((state) => state.darkModeRedux);
   const signinStatus = useSelector((state) => state.signinRedux).loggedUser;
 

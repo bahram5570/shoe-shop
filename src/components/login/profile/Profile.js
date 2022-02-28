@@ -108,7 +108,7 @@ const Profile = ({ onSignout }) => {
         type={'text'}
         name={'Name'}
         dark={dark}
-        icon={<FaUserAlt className="absolute top-2 left-2 text-neutral-600" />}
+        icon={<FaUserAlt className="absolute top-2 left-2" />}
         formik={formik}
         isDisabled={!editMode}
       />
@@ -118,7 +118,7 @@ const Profile = ({ onSignout }) => {
         type={'tel'}
         name={'Phone'}
         dark={dark}
-        icon={<FaPhoneAlt className="absolute top-2 left-2 text-neutral-600" />}
+        icon={<FaPhoneAlt className="absolute top-2 left-2" />}
         formik={formik}
         isDisabled={!editMode}
       />
@@ -128,7 +128,7 @@ const Profile = ({ onSignout }) => {
         type={'email'}
         name={'Email'}
         dark={dark}
-        icon={<FaEnvelope className="absolute top-2 left-2 text-neutral-600" />}
+        icon={<FaEnvelope className="absolute top-2 left-2" />}
         formik={formik}
         isDisabled={!editMode}
       />
@@ -139,9 +139,7 @@ const Profile = ({ onSignout }) => {
           type={'password'}
           name={'Password'}
           dark={dark}
-          icon={
-            <FaUnlockAlt className="absolute top-2 left-2 text-neutral-600" />
-          }
+          icon={<FaUnlockAlt className="absolute top-2 left-2" />}
           formik={formik}
         />
       )}
@@ -152,9 +150,7 @@ const Profile = ({ onSignout }) => {
           type={'password'}
           name={'ConfirmPassword'}
           dark={dark}
-          icon={
-            <FaUnlockAlt className="absolute top-2 left-2 text-neutral-600" />
-          }
+          icon={<FaUnlockAlt className="absolute top-2 left-2" />}
           formik={formik}
         />
       )}

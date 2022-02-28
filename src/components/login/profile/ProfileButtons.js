@@ -8,7 +8,14 @@ import {
   FaRegTimesCircle,
 } from 'react-icons/fa';
 
-const ProfileButtons = ({ dark, data, onSignout, isEditing, onEditing, onApplyEdit }) => {
+const ProfileButtons = ({
+  dark,
+  data,
+  onSignout,
+  isEditing,
+  onEditing,
+  onApplyEdit,
+}) => {
   const dispatch = useDispatch();
 
   const signoutHandler = () => {
@@ -37,7 +44,7 @@ const ProfileButtons = ({ dark, data, onSignout, isEditing, onEditing, onApplyEd
         <h2 className="ml-2">{data.Username}</h2>
       </div>
 
-        {/* Logout */}
+      {/* Logout */}
       {!isEditing && (
         <div>
           <button
@@ -67,10 +74,14 @@ const ProfileButtons = ({ dark, data, onSignout, isEditing, onEditing, onApplyEd
         </div>
       )}
 
-        {/* Edit buttons */}
+      {/* Edit buttons */}
       {isEditing && (
         <div>
-          <button type="button" onClick={() => onApplyEdit()} className="outline-none">
+          <button
+            type="button"
+            onClick={() => onApplyEdit()}
+            className="outline-none"
+          >
             {<FaCheck className="w-7 h-auto text-greenColor" />}
           </button>
 

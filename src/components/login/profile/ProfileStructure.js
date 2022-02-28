@@ -1,8 +1,16 @@
 const ProfileStructure = ({ type, name, dark, icon, formik, isDisabled }) => {
   return (
-    <div className="mt-8 w-full relative">
-      <p
-        className={`
+    <div
+      className={`
+      w-full 
+      relative
+      text-lg
+      ${isDisabled ? 'mt-4' : 'mt-8'}
+    `}
+    >
+      {!isDisabled && (
+        <p
+          className={`
         absolute
         -top-6
         right-0
@@ -11,30 +19,39 @@ const ProfileStructure = ({ type, name, dark, icon, formik, isDisabled }) => {
         text-redColor
         ${formik.touched[name] ? '' : 'opacity-0'}
       `}
-      >
-        {formik.errors[name]}
-      </p>
+        >
+          {formik.errors[name]}
+        </p>
+      )}
 
-      {icon}
-
-      <input
-        type={type}
-        name={name}
-        placeholder={name}
-        {...formik.getFieldProps(name)}
-        disabled={isDisabled}
+      <span
         className={`
-          w-full 
-          pl-8 
-          pr-2 
-          py-1 
-          rounded 
-          outline-none 
-          focus:bg-cyan-100 
-          duration-300
-          ${dark ? '' : 'shadow-loginShadow'}
-        `}
-      />
+        ${isDisabled && dark ? 'text-white' : ''}
+      `}
+      >
+        {icon}
+
+        <input
+          type={type}
+          name={name}
+          placeholder={name}
+          {...formik.getFieldProps(name)}
+          disabled={isDisabled}
+          className={`
+            w-full 
+            pl-8 
+            pr-2 
+            py-1 
+            rounded 
+            outline-none 
+            focus:bg-cyan-100 
+            duration-300
+            disabled:bg-transparent
+            disabled:shadow-none
+            ${dark ? '' : 'shadow-loginShadow'}
+          `}
+        />
+      </span>
     </div>
   );
 };

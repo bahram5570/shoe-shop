@@ -15,7 +15,12 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userStatus && showComponent === 'signin') {
+    if (
+      userStatus &&
+      userStatus !== 'wrong' &&
+      userStatus !== 'fail' &&
+      showComponent === 'signin'
+    ) {
       setShowComponent('profile');
       navigate('/Home');
     }
