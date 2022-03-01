@@ -1,16 +1,45 @@
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../redux/slices/cartSlice';
+import { addToCart, removeFromCart } from '../redux/slices/cartSlice';
 
 const AddToCart = ({ item }) => {
   const dark = useSelector((state) => state.darkModeRedux);
-  const dispatch = useDispatch();
 
   const salePrice =
     item.price * item.qt - (item.price * item.qt * item.off) / 100;
 
+  const currnetCart = useSelector((state) => state.cartRedux);
+
+  const dispatch = useDispatch();
+
+  const [exist, setExist] = useState(false);
+
+  useEffect(() => {
+    const itemExistence = currnetCart.some(
+      (x) =>
+        x.id === item.id &&
+        x.size.toString() === item.size.toString() &&
+        x.color === item.color
+    );
+
+    if (itemExistence) {
+      setExist(true);
+    } else {
+      setExist(false);
+    }
+  }, [item, currnetCart]);
+
   const addToCartHandler = () => {
-    dispatch(addToCart(item));
+    if (exist) {
+      dispatch(removeFromCart(item));
+    } else {
+      dispatch(addToCart(item));
+    }
   };
+
+  const time = new Date().toString().split(' ');
+  const day = time[2][0] === '0' ? time[2][1] : time[2];
+  const currentTime = time[0] + ', ' + day + ' ' + time[1] + ' ' + time[3];
 
   return (
     <div
@@ -24,7 +53,7 @@ const AddToCart = ({ item }) => {
       ${dark ? 'shadow-[0_0_12px_#ffffff]' : 'shadow-[0_0_12px_#555555]'}`}
     >
       <h1 className="mb-2 text-xl font-bold text-center">Order Summery</h1>
-      <p className="mb-3 italic text-center">date</p>
+      <p className="mb-3 italic text-center">{currentTime}</p>
       <span className="flex justify-between mb-3">
         <p>Size:</p>
         <p>{item.size}</p>
@@ -56,18 +85,19 @@ const AddToCart = ({ item }) => {
       <button
         onClick={() => addToCartHandler()}
         disabled={item.qt === 0}
-        className="
+        className={`
           w-full 
           py-1 
           duration-100 
-          bg-greenColor 
-          rounded-2xl 
-          text-neutral-50 
+          rounded-2xl
           active:scale-90 
           outline-none
-          disabled:hidden"
+          disabled:hidden
+          ${!exist ? 'bg-greenColor text-neutral-50' : ''}
+          ${exist ? 'ring-2 ring-redColor text-redColor' : ''}
+        `}
       >
-        +Add To Cart
+        {!exist ? '+Add To Cart' : 'Remove From Cart'}
       </button>
     </div>
   );
