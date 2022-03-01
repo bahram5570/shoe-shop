@@ -5,7 +5,13 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import ProfileButtons from './ProfileButtons';
 import ProfileStructure from './ProfileStructure';
-import { FaUserAlt, FaPhoneAlt, FaEnvelope, FaUnlockAlt } from 'react-icons/fa';
+import {
+  FaUserAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaUnlockAlt,
+  FaCheckSquare,
+} from 'react-icons/fa';
 
 const validationSchema = yup.object({
   Name: yup.string().required('Please enter your name'),
@@ -132,6 +138,18 @@ const Profile = ({ onSignout }) => {
         formik={formik}
         isDisabled={!editMode}
       />
+
+      {/* Orders */}
+      {!editMode && (
+        <p
+          className={`flex items-center text-lg ml-1 mt-2 ${
+            dark ? 'text-white' : ''
+          }`}
+        >
+          <FaCheckSquare className="mr-1 w-6 h-auto" />
+          Total Orders: {Object.keys(userStatus.orders).length}
+        </p>
+      )}
 
       {/* Password */}
       {editMode && (

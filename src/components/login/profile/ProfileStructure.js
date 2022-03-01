@@ -5,7 +5,7 @@ const ProfileStructure = ({ type, name, dark, icon, formik, isDisabled }) => {
       w-full 
       relative
       text-lg
-      ${isDisabled ? 'mt-4' : 'mt-8'}
+      ${isDisabled ? 'mt-1' : 'mt-8'}
     `}
     >
       {!isDisabled && (
@@ -15,7 +15,8 @@ const ProfileStructure = ({ type, name, dark, icon, formik, isDisabled }) => {
         -top-6
         right-0
         text-right 
-        text-sm mb-1 
+        text-sm 
+        mb-1 
         text-redColor
         ${formik.touched[name] ? '' : 'opacity-0'}
       `}

@@ -5,12 +5,19 @@ import SlideShow from './SlideShow';
 import ProductDetails from './ProductDetails';
 import ProductFeatures from './ProductFeatures';
 import AddToCart from './AddToCart';
+import { useState } from 'react';
 
 const Product = () => {
+  const dark = useSelector((state) => state.darkModeRedux);
+
   const params = useParams();
   const item = data[params.id];
 
-  const dark = useSelector((state) => state.darkModeRedux);
+  const [selectedProduct, setSelectedProduct] = useState({});
+
+  const selectionHandler = (e) => {
+    setSelectedProduct(e);
+  };
 
   return (
     <div className={`block sm:flex ${dark ? 'text-white' : ''}`}>
@@ -24,8 +31,8 @@ const Product = () => {
       </section>
 
       <section className="sm:flex">
-        <ProductFeatures items={item} />
-        <AddToCart items={item.qt} />
+        <ProductFeatures items={item} onSelection={selectionHandler} />
+        <AddToCart item={selectedProduct} />
       </section>
     </div>
   );

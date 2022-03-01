@@ -23,6 +23,7 @@ const Headers = () => {
   const dispatch = useDispatch();
   const dark = useSelector((state) => state.darkModeRedux);
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
+  const cartQt = useSelector((state) => state.cartRedux).length;
 
 
   return (
@@ -111,7 +112,7 @@ const Headers = () => {
                   text-zinc-50 
                   rounded-xl"
               >
-                <p className="text-xs">55</p>
+                <p className="text-xs">{cartQt}</p>
               </span>
             </NavLink>
           </li>

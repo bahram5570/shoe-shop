@@ -1,7 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../redux/slices/cartSlice';
 
-const AddToCart = ({ items }) => {
+const AddToCart = ({ item }) => {
   const dark = useSelector((state) => state.darkModeRedux);
+  const dispatch = useDispatch();
+
+  const salePrice =
+    item.price * item.qt - (item.price * item.qt * item.off) / 100;
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(item));
+  };
 
   return (
     <div
@@ -18,26 +27,35 @@ const AddToCart = ({ items }) => {
       <p className="mb-3 italic text-center">date</p>
       <span className="flex justify-between mb-3">
         <p>Size:</p>
-        <p>XX</p>
+        <p>{item.size}</p>
       </span>
       <span className="flex justify-between mb-3">
         <p>Color:</p>
-        <p>XX</p>
+        <p>{item.color}</p>
+      </span>
+      {item.qt > 0 && (
+        <span className="flex justify-between mb-3">
+          <p>Quantity:</p>
+          <p>{item.qt}</p>
+        </span>
+      )}
+      <span className="flex justify-between mb-3">
+        <p>OFF:</p>
+        <p>{item.off}%</p>
       </span>
       <span className="flex justify-between mb-3">
-        <p>Quantity:</p>
-        <p>00</p>
-      </span>
-      <span className="flex justify-between pb-4 mb-3 border-b-2 border-neutral-400">
         <p>Original Price:</p>
-        <p>00</p>
+        <p>$ {item.price}</p>
       </span>
-      <span className="flex justify-between mb-3">
-        <p>Sale Price:</p>
-        <p>00</p>
-      </span>
+      {item.qt > 0 && (
+        <span className="flex justify-between mb-3 pt-2 border-t-2 border-neutral-400">
+          <p>Sale Price:</p>
+          <p>$ {salePrice}</p>
+        </span>
+      )}
       <button
-        disabled={items === 0}
+        onClick={() => addToCartHandler()}
+        disabled={item.qt === 0}
         className="
           w-full 
           py-1 
@@ -46,8 +64,8 @@ const AddToCart = ({ items }) => {
           rounded-2xl 
           text-neutral-50 
           active:scale-90 
-          disabled:bg-neutral-400 
-          disabled:cursor-not-allowed"
+          outline-none
+          disabled:hidden"
       >
         +Add To Cart
       </button>

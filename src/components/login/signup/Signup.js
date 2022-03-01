@@ -27,7 +27,7 @@ const validationSchema = yup.object({
   Username: yup.string().required('Please enter your username'),
   Phone: yup
     .string()
-    .matches(/^[0-9]{11}$/, 'Phone number is not valid!')
+    .matches(/^[0-9]{11}$/, 'Phone number must be 11 digits.')
     .required('Please enter your phone number'),
   Email: yup.string().required('Please enter your email'),
   Password: yup
