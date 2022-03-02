@@ -24,13 +24,13 @@ const SlideShow = ({ items }) => {
       >
         <div
           className="
-        relative 
-        w-full 
-        overflow-hidden 
-        carousel-inner 
-        sm:cursor-pointer 
-        sm:hover:scale-110 
-        sm:duration-200"
+            relative 
+            w-full 
+            overflow-hidden 
+            carousel-inner 
+            sm:cursor-pointer 
+            sm:hover:scale-110 
+            sm:duration-200"
         >
           {items.map((x) => (
             <div

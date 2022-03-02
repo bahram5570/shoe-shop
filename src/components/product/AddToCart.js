@@ -37,23 +37,24 @@ const AddToCart = ({ item }) => {
     }
   };
 
-  const time = new Date().toString().split(' ');
-  const day = time[2][0] === '0' ? time[2][1] : time[2];
-  const currentTime = time[0] + ', ' + day + ' ' + time[1] + ' ' + time[3];
+  // const time = new Date().toString().split(' ');
+  // const day = time[2][0] === '0' ? time[2][1] : time[2];
+  // const currentTime = time[0] + ', ' + day + ' ' + time[1] + ' ' + time[3];
 
   return (
     <div
       className={`
-      p-4 
-      rounded-xl 
-      sm:w-56 
-      sm:min-w-[224px] 
-      h-fit 
-      relative
-      ${dark ? 'shadow-[0_0_12px_#ffffff]' : 'shadow-[0_0_12px_#555555]'}`}
+        p-4 
+        mt-8
+        rounded-xl 
+        sm:w-56 
+        sm:min-w-[224px] 
+        h-fit 
+        relative
+        ${dark ? 'shadow-[0_0_12px_#ffffff]' : 'shadow-[0_0_12px_#555555]'}
+      `}
     >
-      <h1 className="mb-2 text-xl font-bold text-center">Order Summery</h1>
-      <p className="mb-3 italic text-center">{currentTime}</p>
+      <h1 className="mb-6 text-xl font-bold text-center">Order Summery</h1>
       <span className="flex justify-between mb-3">
         <p>Size:</p>
         <p>{item.size}</p>

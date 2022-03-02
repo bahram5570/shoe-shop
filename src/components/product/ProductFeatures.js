@@ -31,26 +31,19 @@ const ProductFeatures = ({ items, onSelection }) => {
     onSelection(selection);
   }, [onSelection, selection]);
 
-  // console.log(selection)
-
   return (
     <div
       className="
-      block 
-      sm:w-24 
-      min-w-[96px] 
-      md:min-w-[160px] 
-      sm:mx-2 
-      md:mx-6 
-      mb-8 
-      sm:mb-0
-    "
+        block
+        sm:flex 
+        flex-wrap 
+        mb-4"
     >
-      <section>
+      <section className="sm:mx-4 mt-3">
         <h2 className="ml-2 text-lg font-bold">Size:</h2>
         <div className="flex flex-wrap">
           {size.map((x) => (
-            <div key={x} className="relative w-8 h-8 m-2 b">
+            <div key={x} className="relative w-8 h-8 m-2">
               <label
                 htmlFor={x}
                 className="
@@ -86,14 +79,15 @@ const ProductFeatures = ({ items, onSelection }) => {
                   ring-greenColor
                   checked:ring-4
                   checked:border-0
-                  ${dark ? '' : 'border-neutral-800 '}`}
+                  ${dark ? '' : 'border-neutral-800'}
+                `}
               />
             </div>
           ))}
         </div>
       </section>
 
-      <section className="my-4">
+      <section className="sm:mx-4 mt-3">
         <h2 className="ml-2 text-lg font-bold">Color:</h2>
         <div className="flex flex-wrap">
           {colors.map((x) => (
@@ -126,20 +120,21 @@ const ProductFeatures = ({ items, onSelection }) => {
       </section>
 
       {qt > 0 && (
-        <section>
+        <section className="sm:mx-4 mt-3">
           <h2 className="ml-2 text-lg font-bold mb-2">Quantity:</h2>
           <select
             onChange={(e) => setSelection({ ...selection, qt: e.target.value })}
             className={`
-          pl-2 
-          pr-10 
-          py-1 
-          rounded-md 
-          outline-none 
-          sm:cursor-pointer 
-          ml-2 border-2 
-          border-neutral-600
-          ${dark ? 'bg-neutral-200 text-black border-none' : ''}`}
+              pl-2 
+              pr-10 
+              py-1 
+              rounded-md 
+              outline-none 
+              sm:cursor-pointer 
+              ml-2 border-2 
+              border-neutral-600
+              ${dark ? 'bg-neutral-200 text-black border-none' : ''}
+            `}
           >
             {quantityList}
           </select>

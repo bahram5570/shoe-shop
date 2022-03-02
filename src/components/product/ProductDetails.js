@@ -9,21 +9,30 @@ const ProductDetails = ({ items }) => {
 
   return (
     <Fragment>
-      <section className="sm:ml-4 mb-4 sm:mb-0">
-        <div className="flex justify-between">
-          <h1 className="text-2xl font-bold">{brand}</h1>
-          <span className="flex items-center mr-20">
+      <section className="sm:mx-8">
+        <div className="flex">
+          <h1 className="text-4xl font-bold">{brand}</h1>
+          <span className="flex items-center ml-20">
             <p className={`mr-2 text-xl ${dark ? '' : 'text-neutral-600'}`}>
               {likes}
             </p>
-            <FaRegHeart className="text-xl text-redColor w-7 h-7 cursor-pointer active:scale-75 duration-100" />
+            <FaRegHeart
+              className="
+              text-xl 
+              text-redColor 
+              w-5 
+              h-auto 
+              cursor-pointer 
+              active:scale-75 
+              duration-100"
+            />
           </span>
         </div>
-        <h2 className={`mb-4 ${dark ? '' : 'text-neutral-600'}`}>
+        <h2 className={`mb-6 mt-2 text-2xl ${dark ? '' : 'text-neutral-600'}`}>
           "{category}"
         </h2>
-        <p className="mb-2 font-bold">Price: ${price}</p>
-        <p className="mb-2 font-bold text-redColor">OFF: {off}%</p>
+        <p className="mb-2 text-xl font-bold">Price: ${price}</p>
+        <p className="mb-2 text-xl font-bold text-redColor">OFF: {off}%</p>
         <span>
           <p className="font-bold">Details:</p>
           <p className="px-4 text-justify">" {description} "</p>
