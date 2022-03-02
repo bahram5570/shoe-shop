@@ -6,6 +6,9 @@ import FiltersCheckbox from './FiltersCheckbox';
 import ButtonsSection from './ButtonsSection';
 import PriceRange from './PriceRange';
 
+import Search from '../menu/Search';
+import Sort from '../menu/Sort';
+
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
@@ -56,30 +59,38 @@ const Filters = (props) => {
       className={`
         accordion
         duration-300
-        sm:shadow-[0_0_10px_#aaaaaa]
+        md:shadow-[0_0_10px_#aaaaaa]
         rounded-xl
         overflow-hidden
         z-10
         bg-[#000000dd]
-        sm:bg-transparent
-        sm:h-screen
+        md:bg-transparent
+        md:h-screen
         fixed
         top-16
-        left-2
-        right-2
         bottom-4
-        sm:sticky
-        sm:top-4
-        ${
-          props.showFilters
-            ? 'sm:min-w-[300px] sm:w-96 px-4 pt-6 sm:mr-8'
-            : 'sm:min-w-0 w-0 p-0'
-        }
-        `}
+        md:sticky
+        md:top-4
+        w-48
+        min-w-[300px]
+        md:min-w-[300px]
+        md:mr-8
+        px-4
+        py-6
+        ${props.showFilters ? '' : '-translate-x-96 md:translate-x-0'}
+      `}
     >
+      <span className="hidden md:block">
+        <Search />
+      </span>
+      
+      <span className="block md:hidden">
+        <Sort />
+      </span>
+
       <section
         className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 md:shadow-[0_0_5px_#888888]'
         }`}
       >
         <button

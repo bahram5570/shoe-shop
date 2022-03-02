@@ -69,7 +69,8 @@ const ProductFeatures = ({ items, onSelection }) => {
                 onChange={(e) =>
                   setSelection({ ...selection, size: e.target.value })
                 }
-                className={`w-full 
+                className={`
+                  w-full 
                   h-full 
                   duration-200 
                   border-2

@@ -83,6 +83,7 @@ const ButtonsSection = (props) => {
         <button
           onClick={() => props.onCloseFilters()}
           className="
+          md:hidden
             px-3 
             ml-4 
             text-sm 

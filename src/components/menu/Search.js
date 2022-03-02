@@ -1,8 +1,9 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { searching } from '../redux/slices/filtersSlice';
-import { FaSearch } from 'react-icons/fa';
 
 const Search = () => {
+  const dark = useSelector((state) => state.darkModeRedux);
+
   const diapatch = useDispatch();
 
   const searchHandler = (e) => {
@@ -10,22 +11,24 @@ const Search = () => {
   };
 
   return (
-    <div className="flex sm:mr-8 mb-3 sm:mb-0">
-      <label
-        htmlFor="search"
-        className="flex items-center text-neutral-50 mr-2"
-      >
-        <FaSearch className="mr-1" />
-        Search:
-      </label>
-      <input
-        id="search"
-        type="text"
-        placeholder="e.g. Skechers"
-        className="px-2 py-1 rounded-md outline-none w-full"
-        onChange={searchHandler}
-      />
-    </div>
+    <input
+      type="text"
+      placeholder="Search"
+      className={`
+          mr-4
+          md:mr-0
+          my-2
+          md:mt-0
+          md:mb-6
+          px-2 
+          py-1 
+          rounded-md 
+          outline-none 
+          w-full
+          ${dark ? 'bg-neutral-200' : 'bg-neutral-50 shadow-[0_0_5px_#888888]'}
+        `}
+      onChange={searchHandler}
+    />
   );
 };
 

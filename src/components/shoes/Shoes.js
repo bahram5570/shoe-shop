@@ -18,45 +18,42 @@ const Shoes = () => {
 
   return (
     <Fragment>
-      <div
-        className="
-          flex 
-          flex-col 
-          max-w-sm 
-          px-4 
-          py-2 
-          mx-auto 
-          mb-6 
-          text-sm 
-          bg-neutral-800
-          rounded-lg 
-          sm:relative 
-          sm:flex-row 
-          sm:max-w-none 
-          sm:w-max 
-          sm:mx-auto"
-      >
-        <Search />
-        <div className="flex justify-between">
-          <Sort />
-          <FilterButton onShowFilters={() => setShowFilters(!showFilters)} />
-        </div>
-      </div>
-
-
-      <div className='flex justify-between'>
+      <div className="flex justify-between">
         <Filters
           onCloseFilters={() => setShowFilters(!showFilters)}
           showFilters={showFilters}
         />
 
-        {output.length !== 0 && (
-          <div className="w-full grid grid-cols-shoesGrid gap-8 sm:gap-14">{output}</div>
-        )}
-        {output.length === 0 && <NothingFound />}
+        <div className="w-full">
+          <div
+            className="
+              flex 
+              px-4 
+              py-2 
+              mb-6 
+              shadow-[0_0_10px_#aaaaaa]
+              rounded-lg"
+          >
+            <span className="flex items-center w-full md:hidden">
+              <Search />
+              <FilterButton
+                onShowFilters={() => setShowFilters(!showFilters)}
+              />
+            </span>
 
+            <span className="hidden md:flex md:w-full">
+              <Sort />
+            </span>
+          </div>
+
+          {output.length !== 0 && (
+            <div className="w-full grid grid-cols-shoesGrid gap-8 sm:gap-14">
+              {output}
+            </div>
+          )}
+          {output.length === 0 && <NothingFound />}
+        </div>
       </div>
-
     </Fragment>
   );
 };

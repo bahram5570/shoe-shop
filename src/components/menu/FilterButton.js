@@ -4,6 +4,7 @@ import { FaSlidersH } from 'react-icons/fa';
 
 const FilterButton = (props) => {
   const filterStatus = useSelector((state) => state.filterResultRedux);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   const [showFilters, setShowFilters] = useState(false);
 
@@ -19,12 +20,12 @@ const FilterButton = (props) => {
         relative 
         flex 
         items-center 
-        text-neutral-50 
         outline-none
         px-2
         rounded
         duration-300
-        ${showFilters ? "shadow-[0px_0px_7px_#999999_inset]" : ""}
+        ${dark ? 'text-neutral-50' : ''}
+        ${showFilters ? 'shadow-[0px_0px_7px_#999999_inset]' : ''}
       `}
     >
       {filterStatus.hasFilter && (
