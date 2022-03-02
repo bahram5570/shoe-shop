@@ -5,7 +5,7 @@ const NothingFound = () => {
   const dark = useSelector((state) => state.darkModeRedux);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <p className={`text-2xl mb-6 ${dark ? 'text-white' : ''}`}>
         Sorry... Nothing found!
       </p>

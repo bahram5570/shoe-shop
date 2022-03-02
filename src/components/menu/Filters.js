@@ -55,25 +55,31 @@ const Filters = (props) => {
     <div
       className={`
         accordion
-        fixed
-        top-6
-        ${props.showFilters ? 'left-8' : '-left-80'}
-        ${props.showFilters ? 'sm:left-0' : '-left-80'}
-        duration-500
-        bg-neutral-800
-        rounded-md 
-        mx-auto 
-        mt-10
-        sm:mt-14 
-        px-4 
-        pt-6 
-        w-fit 
+        duration-300
+        sm:shadow-[0_0_10px_#aaaaaa]
+        rounded-xl
+        overflow-hidden
         z-10
+        bg-[#000000dd]
+        sm:bg-transparent
+        sm:h-screen
+        fixed
+        top-16
+        left-2
+        right-2
+        bottom-4
+        sm:sticky
+        sm:top-4
+        ${
+          props.showFilters
+            ? 'sm:min-w-[300px] sm:w-96 px-4 pt-6 sm:mr-8'
+            : 'sm:min-w-0 w-0 p-0'
+        }
         `}
     >
       <section
         className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
         }`}
       >
         <button
@@ -85,7 +91,7 @@ const Filters = (props) => {
           Category
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
-        <div id="a1" className="accordion-collapse collapse pb-2">
+        <div id="a1" className="accordion-collapse show collapse pb-2">
           <FiltersCheckbox
             onFilter={(value) => {
               setCategoryFilter(value);
@@ -98,7 +104,7 @@ const Filters = (props) => {
 
       <section
         className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
         }`}
       >
         <button
@@ -121,7 +127,7 @@ const Filters = (props) => {
 
       <section
         className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
         }`}
       >
         <button
@@ -143,7 +149,7 @@ const Filters = (props) => {
 
       <section
         className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50'
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
         }`}
       >
         <ButtonsSection

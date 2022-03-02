@@ -28,7 +28,7 @@ const Shoes = () => {
           mx-auto 
           mb-6 
           text-sm 
-          bg-red-800 
+          bg-neutral-800
           rounded-lg 
           sm:relative 
           sm:flex-row 
@@ -43,15 +43,20 @@ const Shoes = () => {
         </div>
       </div>
 
-      <Filters
-        onCloseFilters={() => setShowFilters(!showFilters)}
-        showFilters={showFilters}
-      />
 
-      {output.length !== 0 && (
-        <div className="grid grid-cols-shoesGrid gap-8 sm:gap-14">{output}</div>
-      )}
-      {output.length === 0 && <NothingFound />}
+      <div className='flex justify-between'>
+        <Filters
+          onCloseFilters={() => setShowFilters(!showFilters)}
+          showFilters={showFilters}
+        />
+
+        {output.length !== 0 && (
+          <div className="w-full grid grid-cols-shoesGrid gap-8 sm:gap-14">{output}</div>
+        )}
+        {output.length === 0 && <NothingFound />}
+
+      </div>
+
     </Fragment>
   );
 };

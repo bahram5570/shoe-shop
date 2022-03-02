@@ -12,10 +12,11 @@ const ShoeStructure = ({ items }) => {
       onClick={() => navigate(items.id)}
       className={`
         relative
+        h-fit
         sm:max-w-xs
         overflow-hidden 
         duration-150 
-        shadow-[0_0_14px_#666666]
+        shadow-[0_0_10px_#aaaaaa]
         rounded-xl 
         sm:cursor-pointer 
         ring-neutral-400 
