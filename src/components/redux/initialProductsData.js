@@ -22,3 +22,7 @@ export const initialFilterData = () => {
 export const hasFilterData = () => {
   return hasFilterLogic(productsData, initialFilterData());
 };
+
+export const initialSortMode = () => {
+  return JSON.parse(localStorage.getItem('sortMode')) || 'Relevace';
+};

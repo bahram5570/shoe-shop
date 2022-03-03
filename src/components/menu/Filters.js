@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { FaAngleDown } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { filtering } from '../redux/slices/filtersSlice';
 import FiltersCheckbox from './FiltersCheckbox';
 import ButtonsSection from './ButtonsSection';
 import PriceRange from './PriceRange';
-
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
+import { FaAngleDown } from 'react-icons/fa';
 
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
@@ -56,12 +55,12 @@ const Filters = (props) => {
 
   return (
     <div
+      style={{ overflowY: 'overlay' }}
       className={`
         accordion
         duration-300
         md:shadow-[0_0_10px_#aaaaaa]
         rounded-xl
-        overflow-hidden
         z-10
         bg-[#000000dd]
         md:bg-transparent
@@ -83,8 +82,8 @@ const Filters = (props) => {
       <span className="hidden md:block">
         <Search />
       </span>
-      
-      <span className="block md:hidden">
+
+      <span className="block md:hidden w-full">
         <Sort />
       </span>
 
@@ -94,7 +93,7 @@ const Filters = (props) => {
         }`}
       >
         <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center"
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
           data-bs-toggle="collapse"
           data-bs-target="#a1"
           aria-expanded="true"
@@ -102,7 +101,7 @@ const Filters = (props) => {
           Category
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
-        <div id="a1" className="accordion-collapse show collapse pb-2">
+        <div id="a1" className="accordion-collapse collapse pb-2">
           <FiltersCheckbox
             onFilter={(value) => {
               setCategoryFilter(value);
@@ -119,7 +118,7 @@ const Filters = (props) => {
         }`}
       >
         <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center"
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
           data-bs-toggle="collapse"
           data-bs-target="#a2"
           aria-expanded="true"
@@ -142,7 +141,7 @@ const Filters = (props) => {
         }`}
       >
         <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center"
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
           data-bs-toggle="collapse"
           data-bs-target="#a3"
           aria-expanded="true"
