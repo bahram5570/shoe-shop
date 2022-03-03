@@ -34,16 +34,16 @@ const Shoes = () => {
               shadow-[0_0_10px_#aaaaaa]
               rounded-lg"
           >
-            <span className="flex items-center w-full md:hidden">
+            <section className="flex items-center w-full md:hidden">
               <Search />
               <FilterButton
                 onShowFilters={() => setShowFilters(!showFilters)}
               />
-            </span>
+            </section>
 
-            <span className="hidden md:flex md:w-full">
+            <section className="hidden md:flex md:w-full">
               <Sort />
-            </span>
+            </section>
           </div>
 
           {output.length !== 0 && (

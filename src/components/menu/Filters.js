@@ -61,31 +61,46 @@ const Filters = (props) => {
         duration-300
         md:shadow-[0_0_10px_#aaaaaa]
         rounded-xl
-        z-10
+        z-40
         bg-[#000000dd]
         md:bg-transparent
         md:h-screen
         fixed
-        top-16
-        bottom-4
+        top-0
+        left-0
+        right-0
+        bottom-0
         md:sticky
         md:top-4
-        w-48
         min-w-[300px]
         md:min-w-[300px]
         md:mr-8
         px-4
         py-6
-        ${props.showFilters ? '' : '-translate-x-96 md:translate-x-0'}
+        ${props.showFilters ? '' : 'top-full'}
       `}
     >
-      <span className="hidden md:block">
+      <section className="hidden md:block">
         <Search />
-      </span>
+      </section>
 
-      <span className="block md:hidden w-full">
+      <section
+        className={`filter_section ${
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+        }`}
+      >
+        <ButtonsSection
+          onReset={() => resetHandler()}
+          onAvailable={(x) => setAvailableFilter(x)}
+          onCloseFilters={() => props.onCloseFilters()}
+          onApplyFilters={applyFilterHandler}
+        />
+      </section>
+
+
+      <section className="block md:hidden w-full">
         <Sort />
-      </span>
+      </section>
 
       <section
         className={`filter_section ${
@@ -155,19 +170,6 @@ const Filters = (props) => {
             onPrice={(value) => setPriceFilter(value)}
           />
         </div>
-      </section>
-
-      <section
-        className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
-        }`}
-      >
-        <ButtonsSection
-          onReset={() => resetHandler()}
-          onAvailable={(x) => setAvailableFilter(x)}
-          onCloseFilters={() => props.onCloseFilters()}
-          onApplyFilters={applyFilterHandler}
-        />
       </section>
     </div>
   );

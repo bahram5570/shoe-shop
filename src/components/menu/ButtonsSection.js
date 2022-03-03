@@ -72,10 +72,9 @@ const ButtonsSection = (props) => {
             ml-4 
             text-sm 
             duration-100 
-            border-2 
             rounded-md 
-            text-neutral-900 
-            border-neutral-800 
+            text-neutral-50 
+            bg-neutral-700 
             active:scale-90"
         >
           Reset
@@ -107,7 +106,7 @@ const ButtonsSection = (props) => {
             rounded-md 
             text-neutral-50 
             h-min 
-            bg-cyan-600 
+            bg-cyan-500 
             active:scale-90"
         >
           Apply

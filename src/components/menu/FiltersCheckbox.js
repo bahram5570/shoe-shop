@@ -1,5 +1,4 @@
 import { Fragment, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { FaCheck } from 'react-icons/fa';
 
 const FiltersCheckbox = ({ items, type, onFilter }) => {
@@ -11,14 +10,7 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
     }
   };
 
-  const [checkedList, setCheckedList] = useState(initialState);
-
-  const filterStatus = useSelector((state) => state.filterResultRedux);
-  useEffect(() => {
-    if (!filterStatus.hasFilter) {
-      setCheckedList([]);
-    }
-  }, [filterStatus]);
+  const [checkedList, setCheckedList] = useState(initialState());
 
   useEffect(() => {
     onFilter(checkedList);

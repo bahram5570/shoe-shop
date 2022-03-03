@@ -5,7 +5,7 @@ const Layout = (props) => {
   const dark = useSelector((state) => state.darkModeRedux);
 
   return (
-    <div className="min-h-screen relative w-screen">
+    <div className="min-h-screen relative">
       <Headers />
 
       <main

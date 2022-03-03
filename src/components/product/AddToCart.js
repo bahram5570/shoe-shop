@@ -45,7 +45,7 @@ const AddToCart = ({ item }) => {
     <div
       className={`
         p-4 
-        mt-8
+        mt-12
         rounded-xl 
         sm:w-56 
         sm:min-w-[224px] 

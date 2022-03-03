@@ -1,15 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialFilterData } from '../initialProductsData';
-import { hasFilterData } from '../initialProductsData';
 import { productsData } from '../initialProductsData';
 import { initialSortMode } from '../initialProductsData';
 import { sortingLogic } from '../logics/sortingLogic';
 import { searchLogic } from '../logics/searchLogic';
-import { hasFilterLogic } from '../logics/hasFilterLogic';
 
 const initialState = {
   outputData: initialFilterData(),
-  hasFilter: hasFilterData(),
   sortMode: initialSortMode(),
 };
 
@@ -62,7 +59,6 @@ const filtersSlice = createSlice({
       return {
         ...state,
         outputData: resultList,
-        hasFilter: hasFilterLogic(productsData, resultList),
       };
     },
 

@@ -3,9 +3,22 @@ import { useSelector } from 'react-redux';
 import { FaHeart } from 'react-icons/fa';
 
 const ShoeStructure = ({ items }) => {
+  const dark = useSelector((state) => state.darkModeRedux);
+
   const navigate = useNavigate();
 
-  const dark = useSelector((state) => state.darkModeRedux);
+  const itemColors = items.colors.map((x) => (
+    <span
+      key={x.name}
+      style={{ background: x.code }}
+      className={`
+      block 
+      mx-0.5 
+      rounded-xl
+      ${x.name === 'White' ? 'border-2 border-black p-1.5' : 'p-2 '}
+    `}
+    />
+  ));
 
   return (
     <div
@@ -24,6 +37,12 @@ const ShoeStructure = ({ items }) => {
         ${dark ? 'shadow-none bg-neutral-200' : ''}`}
     >
       <img src={items.images[0]} alt={items.id} />
+
+      <span className="absolute top-4 right-4 flex items-center">
+        <p className="mr-1 text-slate-600">{items.likes}</p>
+        <FaHeart className="text-redColor w-5 h-auto" />
+      </span>
+
       {items.qt === 0 && (
         <p className="absolute top-1/3 left-1/4 text-redColor text-5xl rotate-45">
           Sold Out!
@@ -31,10 +50,7 @@ const ShoeStructure = ({ items }) => {
       )}
       <section className="flex justify-between px-4 py-2">
         <h1 className="text-xl italic">{items.brand}</h1>
-        <span className="flex items-center">
-          <p className="mr-1 text-sm text-slate-600">{items.likes}</p>
-          <FaHeart className="text-redColor" />
-        </span>
+        <div className="flex items-center">{itemColors}</div>
       </section>
       <section className="flex justify-between px-4 py-2">
         <p>$ {items.price}</p>

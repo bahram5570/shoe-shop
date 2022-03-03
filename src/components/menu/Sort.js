@@ -27,7 +27,6 @@ const Sort = () => {
       filter_section
       md:mb-0
       md:flex
-      
       w-full
       ${
         dark
@@ -36,7 +35,7 @@ const Sort = () => {
       }
     `}
     >
-      <p className="hidden md:flex items-center mr-2 md:min-w-fit">
+      <p className="hidden font-extrabold md:flex items-center mr-2 md:min-w-fit">
         <FaSortAmountDown className="mr-1" />
         Sort By:
       </p>
@@ -62,12 +61,12 @@ const Sort = () => {
 
       <div
         id="a0"
-        className="accordion-collapse show collapse md:flex md:flex-wrap pb-2 md:pb-0"
+        className="accordion-collapse show collapse md:grid md:grid-cols-3 md:gap-2 lg:flex pb-2 md:pb-0"
       >
         {items.map((x) => (
           <span
             key={x}
-            className="flex items-center justify-between pl-2 pr-6 md:px-0 py-2 border-b-2 md:border-b-0 md:mx-6 md:relative"
+            className="flex items-center justify-between pl-2 pr-6 md:px-0 py-2 md:py-0 border-b-2 md:border-b-0 md:mx-6 md:relative"
           >
             <input
               checked={x === sortItem}

@@ -141,14 +141,6 @@ const ProductFeatures = ({ items, onSelection }) => {
           </select>
         </section>
       )}
-
-      {qt === 0 && (
-        <section>
-          <h2 className="ml-2 text-xl text-redColor font-bold mb-2">
-            Sold Out!
-          </h2>
-        </section>
-      )}
     </div>
   );
 };
