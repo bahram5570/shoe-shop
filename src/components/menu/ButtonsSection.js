@@ -1,9 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { reseting } from '../redux/slices/filtersSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { filtering, reseting } from '../redux/slices/filtersSlice';
 import { FaCheck } from 'react-icons/fa';
 
-const ButtonsSection = (props) => {
+const ButtonsSection = ({ onCloseFilters }) => {
   const initialState = () => {
     if (localStorage.getItem('availables')) {
       const value = localStorage.getItem('availables');
@@ -13,26 +13,27 @@ const ButtonsSection = (props) => {
     }
   };
 
+  const filteredData = useSelector(
+    (state) => state.filterResultRedux
+  ).filtersList;
+  const dispatch = useDispatch();
+
   const [availableChecked, setAvailableChecked] = useState(initialState);
 
   useEffect(() => {
-    props.onAvailable(availableChecked);
-  }, [availableChecked, props]);
+    localStorage.setItem('availables', availableChecked);
+    dispatch(filtering());
+  }, [availableChecked, dispatch]);
 
-  const checkedHandler = (mode) => {
-    if (mode === 'reset') {
+  useEffect(() => {
+    if (filteredData.length === 0) {
       setAvailableChecked(false);
-    } else {
-      setAvailableChecked(!availableChecked);
     }
-  };
-
-  const dispatch = useDispatch();
+  }, [filteredData.length]);
 
   const resetHandler = () => {
-    checkedHandler('reset');
     dispatch(reseting());
-    props.onReset();
+    onCloseFilters();
   };
 
   return (
@@ -40,7 +41,7 @@ const ButtonsSection = (props) => {
       <div className="flex items-center py-1 mb-4 duration-200 hover:translate-x-1">
         <input
           checked={availableChecked}
-          onChange={() => checkedHandler('change')}
+          onChange={() => setAvailableChecked(!availableChecked)}
           type="checkbox"
           id="available"
           className="
@@ -64,6 +65,7 @@ const ButtonsSection = (props) => {
           <FaCheck className="absolute w-3 h-auto top-1 -left-5 text-neutral-50" />
         </label>
       </div>
+
       <div className="flex justify-end mb-3">
         <button
           onClick={() => resetHandler()}
@@ -79,10 +81,11 @@ const ButtonsSection = (props) => {
         >
           Reset
         </button>
+
         <button
-          onClick={() => props.onCloseFilters()}
+          onClick={() => onCloseFilters()}
           className="
-          md:hidden
+            md:hidden
             px-3 
             ml-4 
             text-sm 
@@ -93,23 +96,7 @@ const ButtonsSection = (props) => {
             active:scale-90 
             text-redColor"
         >
-          Cancel
-        </button>
-        <button
-          onClick={() => props.onApplyFilters()}
-          className="
-            px-4 
-            py-1 
-            ml-4 
-            text-sm 
-            duration-100 
-            rounded-md 
-            text-neutral-50 
-            h-min 
-            bg-cyan-500 
-            active:scale-90"
-        >
-          Apply
+          Close
         </button>
       </div>
     </Fragment>

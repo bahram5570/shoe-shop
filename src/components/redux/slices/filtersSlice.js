@@ -4,43 +4,51 @@ import { productsData } from '../initialProductsData';
 import { initialSortMode } from '../initialProductsData';
 import { sortingLogic } from '../logics/sortingLogic';
 import { searchLogic } from '../logics/searchLogic';
+import { filtersListLogic } from '../logics/filtersListLogic';
 
 const initialState = {
   outputData: initialFilterData(),
   sortMode: initialSortMode(),
+  filtersList: filtersListLogic(),
 };
 
 const filtersSlice = createSlice({
   name: 'filtersSlice',
   initialState,
   reducers: {
-    filtering: (state, action) => {
+    filtering: (state) => {
+      const categoryItems = JSON.parse(localStorage.getItem('category')) || [];
+      const sizeItems = JSON.parse(localStorage.getItem('size')) || [];
+      const priceItems = JSON.parse(localStorage.getItem('price')) || {
+        min: 20,
+        max: 78,
+      };
+      const availablesItems =
+        JSON.parse(localStorage.getItem('availables')) || false;
+
       const categoryFiltering = productsData.filter((x) =>
-        action.payload.categoryFilter.length === 0
+        categoryItems.length === 0
           ? productsData
-          : action.payload.categoryFilter.includes(x.category)
+          : categoryItems.includes(x.category)
       );
 
       const sizeFiltering = [];
 
-      if (action.payload.sizeFilter.length === 0) {
+      if (sizeItems.length === 0) {
         sizeFiltering.push(...categoryFiltering);
       } else {
         categoryFiltering.forEach((element) => {
           for (let i = 0; i < element.size.length; i++) {
-            action.payload.sizeFilter.includes(element.size[i]) &&
-              sizeFiltering.push(element);
+            sizeItems.includes(element.size[i]) && sizeFiltering.push(element);
           }
         });
       }
 
       const priceFiltering = sizeFiltering.filter(
-        (x) =>
-          x.price >= action.payload.priceFilter.min &&
-          x.price <= action.payload.priceFilter.max
+        (x) => x.price >= priceItems.min && x.price <= priceItems.max
       );
 
-      const availableFiltering = action.payload.availableFilter
+      const availableFiltering = availablesItems
         ? priceFiltering.filter((x) => x.qt > 0)
         : priceFiltering;
 
@@ -59,6 +67,7 @@ const filtersSlice = createSlice({
       return {
         ...state,
         outputData: resultList,
+        filtersList: filtersListLogic(),
       };
     },
 
@@ -76,10 +85,16 @@ const filtersSlice = createSlice({
     },
 
     reseting: (state) => {
+      localStorage.removeItem('category');
+      localStorage.removeItem('size');
+      localStorage.removeItem('price');
+      localStorage.removeItem('availables');
+      localStorage.removeItem('outputDataID');
+
       return {
         ...state,
         outputData: sortingLogic(state.sortMode, productsData),
-        hasFilter: false,
+        filtersList: filtersListLogic(),
       };
     },
   },

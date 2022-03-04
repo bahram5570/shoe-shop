@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { filtering } from '../redux/slices/filtersSlice';
 import './PriceRange.css';
 
-const PriceRange = (props) => {
-  const { minPrice, maxPrice } = props.items;
+const PriceRange = ({ items }) => {
+  const { minPrice, maxPrice } = items;
 
   const filterPrices = localStorage.getItem('price')
     ? JSON.parse(localStorage.getItem('price'))
@@ -14,19 +15,24 @@ const PriceRange = (props) => {
     max: filterPrices.max,
   });
 
-  const filterStatus = useSelector((state) => state.filterResultRedux);
+  const filteredData = useSelector(
+    (state) => state.filterResultRedux
+  ).filtersList;
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    if (!filterStatus.hasFilter) {
+    if (filteredData.length === 0) {
       setPriceValue({
         min: filterPrices.min,
         max: filterPrices.max,
       });
     }
-  }, [filterStatus, filterPrices.min, filterPrices.max]);
+  }, [filteredData.length, filterPrices.min, filterPrices.max]);
 
   useEffect(() => {
-    props.onPrice(priceValue);
-  }, [priceValue, props]);
+    localStorage.setItem('price', JSON.stringify(priceValue));
+    dispatch(filtering());
+  }, [priceValue, dispatch]);
 
   const priceHandler = (e) => {
     setPriceValue({ ...priceValue, [e.target.name]: parseInt(e.target.value) });

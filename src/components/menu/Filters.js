@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { filtering } from '../redux/slices/filtersSlice';
+import { useSelector } from 'react-redux';
 import FiltersCheckbox from './FiltersCheckbox';
 import ButtonsSection from './ButtonsSection';
 import PriceRange from './PriceRange';
@@ -13,46 +11,23 @@ const Filters = (props) => {
   const currentSizes = [38, 39, 40, 41, 42];
   const currentPrices = { minPrice: 20, maxPrice: 78 };
 
-  const [categoryFilter, setCategoryFilter] = useState([]);
-  const [sizeFilter, setSizeFilter] = useState([]);
-  const [priceFilter, setPriceFilter] = useState({
-    min: currentPrices.minPrice,
-    max: currentPrices.maxPrice,
-  });
-  const [availableFilter, setAvailableFilter] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const resetHandler = () => {
-    localStorage.removeItem('category');
-    localStorage.removeItem('size');
-    localStorage.removeItem('price');
-    localStorage.removeItem('availables');
-    localStorage.removeItem('outputDataID');
-
-    props.onCloseFilters();
-  };
-
-  const applyFilterHandler = () => {
-    dispatch(
-      filtering({
-        categoryFilter,
-        sizeFilter,
-        priceFilter,
-        availableFilter,
-      })
-    );
-
-    localStorage.setItem('category', JSON.stringify(categoryFilter));
-    localStorage.setItem('size', JSON.stringify(sizeFilter));
-    localStorage.setItem('price', JSON.stringify(priceFilter));
-    localStorage.setItem('availables', JSON.stringify(availableFilter));
-
-    props.onCloseFilters();
-  };
-
   const dark = useSelector((state) => state.darkModeRedux);
+  const filtersList = useSelector(
+    (state) => state.filterResultRedux
+  ).filtersList;
 
+  const hasFilter = (type) => (
+    <span
+      className={`
+      mr-2
+      w-2 
+      h-2 
+      rounded
+      bg-green-500
+      ${!filtersList.includes(type) && 'opacity-0'}
+      `}
+    />
+  );
   return (
     <div
       style={{ overflowY: 'overlay' }}
@@ -89,14 +64,8 @@ const Filters = (props) => {
           dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
         }`}
       >
-        <ButtonsSection
-          onReset={() => resetHandler()}
-          onAvailable={(x) => setAvailableFilter(x)}
-          onCloseFilters={() => props.onCloseFilters()}
-          onApplyFilters={applyFilterHandler}
-        />
+        <ButtonsSection onCloseFilters={() => props.onCloseFilters()} />
       </section>
-
 
       <section className="block md:hidden w-full">
         <Sort />
@@ -113,17 +82,15 @@ const Filters = (props) => {
           data-bs-target="#a1"
           aria-expanded="true"
         >
-          Category
+          <div className="flex items-center">
+            {hasFilter('category')}
+            Category
+          </div>
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
-        <div id="a1" className="accordion-collapse collapse pb-2">
-          <FiltersCheckbox
-            onFilter={(value) => {
-              setCategoryFilter(value);
-            }}
-            items={currentCategories}
-            type="category"
-          />
+
+        <div id="a1" className="accordion-collapse show collapse pb-2">
+          <FiltersCheckbox items={currentCategories} type="category" />
         </div>
       </section>
 
@@ -138,15 +105,14 @@ const Filters = (props) => {
           data-bs-target="#a2"
           aria-expanded="true"
         >
-          Size
+          <div className="flex items-center">
+            {hasFilter('size')}
+            Size
+          </div>
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
         <div id="a2" className="accordion-collapse collapse pb-2">
-          <FiltersCheckbox
-            onFilter={(value) => setSizeFilter(value)}
-            items={currentSizes}
-            type="size"
-          />
+          <FiltersCheckbox items={currentSizes} type="size" />
         </div>
       </section>
 
@@ -161,14 +127,14 @@ const Filters = (props) => {
           data-bs-target="#a3"
           aria-expanded="true"
         >
-          Price
+          <div className="flex items-center">
+            {hasFilter('price')}
+            Price
+          </div>
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
         <div id="a3" className="accordion-collapse collapse pb-2">
-          <PriceRange
-            items={currentPrices}
-            onPrice={(value) => setPriceFilter(value)}
-          />
+          <PriceRange items={currentPrices} />
         </div>
       </section>
     </div>

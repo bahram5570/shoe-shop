@@ -1,7 +1,9 @@
 import { Fragment, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { filtering } from '../redux/slices/filtersSlice';
 import { FaCheck } from 'react-icons/fa';
 
-const FiltersCheckbox = ({ items, type, onFilter }) => {
+const FiltersCheckbox = ({ items, type }) => {
   const initialState = () => {
     if (localStorage.getItem(type)) {
       return JSON.parse(localStorage.getItem(type));
@@ -12,9 +14,22 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
 
   const [checkedList, setCheckedList] = useState(initialState());
 
+  const filteredData = useSelector(
+    (state) => state.filterResultRedux
+  ).filtersList;
+
   useEffect(() => {
-    onFilter(checkedList);
-  }, [checkedList, type, onFilter]);
+    if (filteredData.length === 0) {
+      setCheckedList([]);
+    }
+  }, [filteredData.length]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    localStorage.setItem(type, JSON.stringify(checkedList));
+    dispatch(filtering());
+  }, [type, checkedList, dispatch]);
 
   const checkedHandler = (e) => {
     if (checkedList.includes(e)) {
@@ -27,14 +42,14 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
 
   const outputs = items.map((x) => (
     <span
-      className="
-            flex 
-            items-center 
-            w-fit
-            hover:translate-x-1 
-            duration-200 
-            py-1"
       key={x}
+      className="
+        flex 
+        items-center 
+        w-fit
+        hover:translate-x-1 
+        duration-200 
+        py-1"
     >
       <input
         onChange={(w) => checkedHandler(x)}
@@ -42,17 +57,17 @@ const FiltersCheckbox = ({ items, type, onFilter }) => {
         id={x}
         type="checkbox"
         className="
-                appearance-none 
-                outline-none 
-                cursor-pointer 
-                w-5 
-                h-5 
-                border-2 
-                border-cyan-500 
-                rounded-sm 
-                bg-neutral-50 
-                checked:bg-cyan-500 
-                duration-150"
+          appearance-none 
+          outline-none 
+          cursor-pointer 
+          w-5 
+          h-5 
+          border-2 
+          border-cyan-500 
+          rounded-sm 
+          bg-neutral-50 
+          checked:bg-cyan-500 
+          duration-150"
       />
       <label htmlFor={x} className="cursor-pointer ml-2 relative">
         {x}
