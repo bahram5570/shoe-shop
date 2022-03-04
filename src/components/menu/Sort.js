@@ -28,14 +28,20 @@ const Sort = () => {
       md:mb-0
       md:flex
       w-full
-      ${
-        dark
-          ? 'bg-neutral-200 md:bg-transparent md:text-white'
-          : 'bg-neutral-50'
-      }
+      ${dark ? 'bg-neutral-200 md:bg-transparent' : 'bg-neutral-50'}
     `}
     >
-      <p className="hidden font-extrabold md:flex items-center mr-2 md:min-w-fit">
+      <p
+        className="
+        hidden 
+        font-extrabold 
+        md:flex 
+        items-center 
+        mr-2 
+        md:min-w-fit 
+        md:text-sm 
+        lg:text-base"
+      >
         <FaSortAmountDown className="mr-1" />
         Sort By:
       </p>
@@ -61,12 +67,33 @@ const Sort = () => {
 
       <div
         id="a0"
-        className="accordion-collapse show collapse md:grid md:grid-cols-3 md:gap-2 lg:flex pb-2 md:pb-0"
+        className="
+          accordion-collapse 
+          show 
+          collapse  
+          md:flex 
+          pb-2 
+          md:pb-0"
       >
         {items.map((x) => (
           <span
             key={x}
-            className="flex items-center justify-between pl-2 pr-6 md:px-0 py-2 md:py-0 border-b-2 md:border-b-0 md:mx-6 md:relative"
+            className="
+              flex 
+              items-center 
+              justify-between 
+              pl-2 
+              pr-6 
+              md:px-0 
+              py-2 
+              md:py-0 
+              border-b-2 
+              md:border-b-0 
+              md:mx-3
+              md:text-sm 
+              md:relative
+              lg:text-base
+              lg:mx-5"
           >
             <input
               checked={x === sortItem}

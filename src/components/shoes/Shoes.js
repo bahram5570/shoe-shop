@@ -8,6 +8,7 @@ import Filters from '../menu/Filters';
 import NothingFound from './NothingFound';
 
 const Shoes = () => {
+  const dark = useSelector((state) => state.darkModeRedux);
   const filteredData = useSelector((state) => state.filterResultRedux);
 
   const output = filteredData.outputData.map((x) => (
@@ -26,13 +27,19 @@ const Shoes = () => {
 
         <div className="w-full">
           <div
-            className="
+            className={`
+              md:sticky
+              md:top-4
+              md:z-10
+              md:h-fit
               flex 
               px-4 
               py-2 
               mb-6 
-              shadow-[0_0_10px_#aaaaaa]
-              rounded-lg"
+              shadow-[0_0_10px_#888888]
+              rounded-lg
+              ${dark && 'md:bg-neutral-200'}
+            `}
           >
             <section className="flex items-center w-full md:hidden">
               <Search />
@@ -41,7 +48,12 @@ const Shoes = () => {
               />
             </section>
 
-            <section className="hidden md:flex md:w-full">
+            <section
+              className="
+                hidden 
+                md:flex 
+                md:w-full"
+            >
               <Sort />
             </section>
           </div>

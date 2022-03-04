@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filtering, reseting } from '../redux/slices/filtersSlice';
-import { FaCheck } from 'react-icons/fa';
+import { FaReply } from 'react-icons/fa';
 
 const ButtonsSection = ({ onCloseFilters }) => {
   const initialState = () => {
@@ -13,6 +13,7 @@ const ButtonsSection = ({ onCloseFilters }) => {
     }
   };
 
+  const dark = useSelector((state) => state.darkModeRedux);
   const filteredData = useSelector(
     (state) => state.filterResultRedux
   ).filtersList;
@@ -38,66 +39,71 @@ const ButtonsSection = ({ onCloseFilters }) => {
 
   return (
     <Fragment>
-      <div className="flex items-center py-1 mb-4 duration-200 hover:translate-x-1">
-        <input
-          checked={availableChecked}
-          onChange={() => setAvailableChecked(!availableChecked)}
-          type="checkbox"
-          id="available"
-          className="
-            w-5 
-            h-5 
-            duration-150 
-            border-2 
-            rounded-sm 
-            outline-none 
-            appearance-none 
-            cursor-pointer 
-            border-cyan-500 
-            bg-neutral-50 
-            checked:bg-cyan-500"
-        />
-        <label
-          htmlFor="available"
-          className="ml-1 text-sm cursor-pointer relative"
-        >
-          Only Availables
-          <FaCheck className="absolute w-3 h-auto top-1 -left-5 text-neutral-50" />
-        </label>
-      </div>
-
-      <div className="flex justify-end mb-3">
-        <button
-          onClick={() => resetHandler()}
-          className="
-            px-3 
-            ml-4 
-            text-sm 
-            duration-100 
-            rounded-md 
-            text-neutral-50 
-            bg-neutral-700 
-            active:scale-90"
-        >
-          Reset
-        </button>
-
+      <div className="flex justify-between md:justify-center mb-1">
         <button
           onClick={() => onCloseFilters()}
           className="
             md:hidden
-            px-3 
-            ml-4 
-            text-sm 
-            duration-100 
-            border-2 
-            rounded-md 
-            border-redColor 
-            active:scale-90 
-            text-redColor"
+            text-redColor
+            flex
+            items-center
+            mb-1
+            "
         >
-          Close
+          <FaReply className="mr-2" />
+          Back
         </button>
+
+        <button
+          onClick={() => resetHandler()}
+          className={`
+            ${filteredData.length === 0 && 'hidden'}
+            bg-transparent
+            mb-1
+            ${dark ? 'text-sky-500' : 'text-cyan-400'}
+          `}
+        >
+          Reset All Filters
+        </button>
+      </div>
+
+      <div className="flex justify-between items-center py-1 mb-1 duration-200">
+        <label htmlFor="available" className=" cursor-pointer relative">
+          Only Availables
+        </label>
+
+        <div
+          className="
+            relative
+            w-12
+            h-6
+            rounded-xl
+            shadow-[0_0_2px_#555555_inset]"
+        >
+          <input
+            checked={availableChecked}
+            onChange={() => setAvailableChecked(!availableChecked)}
+            type="checkbox"
+            id="available"
+            className="absolute w-full h-full cursor-pointer z-10 appearance-none"
+          />
+
+          <span
+            className={`
+              absolute 
+              top-1 
+              duration-300
+              w-4 
+              h-4 
+              rounded-lg 
+              ${
+                availableChecked
+                  ? 'left-7 bg-cyan-400'
+                  : 'left-1 bg-neutral-500'
+              }
+            `}
+          />
+        </div>
       </div>
     </Fragment>
   );

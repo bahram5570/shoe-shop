@@ -39,7 +39,7 @@ const Filters = (props) => {
         z-40
         bg-[#000000dd]
         md:bg-transparent
-        md:h-screen
+        md:h-full
         fixed
         top-0
         left-0
