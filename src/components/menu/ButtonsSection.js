@@ -67,7 +67,7 @@ const ButtonsSection = ({ onCloseFilters }) => {
         </button>
       </div>
 
-      <div className="flex justify-between items-center py-1 mb-1 duration-200">
+      <div className="flex justify-between items-center px-2 py-1 mb-1 duration-200">
         <label htmlFor="available" className=" cursor-pointer relative">
           Only Availables
         </label>

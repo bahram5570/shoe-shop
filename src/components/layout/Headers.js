@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { mode } from '../redux/slices/darkModeSlice';
+import { showHeader } from '../redux/slices/headerSlice';
 import {
   FaHome,
   FaShoePrints,
@@ -14,17 +14,14 @@ import {
 } from 'react-icons/fa';
 
 const Headers = () => {
-  const [show, setShow] = useState(false);
-
-  const sideBarHandler = () => {
-    setShow(!show);
-  };
-
   const dispatch = useDispatch();
+
   const dark = useSelector((state) => state.darkModeRedux);
+
+  const showMenu = useSelector((state) => state.headerRedux).showHeader;
+
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
   const cartQt = useSelector((state) => state.cartRedux).length;
-
 
   return (
     <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
@@ -34,15 +31,15 @@ const Headers = () => {
           Shoe Shop
         </h1>
         <FaBars
-          onClick={() => sideBarHandler()}
+          onClick={() => dispatch(showHeader())}
           className={`z-10 w-auto h-6 cursor-pointer sm:hidden duration-300 ${
-            show && 'rotate-90'
+            showMenu && 'rotate-90'
           }`}
         />
 
         <ul
           className={`
-            ${show ? 'right-0' : '-right-20'}
+            ${showMenu ? 'right-0' : '-right-20'}
             absolute 
             top-0 
             sm:right-0
@@ -60,7 +57,8 @@ const Headers = () => {
             bg-zinc-800 
             bg-opacity-90 
             sm:bg-opacity-100 
-            sm:h-fit`}
+            sm:h-fit
+          `}
         >
           <li className="flex">
             <NavLink

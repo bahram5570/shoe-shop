@@ -30,7 +30,7 @@ const ShoeStructure = ({ items }) => {
         overflow-hidden 
         duration-150 
         shadow-[0_0_10px_#aaaaaa]
-        rounded-xl 
+        rounded-lg 
         sm:cursor-pointer 
         ring-neutral-400 
         sm:hover:ring-4
@@ -52,9 +52,9 @@ const ShoeStructure = ({ items }) => {
         <h1 className="text-xl italic">{items.brand}</h1>
         <div className="flex items-center">{itemColors}</div>
       </section>
-      <section className="flex justify-between px-4 py-2">
-        <p>$ {items.price}</p>
-        <p className="text-cartColor">{items.off}% OFF</p>
+      <section className="flex justify-between px-4 pt-2 pb-3">
+        <p className='text-white bg-neutral-800 px-3 rounded-md'>$ {items.price}</p>
+        <p className="text-white bg-redColor px-3 rounded-xl">{items.off}% OFF</p>
       </section>
     </div>
   );

@@ -61,7 +61,7 @@ const Sort = () => {
         data-bs-target="#a0"
         aria-expanded="true"
       >
-        Sort By:
+        <span className='ml-5'>Sort By</span>
         <FaAngleDown className="w-6 h-auto text-neutral-600" />
       </button>
 
@@ -78,7 +78,7 @@ const Sort = () => {
         {items.map((x) => (
           <span
             key={x}
-            className="
+            className={`
               flex 
               items-center 
               justify-between 
@@ -88,12 +88,14 @@ const Sort = () => {
               py-2 
               md:py-0 
               border-b-2 
+              ${dark ? 'border-neutral-50' : 'border-neutral-200'}
               md:border-b-0 
               md:mx-3
               md:text-sm 
               md:relative
               lg:text-base
-              lg:mx-5"
+              lg:mx-5
+            `}
           >
             <input
               checked={x === sortItem}

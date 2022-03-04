@@ -44,14 +44,16 @@ const FiltersCheckbox = ({ items, type }) => {
   const outputs = items.map((x) => (
     <span
       key={x}
-      className="
+      className={`
         flex 
         items-center 
         w-full
         border-b-2
-        hover:translate-x-1 
+        ${dark ? 'border-neutral-50' : 'border-neutral-200'}
+        md:hover:translate-x-1 
         duration-200 
-        py-2"
+        py-2
+      `}
     >
       <input
         onChange={(w) => checkedHandler(x)}

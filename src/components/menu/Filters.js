@@ -89,7 +89,7 @@ const Filters = (props) => {
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
 
-        <div id="a1" className="accordion-collapse show collapse pb-2">
+        <div id="a1" className="accordion-collapse collapse pb-2">
           <FiltersCheckbox items={currentCategories} type="category" />
         </div>
       </section>

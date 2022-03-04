@@ -59,7 +59,7 @@ const Shoes = () => {
           </div>
 
           {output.length !== 0 && (
-            <div className="w-full grid grid-cols-shoesGrid gap-8 sm:gap-14">
+            <div className="w-full grid grid-cols-shoesGrid gap-8 sm:gap-10">
               {output}
             </div>
           )}
