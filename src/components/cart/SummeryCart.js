@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-const SummeryCart = ({ items }) => {
+const SummeryCart = ({ items, onCheckout }) => {
   const dark = useSelector((state) => state.darkModeRedux);
 
   let totalItems = 0;
@@ -34,7 +34,7 @@ const SummeryCart = ({ items }) => {
         }
       `}
     >
-      <h1 className="mb-4 text-2xl font-bold text-center">OrderSummery</h1>
+      <h1 className="mb-4 text-2xl font-bold text-center">Order Summery</h1>
       <p className="italic text-center">{currentTime}</p>
 
       <span className="flex justify-between my-5 text-xl">
@@ -58,15 +58,16 @@ const SummeryCart = ({ items }) => {
       </span>
 
       <button
+        onClick={() => onCheckout()}
         className={`
-            w-full
-            py-1 
-            rounded-2xl
-            outline-none
-            text-lg
-            bg-greenColor
-            text-neutral-50
-            `}
+          w-full
+          py-1 
+          rounded-2xl
+          outline-none
+          text-lg
+          bg-greenColor
+          text-neutral-50
+        `}
       >
         Checkout
       </button>

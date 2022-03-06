@@ -50,4 +50,8 @@
   .slideShow_button {
     @apply carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center sm:hover:bg-sliderBackground;
   }
+
+  .navigatorSteps {
+    @apply w-8 h-8 md:w-10 md:h-10 rounded-3xl relative flex justify-center items-center text-sm md:text-xl bg-yellowColor z-10;
+  }
 }
