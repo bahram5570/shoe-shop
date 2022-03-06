@@ -16,10 +16,6 @@ const Product = () => {
 
   const [selectedProduct, setSelectedProduct] = useState({});
 
-  const selectionHandler = (e) => {
-    setSelectedProduct(e);
-  };
-
   const navigate = useNavigate();
 
   return (
@@ -38,7 +34,7 @@ const Product = () => {
           <SlideShow items={item.images} />
         </div>
         <div>
-          <ProductFeatures items={item} onSelection={selectionHandler} />
+          <ProductFeatures items={item} onSelection={(e) => setSelectedProduct(e)} />
           <ProductDetails items={item} />
         </div>
       </section>

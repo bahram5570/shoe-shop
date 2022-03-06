@@ -15,12 +15,7 @@ const AddToCart = ({ item }) => {
   const [exist, setExist] = useState(false);
 
   useEffect(() => {
-    const itemExistence = currnetCart.some(
-      (x) =>
-        x.id === item.id &&
-        x.size.toString() === item.size.toString() &&
-        x.color === item.color
-    );
+    const itemExistence = currnetCart.some((x) => x.id === item.id);
 
     if (itemExistence) {
       setExist(true);
@@ -37,10 +32,6 @@ const AddToCart = ({ item }) => {
     }
   };
 
-  // const time = new Date().toString().split(' ');
-  // const day = time[2][0] === '0' ? time[2][1] : time[2];
-  // const currentTime = time[0] + ', ' + day + ' ' + time[1] + ' ' + time[3];
-
   return (
     <div
       className={`
@@ -54,14 +45,14 @@ const AddToCart = ({ item }) => {
         ${dark ? 'shadow-[0_0_12px_#ffffff]' : 'shadow-[0_0_12px_#555555]'}
       `}
     >
-      <h1 className="mb-6 text-xl font-bold text-center">Order Summery</h1>
+      <h1 className="mb-6 text-xl font-bold text-center">Item Summery</h1>
       <span className="flex justify-between mb-3">
         <p>Size:</p>
         <p>{item.size}</p>
       </span>
       <span className="flex justify-between mb-3">
         <p>Color:</p>
-        <p>{item.color}</p>
+        <p>{item.color && item.color.name}</p>
       </span>
       {item.qt > 0 && (
         <span className="flex justify-between mb-3">
@@ -95,7 +86,8 @@ const AddToCart = ({ item }) => {
           outline-none
           disabled:hidden
           ${!exist ? 'bg-greenColor text-neutral-50' : ''}
-          ${exist ? 'ring-2 ring-redColor text-redColor' : ''}
+          ${exist ? 'ring-2' : ''}
+          ${dark ? 'ring-white text-white' : 'ring-redColor text-redColor'}
         `}
       >
         {!exist ? '+Add To Cart' : 'Remove From Cart'}

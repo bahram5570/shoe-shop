@@ -8,7 +8,7 @@ const ProductFeatures = ({ items, onSelection }) => {
 
   const quantityList = [];
 
-  for (let i = 1; i < qt; i++) {
+  for (let i = 1; i <= qt; i++) {
     quantityList.push(
       <option key={i} value={i}>
         {i}
@@ -17,15 +17,21 @@ const ProductFeatures = ({ items, onSelection }) => {
   }
 
   const [selection, setSelection] = useState({
-    id: items.id,
+    id: items.brand + size[0] + colors[0].name,
     brand: items.brand,
     price: items.price,
     off: items.off,
     image: items.images[0],
     size: size[0],
-    color: colors[0].name,
+    color: { name: colors[0].name, code: colors[0].code },
     qt: qt > 0 ? 1 : 0,
+    qtMax: qt,
   });
+
+  const selectionHandler = (name, value) => {
+    const data = { ...selection, [name]: value };
+    setSelection({ ...data, id: data.brand + data.size + data.color.name });
+  };
 
   useEffect(() => {
     onSelection(selection);
@@ -66,9 +72,7 @@ const ProductFeatures = ({ items, onSelection }) => {
                 name="size"
                 value={x}
                 defaultChecked={x === size[0]}
-                onChange={(e) =>
-                  setSelection({ ...selection, size: e.target.value })
-                }
+                onChange={() => selectionHandler('size', x)}
                 className={`
                   w-full 
                   h-full 
@@ -96,10 +100,10 @@ const ProductFeatures = ({ items, onSelection }) => {
               <input
                 id={x.name}
                 type="radio"
-                name="colors"
+                name="color"
                 value={x}
                 defaultChecked={x.name === colors[0].name}
-                onChange={() => setSelection({ ...selection, color: x.name })}
+                onChange={() => selectionHandler('color', x)}
                 style={{ background: x.code }}
                 className="
                   w-full 
@@ -124,7 +128,8 @@ const ProductFeatures = ({ items, onSelection }) => {
         <section className="sm:mx-4 mt-3">
           <h2 className="ml-2 text-lg font-bold mb-2">Quantity:</h2>
           <select
-            onChange={(e) => setSelection({ ...selection, qt: e.target.value })}
+            name="qt"
+            onChange={(x) => selectionHandler('qt', parseInt(x.target.value))}
             className={`
               pl-2 
               pr-10 
