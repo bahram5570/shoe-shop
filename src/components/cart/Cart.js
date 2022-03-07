@@ -37,7 +37,13 @@ const Cart = () => {
       setShopStatus(2)
     }
   }, [searchParams, shopStatus]);
-  ////////////////////////////////
+  // *****
+
+
+  // Status 3
+  const addressHandler = (e) => {console.log(e)}  ////////////////////////////////////////
+  // *****
+
 
   return (
     <Fragment>
@@ -55,17 +61,11 @@ const Cart = () => {
         </section>
       </div>}
 
-      {shopStatus === 2 && <div>
-        <AddressCart />
-      </div>}
+      {shopStatus === 2 && <AddressCart onAddress={addressHandler} />}
 
-      {shopStatus === 3 && <div>
-        <PaymentCart />
-      </div>}
+      {shopStatus === 3 && <PaymentCart />}
 
-      {shopStatus === 4 &&<div>
-        <OrderCart />
-      </div>}
+      {shopStatus === 4 && <OrderCart />}
     </Fragment>
   );
 };

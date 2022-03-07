@@ -1,8 +1,7 @@
-import { Fragment } from "react";
 
 const OrderCart = () => {
     return ( 
-        <Fragment>OrderCart</Fragment>
+        <div>OrderCart</div>
      );
 }
  
