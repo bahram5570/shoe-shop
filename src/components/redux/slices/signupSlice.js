@@ -18,7 +18,7 @@ const signupSlice = createSlice({
       if (storedUser) {
         return { event: "fail" };
       } else {
-        const userProfile = {...action.payload, orders: {}}
+        const userProfile = {...action.payload, orders: []}
         localStorage.setItem(
           'user_' + action.payload.Username,
           JSON.stringify(userProfile)

@@ -40,8 +40,12 @@ const signinSlice = createSlice({
       localStorage.removeItem('currentUser');
       return { loggedUser: null };
     },
+
+    userUpdate: () => {
+      return { loggedUser: JSON.parse(localStorage.getItem('currentUser')) };
+    }
   },
 });
 
-export const { userSignin, userSignout, userEdit } = signinSlice.actions;
+export const { userSignin, userSignout, userEdit, userUpdate } = signinSlice.actions;
 export default signinSlice.reducer;

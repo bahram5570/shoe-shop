@@ -29,7 +29,7 @@ const Navigator = ({ shopStatus }) => {
         </div>
 
         <div className="navigatorSteps">
-          <p>4</p>
+          <p>{shopStatus > 4 ? <FaCheck /> : 4}</p>
           <p className={`absolute -top-6 md:-top-8 ${dark && 'text-white'}`}>
             Order
           </p>

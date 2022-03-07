@@ -33,6 +33,7 @@ const validationSchema = yup.object({
 
 const Profile = ({ onSignout }) => {
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
+  // console.log(userStatus)
 
   const userData = {
     Name: userStatus ? userStatus.Name : '',
@@ -93,8 +94,7 @@ const Profile = ({ onSignout }) => {
           text-neutral-50 
           absolute 
           top-0 
-          left-0
-        "
+          left-0"
       >
         <h1 className="text-center text-2xl">Profile</h1>
       </div>
@@ -147,7 +147,7 @@ const Profile = ({ onSignout }) => {
           }`}
         >
           <FaCheckSquare className="mr-1 w-6 h-auto" />
-          Total Orders: {Object.keys(userStatus.orders).length}
+          Total Orders: {userStatus.orders.length}
         </p>
       )}
 

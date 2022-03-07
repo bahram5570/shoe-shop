@@ -14,7 +14,7 @@ const CartButtons = ({ buttonName, onBack }) => {
 
       <button type="submit" className="buttonsCart bg-greenColor ml-6">
         {buttonName}
-        <FaAngleRight className="ml-1" />
+        {buttonName !== 'Order' && <FaAngleRight className="ml-1" />}
       </button>
     </div>
   );

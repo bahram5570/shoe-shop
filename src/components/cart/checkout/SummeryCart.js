@@ -1,24 +1,13 @@
 import { useSelector } from 'react-redux';
+import { pricing } from '../tools/pricing';
+import { currentDate } from '../tools/currentDate';
 
 const SummeryCart = ({ items, onCheckout }) => {
   const dark = useSelector((state) => state.darkModeRedux);
 
-  let totalItems = 0;
-  let originalPrice = 0;
-  let discount = 0;
-  let salePrice = 0;
+  const {totalItems, originalPrice, discount, salePrice} = pricing(items);
 
-  items.forEach((e) => {
-    totalItems = totalItems + e.qt;
-    originalPrice = originalPrice + e.qt * e.price;
-    discount = discount + (e.qt * e.price * e.off) / 100;
-    salePrice = salePrice + e.qt * e.price - (e.qt * e.price * e.off) / 100;
-  });
-
-  // Time
-  const time = new Date().toString().split(' ');
-  const day = time[2][0] === '0' ? time[2][1] : time[2];
-  const currentTime = time[0] + ', ' + day + ' ' + time[1] + ' ' + time[3];
+  const currentTime = currentDate();
 
   return (
     <div

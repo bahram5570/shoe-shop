@@ -12,7 +12,7 @@ import {
 const PaymentCart = ({ onBack, onPayment }) => {
   const initialValue = localStorage.getItem('paymentCart')
     ? JSON.parse(localStorage.getItem('paymentCart'))
-    : 'credit';
+    : 'Credit';
 
   const [check, setCheck] = useState(initialValue);
 
@@ -26,7 +26,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
       <section>
         <PaymentCartStructure
           onRadio={(e) => setCheck(e)}
-          name="credit"
+          name="Credit"
           checkValue={check}
           text="Credit Card"
           icon={<FaCreditCard className="w-10 h-auto mr-4 text-orange-500" />}
@@ -34,7 +34,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
 
         <PaymentCartStructure
           onRadio={(e) => setCheck(e)}
-          name="bitcoin"
+          name="Bitcoin"
           checkValue={check}
           text="Bitcoin"
           icon={<FaBitcoin className="w-10 h-auto mr-4 text-yellowColor" />}
@@ -42,7 +42,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
 
         <PaymentCartStructure
           onRadio={(e) => setCheck(e)}
-          name="account"
+          name="Account"
           checkValue={check}
           text="Account Balance"
           icon={<FaIdCard className="w-10 h-auto mr-4 text-cyan-500" />}
@@ -50,7 +50,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
         
         <PaymentCartStructure
           onRadio={(e) => setCheck(e)}
-          name="cash"
+          name="Cash"
           checkValue={check}
           text="Cash (In place)"
           icon={
