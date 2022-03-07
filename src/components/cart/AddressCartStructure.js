@@ -1,4 +1,4 @@
-const CartAddressStructure = ({ type, name, placeholder, formik }) => {
+const AddressCartStructure = ({ type, name, placeholder, formik }) => {
   return (
     <span className="relative w-full md:w-3/5">
       <p
@@ -8,6 +8,7 @@ const CartAddressStructure = ({ type, name, placeholder, formik }) => {
       >
         {formik.errors[name]}
       </p>
+
       <input
         type={type}
         name={name}
@@ -27,4 +28,4 @@ const CartAddressStructure = ({ type, name, placeholder, formik }) => {
   );
 };
 
-export default CartAddressStructure;
+export default AddressCartStructure;

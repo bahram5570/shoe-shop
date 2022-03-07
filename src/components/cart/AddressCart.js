@@ -1,15 +1,17 @@
 import CartButtons from './CartButtons';
-import CartAddressStructure from './CartAddressStructure';
+import AddressCartStructure from './AddressCartStructure';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-const initialValues = {
-  name: '',
-  phone: '',
-  city: '',
-  address: '',
-  postal: '',
-};
+const initialValues = localStorage.getItem('addressCart')
+  ? JSON.parse(localStorage.getItem('addressCart'))
+  : {
+      name: '',
+      phone: '',
+      city: '',
+      address: '',
+      postal: '',
+    };
 
 const validationSchema = yup.object({
   name: yup.string().required('Please enter your name'),
@@ -26,7 +28,7 @@ const validationSchema = yup.object({
     .min(4, 'At least 4 digits'),
 });
 
-const AddressCart = ({ onAddress }) => {
+const AddressCart = ({ onAddress, onBack }) => {
   const onSubmit = (e) => {
     onAddress(e);
   };
@@ -41,38 +43,38 @@ const AddressCart = ({ onAddress }) => {
 
   return (
     <form onSubmit={formik.handleSubmit} className="flex flex-col items-center">
-      <CartAddressStructure
+      <AddressCartStructure
         type="text"
         name="name"
         placeholder="Full Name"
         formik={formik}
       />
-      <CartAddressStructure
+      <AddressCartStructure
         type="text"
         name="city"
         placeholder="City"
         formik={formik}
       />
-      <CartAddressStructure
+      <AddressCartStructure
         type="text"
         name="address"
         placeholder="Address"
         formik={formik}
       />
-      <CartAddressStructure
+      <AddressCartStructure
         type="tel"
         name="phone"
         placeholder="Alternative Phone Number"
         formik={formik}
       />
-      <CartAddressStructure
+      <AddressCartStructure
         type="string"
         name="postal"
         placeholder="Postal Code"
         formik={formik}
       />
 
-      <CartButtons buttonName="Next" />
+      <CartButtons buttonName="Next" onBack={onBack} />
     </form>
   );
 };

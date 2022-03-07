@@ -21,7 +21,7 @@ const Cart = () => {
   const currentCart = useSelector((state) => state.cartRedux);
   const navigate = useNavigate();
 
-  // Status 2
+  // Status 1
   const checkoutHandler = () => {
     if (localStorage.getItem('currentUser')) {
       setShopStatus(2)
@@ -37,12 +37,27 @@ const Cart = () => {
       setShopStatus(2)
     }
   }, [searchParams, shopStatus]);
-  // *****
 
+
+  // Status 2
+  const addressHandler = (e) => {
+    if (e === 'back') {
+      setShopStatus(1);
+    } else {
+      localStorage.setItem('addressCart', JSON.stringify(e));
+      setShopStatus(3);
+    }
+  }
 
   // Status 3
-  const addressHandler = (e) => {console.log(e)}  ////////////////////////////////////////
-  // *****
+  const paymentHandler = (e) => {
+    if (e === 'back') {
+      setShopStatus(2);
+    } else {
+      localStorage.setItem('paymentCart', JSON.stringify(e));
+      setShopStatus(4);
+    }
+  };
 
 
   return (
@@ -61,9 +76,9 @@ const Cart = () => {
         </section>
       </div>}
 
-      {shopStatus === 2 && <AddressCart onAddress={addressHandler} />}
+      {shopStatus === 2 && <AddressCart onAddress={addressHandler} onBack={addressHandler} />}
 
-      {shopStatus === 3 && <PaymentCart />}
+      {shopStatus === 3 && <PaymentCart onPayment={paymentHandler} onBack={paymentHandler} />}
 
       {shopStatus === 4 && <OrderCart />}
     </Fragment>
