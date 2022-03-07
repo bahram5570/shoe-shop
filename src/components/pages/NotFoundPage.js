@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { FaRegMeh } from 'react-icons/fa';
 
 const NotFoundPage = () => {
-  const dark = useSelector((state) => state.darkMode);
+  const dark = useSelector((state) => state.darkModeRedux);
 
   return (
     <Layout>

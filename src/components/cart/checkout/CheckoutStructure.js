@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { qtCart, removeFromCart } from '../redux/slices/cartSlice';
+import { qtCart, removeFromCart } from '../../redux/slices/cartSlice';
 
 import { FaTape, FaTrashAlt, FaShoppingBag } from 'react-icons/fa';
 
-const OrderStructure = ({ items }) => {
+const CheckoutStructure = ({ items }) => {
   const dark = useSelector((state) => state.darkModeRedux);
 
   const dispatch = useDispatch();
@@ -194,4 +194,4 @@ const OrderStructure = ({ items }) => {
   );
 };
 
-export default OrderStructure;
+export default CheckoutStructure;

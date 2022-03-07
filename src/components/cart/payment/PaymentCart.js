@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CartButtons from './CartButtons';
+import CartButtons from '../tools/CartButtons';
 import PaymentCartStructure from './PaymentCartStructure';
 import {
   FaCreditCard,
@@ -8,11 +8,12 @@ import {
   FaMoneyBillAlt,
 } from 'react-icons/fa';
 
-const initialValue = localStorage.getItem('paymentCart')
-  ? JSON.parse(localStorage.getItem('paymentCart'))
-  : 'credit';
 
 const PaymentCart = ({ onBack, onPayment }) => {
+  const initialValue = localStorage.getItem('paymentCart')
+    ? JSON.parse(localStorage.getItem('paymentCart'))
+    : 'credit';
+
   const [check, setCheck] = useState(initialValue);
 
   const submitHandler = (e) => {
@@ -28,7 +29,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
           name="credit"
           checkValue={check}
           text="Credit Card"
-          icon={<FaCreditCard className="w-10 h-auto mr-2 text-orange-500" />}
+          icon={<FaCreditCard className="w-10 h-auto mr-4 text-orange-500" />}
         />
 
         <PaymentCartStructure
@@ -36,7 +37,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
           name="bitcoin"
           checkValue={check}
           text="Bitcoin"
-          icon={<FaBitcoin className="w-10 h-auto mr-2 text-yellowColor" />}
+          icon={<FaBitcoin className="w-10 h-auto mr-4 text-yellowColor" />}
         />
 
         <PaymentCartStructure
@@ -44,7 +45,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
           name="account"
           checkValue={check}
           text="Account Balance"
-          icon={<FaIdCard className="w-10 h-auto mr-2 text-cyan-500" />}
+          icon={<FaIdCard className="w-10 h-auto mr-4 text-cyan-500" />}
         />
         
         <PaymentCartStructure
@@ -53,7 +54,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
           checkValue={check}
           text="Cash (In place)"
           icon={
-            <FaMoneyBillAlt className="w-10 h-auto mr-2 text-emerald-400" />
+            <FaMoneyBillAlt className="w-10 h-auto mr-4 text-emerald-400" />
           }
         />
       </section>

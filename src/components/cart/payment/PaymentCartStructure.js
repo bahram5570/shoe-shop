@@ -16,7 +16,7 @@ const PaymentCartStructure = ({ name, text, icon, onRadio, checkValue }) => {
         ${dark && 'text-white'}
        `}
     >
-      <FaCheck className={`mr-2 ${checkValue !== name && 'opacity-0'}`} />
+      <FaCheck className={`mr-4 ${checkValue !== name && 'opacity-0'}`} />
 
       {icon}
 
