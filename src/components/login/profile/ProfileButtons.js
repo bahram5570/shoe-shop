@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { userSignout } from '../../redux/slices/signinSlice';
 import {
   FaUserCircle,
   FaRegEdit,
@@ -16,13 +14,6 @@ const ProfileButtons = ({
   onEditing,
   onApplyEdit,
 }) => {
-  const dispatch = useDispatch();
-
-  const signoutHandler = () => {
-    dispatch(userSignout());
-    onSignout();
-  };
-
   return (
     <div
       className="
@@ -57,7 +48,7 @@ const ProfileButtons = ({
 
           <button
             type="button"
-            onClick={() => signoutHandler()}
+            onClick={() => onSignout()}
             className="outline-none"
           >
             {

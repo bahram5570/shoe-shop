@@ -74,7 +74,7 @@ const Signup = ({ onShow }) => {
         ${dark ? '' : 'shadow-[0_0_10px_#777777]'}
         relative
         overflow-hidden
-        w-80
+        w-96
         p-4
         pt-12
         rounded-xl

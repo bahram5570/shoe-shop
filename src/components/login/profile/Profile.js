@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { userSignout } from '../../redux/slices/signinSlice';
 import { userEdit } from '../../redux/slices/signinSlice';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import ProfileButtons from './ProfileButtons';
 import ProfileStructure from './ProfileStructure';
+import Permission from './Permission';
 import {
   FaUserAlt,
   FaPhoneAlt,
@@ -71,6 +74,13 @@ const Profile = ({ onSignout }) => {
     enableReinitialize: true,
   });
 
+  const [showPermission, setShowPermission] = useState(false);
+
+  const signoutHandler = () => {
+    dispatch(userSignout());
+    onSignout();
+  };
+
   return (
     <form
       className={`
@@ -78,7 +88,7 @@ const Profile = ({ onSignout }) => {
         ${dark ? '' : 'shadow-[0_0_10px_#777777]'}
         relative
         overflow-hidden
-        w-80
+        w-96
         p-4
         pt-16
         rounded-xl
@@ -86,6 +96,16 @@ const Profile = ({ onSignout }) => {
         flex-col
       `}
     >
+      {showPermission &&
+        createPortal(
+          <Permission
+            message="Signout your account?"
+            onNo={() => setShowPermission(false)}
+            onYes={() => signoutHandler()}
+          />,
+          document.getElementById('Permission')
+        )}
+
       <div
         className="
           w-full 
@@ -103,8 +123,9 @@ const Profile = ({ onSignout }) => {
       <ProfileButtons
         dark={dark}
         data={userData}
-        onSignout={onSignout}
         isEditing={editMode}
+        // onSignout={onSignout}
+        onSignout={() => setShowPermission(true)}
         onEditing={() => setEditMode(!editMode)}
         onApplyEdit={() => applyEditHandler()}
       />
@@ -141,14 +162,28 @@ const Profile = ({ onSignout }) => {
 
       {/* Orders */}
       {!editMode && (
-        <p
-          className={`flex items-center text-lg ml-1 mt-2 ${
-            dark ? 'text-white' : ''
-          }`}
-        >
-          <FaCheckSquare className="mr-1 w-6 h-auto" />
-          Total Orders: {userStatus.orders.length}
-        </p>
+        <span className="flex items-center justify-between">
+          <p
+            className={`flex items-center text-lg ml-1 mt-3 ${
+              dark ? 'text-white' : ''
+            }`}
+          >
+            <FaCheckSquare className="mr-1 w-6 h-auto" />
+            Total Orders: {userStatus.orders.length}
+          </p>
+
+          <button
+            type="button"
+            className={`
+          bg-none
+          pt-3
+          text-lg
+          ${dark ? 'text-cyan-300' : 'text-[#0088ff]'}
+          `}
+          >
+            Deatils
+          </button>
+        </span>
       )}
 
       {/* Password */}

@@ -5,7 +5,7 @@ const ProfileStructure = ({ type, name, dark, icon, formik, isDisabled }) => {
       w-full 
       relative
       text-lg
-      ${isDisabled ? 'mt-1' : 'mt-8'}
+      ${isDisabled ? 'mt-3' : 'mt-8'}
     `}
     >
       {!isDisabled && (
