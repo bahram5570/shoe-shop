@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useLikes } from '../product/ProductDetails';
 import { FaHeart } from 'react-icons/fa';
 
 const ShoeStructure = ({ items }) => {
   const dark = useSelector((state) => state.darkModeRedux);
+  const currentLikes = useSelector((state) => state.likesRedux);
 
   const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ const ShoeStructure = ({ items }) => {
       <img src={items.images[0]} alt={items.id} />
 
       <span className="absolute top-4 right-4 flex items-center">
-        <p className="mr-1 text-slate-600">{items.likes}</p>
+        <p className="mr-1 text-slate-600">{useLikes(items.likes, currentLikes, items.id)}</p>
         <FaHeart className="text-redColor w-5 h-auto" />
       </span>
 

@@ -3,6 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { liking } from '../redux/slices/likeSlice';
 import { FaHeart, FaRegHeart, FaSortDown } from 'react-icons/fa';
 
+export const useLikes = (dataLikes, userLikes, id) => {
+  const list = [];
+  userLikes.forEach((x) => list.push(x.split('_')[1]));
+  const newList = list.filter((x) => x === id);
+  return dataLikes + newList.length;
+};
+
 const ProductDetails = ({ items }) => {
   const { brand, category, description, likes, price, off } = items;
 
@@ -38,7 +45,7 @@ const ProductDetails = ({ items }) => {
           <h1 className="text-4xl font-bold">{brand}</h1>
           <span className="relative flex items-center ml-20">
             <p className={`mr-2 text-xl ${dark ? '' : 'text-neutral-600'}`}>
-              {likes + currentLikes.length}
+              {useLikes(likes, currentLikes, items.id)}
             </p>
 
             {hasLike && (
