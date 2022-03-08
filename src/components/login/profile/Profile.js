@@ -59,12 +59,6 @@ const Profile = ({ onSignout }) => {
 
   const dispatch = useDispatch();
 
-  const applyEditHandler = () => {
-    if (formik.isValid) {
-      dispatch(userEdit(formik.values));
-    }
-  };
-
   const [editMode, setEditMode] = useState(false);
 
   const formik = useFormik({
@@ -74,11 +68,17 @@ const Profile = ({ onSignout }) => {
     enableReinitialize: true,
   });
 
-  const [showPermission, setShowPermission] = useState(false);
+  const [showPermission, setShowPermission] = useState(null);
 
   const signoutHandler = () => {
     dispatch(userSignout());
     onSignout();
+  };
+
+  const applyEditHandler = () => {
+    if (formik.isValid) {
+      dispatch(userEdit(formik.values));
+    }
   };
 
   return (
@@ -96,12 +96,22 @@ const Profile = ({ onSignout }) => {
         flex-col
       `}
     >
-      {showPermission &&
+      {showPermission === 'signout' &&
         createPortal(
           <Permission
             message="Signout your account?"
-            onNo={() => setShowPermission(false)}
+            onNo={() => setShowPermission(null)}
             onYes={() => signoutHandler()}
+          />,
+          document.getElementById('Permission')
+        )}
+
+      {showPermission === 'edit' &&
+        createPortal(
+          <Permission
+            message="Apply your changes?"
+            onNo={() => setShowPermission(null)}
+            onYes={() => applyEditHandler()}
           />,
           document.getElementById('Permission')
         )}
@@ -124,10 +134,9 @@ const Profile = ({ onSignout }) => {
         dark={dark}
         data={userData}
         isEditing={editMode}
-        // onSignout={onSignout}
-        onSignout={() => setShowPermission(true)}
+        onSignout={() => setShowPermission('signout')}
         onEditing={() => setEditMode(!editMode)}
-        onApplyEdit={() => applyEditHandler()}
+        onApplyEdit={() => setShowPermission('edit')}
       />
 
       {/* Name */}

@@ -35,7 +35,7 @@ const signinSlice = createSlice({
       localStorage.removeItem('user_' + user.Username);
       localStorage.setItem(
         'user_' + user.Username,
-        JSON.stringify(action.payload)
+        JSON.stringify({ ...action.payload, orders: user.orders })
       );
       localStorage.removeItem('currentUser');
       return { loggedUser: null };
@@ -43,9 +43,10 @@ const signinSlice = createSlice({
 
     userUpdate: () => {
       return { loggedUser: JSON.parse(localStorage.getItem('currentUser')) };
-    }
+    },
   },
 });
 
-export const { userSignin, userSignout, userEdit, userUpdate } = signinSlice.actions;
+export const { userSignin, userSignout, userEdit, userUpdate } =
+  signinSlice.actions;
 export default signinSlice.reducer;
