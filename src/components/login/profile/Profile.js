@@ -8,6 +8,7 @@ import * as yup from 'yup';
 import ProfileButtons from './ProfileButtons';
 import ProfileStructure from './ProfileStructure';
 import Permission from './Permission';
+import ProfileOrders from './ProfileOrders';
 import {
   FaUserAlt,
   FaPhoneAlt,
@@ -36,7 +37,6 @@ const validationSchema = yup.object({
 
 const Profile = ({ onSignout }) => {
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
-  // console.log(userStatus)
 
   const userData = {
     Name: userStatus ? userStatus.Name : '',
@@ -75,11 +75,7 @@ const Profile = ({ onSignout }) => {
     onSignout();
   };
 
-  const applyEditHandler = () => {
-    if (formik.isValid) {
-      dispatch(userEdit(formik.values));
-    }
-  };
+  const [showOrders, setShowOrders] = useState(false);
 
   return (
     <form
@@ -111,9 +107,19 @@ const Profile = ({ onSignout }) => {
           <Permission
             message="Apply your changes?"
             onNo={() => setShowPermission(null)}
-            onYes={() => applyEditHandler()}
+            onYes={() => dispatch(userEdit(formik.values))}
           />,
           document.getElementById('Permission')
+        )}
+
+      {showOrders &&
+        createPortal(
+          <ProfileOrders
+            dark={dark}
+            items={userStatus.orders}
+            onClose={() => setShowOrders(false)}
+          />,
+          document.getElementById('ProfileOrders')
         )}
 
       <div
@@ -136,7 +142,7 @@ const Profile = ({ onSignout }) => {
         isEditing={editMode}
         onSignout={() => setShowPermission('signout')}
         onEditing={() => setEditMode(!editMode)}
-        onApplyEdit={() => setShowPermission('edit')}
+        onApplyEdit={() => formik.isValid && setShowPermission('edit')}
       />
 
       {/* Name */}
@@ -183,6 +189,7 @@ const Profile = ({ onSignout }) => {
 
           <button
             type="button"
+            onClick={() => setShowOrders(true)}
             className={`
           bg-none
           pt-3
