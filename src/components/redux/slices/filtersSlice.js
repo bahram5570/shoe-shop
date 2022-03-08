@@ -19,6 +19,7 @@ const filtersSlice = createSlice({
     filtering: (state) => {
       const categoryItems = JSON.parse(localStorage.getItem('category')) || [];
       const sizeItems = JSON.parse(localStorage.getItem('size')) || [];
+      const colorItems = JSON.parse(localStorage.getItem('color')) || [];
       const priceItems = JSON.parse(localStorage.getItem('price')) || {
         min: 20,
         max: 78,
@@ -44,7 +45,20 @@ const filtersSlice = createSlice({
         });
       }
 
-      const priceFiltering = sizeFiltering.filter(
+      const colorFiltering = [];
+
+      if (colorItems.length === 0) {
+        colorFiltering.push(...sizeFiltering);
+      } else {
+        sizeFiltering.forEach((element) => {
+          for (let i = 0; i < element.colors.length; i++) {
+            colorItems.includes(element.colors[i].name) &&
+              colorFiltering.push(element);
+          }
+        });
+      }
+
+      const priceFiltering = colorFiltering.filter(
         (x) => x.price >= priceItems.min && x.price <= priceItems.max
       );
 
@@ -88,6 +102,7 @@ const filtersSlice = createSlice({
       localStorage.removeItem('category');
       localStorage.removeItem('size');
       localStorage.removeItem('price');
+      localStorage.removeItem('color');
       localStorage.removeItem('availables');
       localStorage.removeItem('outputDataID');
 

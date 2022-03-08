@@ -9,6 +9,7 @@ import { FaAngleDown } from 'react-icons/fa';
 const Filters = (props) => {
   const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
   const currentSizes = [38, 39, 40, 41, 42];
+  const currentColors = ['White', 'Black', 'Brown', 'Grey', 'Blue', 'Green'];
   const currentPrices = { minPrice: 20, maxPrice: 78 };
 
   const dark = useSelector((state) => state.darkModeRedux);
@@ -19,15 +20,16 @@ const Filters = (props) => {
   const hasFilter = (type) => (
     <span
       className={`
-      mr-2
-      w-2 
-      h-2 
-      rounded
-      bg-green-500
-      ${!filtersList.includes(type) && 'opacity-0'}
+        mr-2
+        w-2 
+        h-2 
+        rounded
+        bg-green-500
+        ${!filtersList.includes(type) && 'opacity-0'}
       `}
     />
   );
+
   return (
     <div
       style={{ overflowY: 'overlay' }}
@@ -128,12 +130,34 @@ const Filters = (props) => {
           aria-expanded="true"
         >
           <div className="flex items-center">
+            {hasFilter('color')}
+            Color
+          </div>
+          <FaAngleDown className="w-6 h-auto text-neutral-600" />
+        </button>
+        <div id="a3" className="accordion-collapse collapse pb-2">
+          <FiltersCheckbox items={currentColors} type="color" />
+        </div>
+      </section>
+
+      <section
+        className={`filter_section ${
+          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+        }`}
+      >
+        <button
+          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
+          data-bs-toggle="collapse"
+          data-bs-target="#a4"
+          aria-expanded="true"
+        >
+          <div className="flex items-center">
             {hasFilter('price')}
             Price
           </div>
           <FaAngleDown className="w-6 h-auto text-neutral-600" />
         </button>
-        <div id="a3" className="accordion-collapse collapse pb-2">
+        <div id="a4" className="accordion-collapse collapse pb-2">
           <PriceRange items={currentPrices} />
         </div>
       </section>
