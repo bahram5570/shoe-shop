@@ -34,7 +34,8 @@ const ShoeStructure = ({ items }) => {
         sm:cursor-pointer 
         ring-neutral-400 
         sm:hover:ring-4
-        ${dark ? 'shadow-none bg-neutral-200' : ''}`}
+        ${dark ? 'shadow-none bg-neutral-200' : ''}
+      `}
     >
       <img src={items.images[0]} alt={items.id} />
 

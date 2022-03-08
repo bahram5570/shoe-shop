@@ -5,6 +5,7 @@ import signupSlice from './slices/signupSlice';
 import signinSlice from './slices/signinSlice';
 import cartSlice from './slices/cartSlice';
 import headerSlice from './slices/headerSlice';
+import likeSlice from './slices/likeSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     signinRedux: signinSlice,
     cartRedux: cartSlice,
     headerRedux: headerSlice,
+    likesRedux: likeSlice
   },
 });
