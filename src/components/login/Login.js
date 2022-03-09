@@ -33,7 +33,7 @@ const Login = () => {
   }, [userStatus, showComponent, searchParams, navigate]);
 
   return (
-    <div className="flex">
+    <div className="flex pt-4">
       {showComponent === 'signin' && (
         <Signin onShow={() => setShowComponent('signup')} />
       )}

@@ -33,7 +33,7 @@ const OrderProducts = ({ no, items }) => {
 
       <span className="flex items-center my-2 md:my-0">
         <FaTag className="mr-2" />
-        <p>{items.price} $</p>
+        <p>${items.price}</p>
       </span>
     </div>
   );

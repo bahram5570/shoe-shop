@@ -186,7 +186,7 @@ const CheckoutStructure = ({ items }) => {
               lg:w-6/12"
           >
             <FaShoppingBag className="w-4 md:w-5 h-auto mr-3 md:mr-2" />
-            <p>{salePrice} $</p>
+            <p>${salePrice}</p>
           </span>
         </div>
       </div>

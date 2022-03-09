@@ -1,7 +1,7 @@
 import Shoes from '../shoes/Shoes';
 import Layout from '../layout/Layout';
 
-const ShoesPage = () => {
+const ShopPage = () => {
   return (
     <Layout>
       <Shoes />
@@ -9,4 +9,4 @@ const ShoesPage = () => {
   );
 };
 
-export default ShoesPage;
+export default ShopPage;

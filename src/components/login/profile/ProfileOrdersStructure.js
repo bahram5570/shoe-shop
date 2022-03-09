@@ -1,4 +1,4 @@
-import { FaPalette, FaTape, FaTag } from 'react-icons/fa';
+import { FaTape, FaTag } from 'react-icons/fa';
 
 const ProfileOrdersStructure = ({ items }) => {
   let keyGenerator = 1;
@@ -10,7 +10,7 @@ const ProfileOrdersStructure = ({ items }) => {
     >
       <div className="sm:flex sm:justify-between text-lg sm:text-xl mb-4 sm:mb-6">
         <h2 className="mb-2 sm:mb-0 italic font-bold">{element.date}</h2>
-        <h2 className="font-bold">Total Price: {element.totalPrice} $</h2>
+        <h2 className="font-bold">Total Price: ${element.totalPrice}</h2>
       </div>
 
       {element.products.map((x) => (
@@ -52,7 +52,7 @@ const ProfileOrdersStructure = ({ items }) => {
 
             <span className="flex items-center my-1 sm:my-0">
               <FaTag className="mr-1" />
-              <p>{x.price} $</p>
+              <p>${x.price}</p>
             </span>
           </div>
         </div>

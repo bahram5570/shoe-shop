@@ -8,9 +8,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #33ffff;
+  background: #88ffff;
   border-radius: 10px;
   margin-block: 0.2rem;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden
 }
 
 

@@ -4,13 +4,12 @@ import ButtonsSection from './ButtonsSection';
 import PriceRange from './PriceRange';
 import Search from '../menu/Search';
 import Sort from '../menu/Sort';
+import { initialValues } from '../initialValues/initialValues';
 import { FaAngleDown } from 'react-icons/fa';
 
 const Filters = (props) => {
-  const currentCategories = ['Sneaker', 'Oxford', 'Boot'];
-  const currentSizes = [38, 39, 40, 41, 42];
-  const currentColors = ['White', 'Black', 'Brown', 'Grey', 'Blue', 'Green'];
-  const currentPrices = { minPrice: 20, maxPrice: 78 };
+  const { currentCategories, currentSizes, currentColors, currentPrices } =
+    initialValues;
 
   const dark = useSelector((state) => state.darkModeRedux);
   const filtersList = useSelector(
@@ -32,16 +31,16 @@ const Filters = (props) => {
 
   return (
     <div
-      style={{ overflowY: 'overlay' }}
       className={`
         accordion
         duration-300
-        md:shadow-[0_0_10px_#aaaaaa]
-        rounded-xl
+        
         z-40
         bg-[#000000dd]
         md:bg-transparent
-        md:h-full
+        md:h-screen
+        overscroll-contain
+        overflow-y-auto
         fixed
         top-0
         left-0
@@ -49,118 +48,163 @@ const Filters = (props) => {
         bottom-0
         md:sticky
         md:top-4
-        min-w-[300px]
-        md:min-w-[300px]
-        md:mr-8
-        px-4
-        py-6
+        min-w-[320px]
+        md:min-w-[320px]
+        md:mr-6
+        p-2
+        -translate-y-2
         ${props.showFilters ? '' : 'top-full'}
       `}
     >
-      <section className="hidden md:block">
-        <Search />
-      </section>
+      <div className="md:shadow-[0_0_10px_#888888] p-4 rounded-xl">
+        
+        {/* Search */}
+        <section className="hidden md:block">
+          <Search />
+        </section>
 
-      <section
-        className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
-        }`}
-      >
-        <ButtonsSection onCloseFilters={() => props.onCloseFilters()} />
-      </section>
-
-      <section className="block md:hidden w-full">
-        <Sort />
-      </section>
-
-      <section
-        className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 md:shadow-[0_0_5px_#888888]'
-        }`}
-      >
-        <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
-          data-bs-toggle="collapse"
-          data-bs-target="#a1"
-          aria-expanded="true"
+        {/* Availables */}
+        <section
+          className={`filter_section ${
+            dark
+              ? 'bg-neutral-200'
+              : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+          }`}
         >
-          <div className="flex items-center">
-            {hasFilter('category')}
-            Category
-          </div>
-          <FaAngleDown className="w-6 h-auto text-neutral-600" />
-        </button>
+          <ButtonsSection onCloseFilters={() => props.onCloseFilters()} />
+        </section>
 
-        <div id="a1" className="accordion-collapse collapse pb-2">
-          <FiltersCheckbox items={currentCategories} type="category" />
-        </div>
-      </section>
+        {/* Sort */}
+        <section className="block md:hidden w-full">
+          <Sort />
+        </section>
 
-      <section
-        className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
-        }`}
-      >
-        <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
-          data-bs-toggle="collapse"
-          data-bs-target="#a2"
-          aria-expanded="true"
+        {/* Category */}
+        <section
+          className={`filter_section ${
+            dark
+              ? 'bg-neutral-200'
+              : 'bg-neutral-50 md:shadow-[0_0_5px_#888888]'
+          }`}
         >
-          <div className="flex items-center">
-            {hasFilter('size')}
-            Size
-          </div>
-          <FaAngleDown className="w-6 h-auto text-neutral-600" />
-        </button>
-        <div id="a2" className="accordion-collapse collapse pb-2">
-          <FiltersCheckbox items={currentSizes} type="size" />
-        </div>
-      </section>
+          <button
+            className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
+            data-bs-toggle="collapse"
+            data-bs-target="#a1"
+            aria-expanded="true"
+          >
+            <div className="flex items-center">
+              {hasFilter('category')}
+              Category
+            </div>
+            <FaAngleDown className="w-6 h-auto text-neutral-600" />
+          </button>
 
-      <section
-        className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
-        }`}
-      >
-        <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
-          data-bs-toggle="collapse"
-          data-bs-target="#a3"
-          aria-expanded="true"
-        >
-          <div className="flex items-center">
-            {hasFilter('color')}
-            Color
+          <div
+            id="a1"
+            className={`
+            accordion-collapse 
+            show 
+            collapse
+            divide-y-2
+            ${dark ? 'divide-neutral-400' : 'divide-neutral-300'}
+          `}
+          >
+            <FiltersCheckbox items={currentCategories} type="category" />
           </div>
-          <FaAngleDown className="w-6 h-auto text-neutral-600" />
-        </button>
-        <div id="a3" className="accordion-collapse collapse pb-2">
-          <FiltersCheckbox items={currentColors} type="color" />
-        </div>
-      </section>
+        </section>
 
-      <section
-        className={`filter_section ${
-          dark ? 'bg-neutral-200' : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
-        }`}
-      >
-        <button
-          className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
-          data-bs-toggle="collapse"
-          data-bs-target="#a4"
-          aria-expanded="true"
+        {/* Size */}
+        <section
+          className={`filter_section ${
+            dark
+              ? 'bg-neutral-200'
+              : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+          }`}
         >
-          <div className="flex items-center">
-            {hasFilter('price')}
-            Price
+          <button
+            className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
+            data-bs-toggle="collapse"
+            data-bs-target="#a2"
+            aria-expanded="true"
+          >
+            <div className="flex items-center">
+              {hasFilter('size')}
+              Size
+            </div>
+            <FaAngleDown className="w-6 h-auto text-neutral-600" />
+          </button>
+          <div
+            id="a2"
+            className={`
+            accordion-collapse 
+            collapse
+            divide-y-2
+            ${dark ? 'divide-neutral-400' : 'divide-neutral-300'}
+          `}
+          >
+            <FiltersCheckbox items={currentSizes} type="size" />
           </div>
-          <FaAngleDown className="w-6 h-auto text-neutral-600" />
-        </button>
-        <div id="a4" className="accordion-collapse collapse pb-2">
-          <PriceRange items={currentPrices} />
-        </div>
-      </section>
+        </section>
+
+        {/* Color */}
+        <section
+          className={`filter_section ${
+            dark
+              ? 'bg-neutral-200'
+              : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+          }`}
+        >
+          <button
+            className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
+            data-bs-toggle="collapse"
+            data-bs-target="#a3"
+            aria-expanded="true"
+          >
+            <div className="flex items-center">
+              {hasFilter('color')}
+              Color
+            </div>
+            <FaAngleDown className="w-6 h-auto text-neutral-600" />
+          </button>
+          <div
+            id="a3"
+            className={`
+            accordion-collapse 
+            collapse
+            divide-y-2
+            ${dark ? 'divide-neutral-400' : 'divide-neutral-300'}
+          `}
+          >
+            <FiltersCheckbox items={currentColors} type="color" />
+          </div>
+        </section>
+
+        {/* Price */}
+        <section
+          className={`filter_section ${
+            dark
+              ? 'bg-neutral-200'
+              : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+          }`}
+        >
+          <button
+            className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
+            data-bs-toggle="collapse"
+            data-bs-target="#a4"
+            aria-expanded="true"
+          >
+            <div className="flex items-center">
+              {hasFilter('price')}
+              Price
+            </div>
+            <FaAngleDown className="w-6 h-auto text-neutral-600" />
+          </button>
+          <div id="a4" className="accordion-collapse collapse">
+            <PriceRange items={currentPrices} />
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

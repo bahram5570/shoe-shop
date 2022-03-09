@@ -191,13 +191,14 @@ const Profile = ({ onSignout }) => {
             type="button"
             onClick={() => setShowOrders(true)}
             className={`
-          bg-none
-          pt-3
-          text-lg
-          ${dark ? 'text-cyan-300' : 'text-[#0088ff]'}
-          `}
+              bg-none
+              pt-3
+              text-lg
+              border-b-2
+              ${dark ? 'text-cyan-300 border-cyan-300' : 'text-[#0088ff] border-cyan-400'}
+            `}
           >
-            Deatils
+            Show Deatils
           </button>
         </span>
       )}

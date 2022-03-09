@@ -77,8 +77,9 @@ const ButtonsSection = ({ onCloseFilters }) => {
             relative
             w-12
             h-6
+            bg-neutral-50
             rounded-xl
-            shadow-[0_0_2px_#555555_inset]"
+            shadow-[0_0_3px_#000000_inset]"
         >
           <input
             checked={availableChecked}

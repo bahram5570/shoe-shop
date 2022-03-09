@@ -28,7 +28,7 @@ const Sort = () => {
       md:mb-0
       md:flex
       w-full
-      ${dark ? 'bg-neutral-200 md:bg-transparent' : 'bg-neutral-50'}
+      ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}
     `}
     >
       <p
@@ -61,24 +61,26 @@ const Sort = () => {
         data-bs-target="#a0"
         aria-expanded="true"
       >
-        <span className='ml-5'>Sort By</span>
+        <span className="ml-5">Sort By</span>
         <FaAngleDown className="w-6 h-auto text-neutral-600" />
       </button>
 
       <div
         id="a0"
-        className="
+        className={`
           accordion-collapse 
           show 
           collapse  
           md:flex 
-          pb-2 
-          md:pb-0"
+          md:divide-y-0
+          divide-y-2
+          ${dark ? 'divide-neutral-400' : 'divide-neutral-300'}
+        `}
       >
         {items.map((x) => (
           <span
             key={x}
-            className={`
+            className="
               flex 
               items-center 
               justify-between 
@@ -87,15 +89,11 @@ const Sort = () => {
               md:px-0 
               py-2 
               md:py-0 
-              border-b-2 
-              ${dark ? 'border-neutral-50' : 'border-neutral-200'}
-              md:border-b-0 
               md:mx-3
               md:text-sm 
               md:relative
               lg:text-base
-              lg:mx-5
-            `}
+              lg:mx-5"
           >
             <input
               checked={x === sortItem}
@@ -123,6 +121,7 @@ const Sort = () => {
               htmlFor={x}
               className={`
                 cursor-pointer 
+                w-full
                 duration-300
                 ${x === sortItem && 'md:text-redColor md:scale-125'}
               `}

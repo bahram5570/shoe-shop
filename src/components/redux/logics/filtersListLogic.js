@@ -1,7 +1,10 @@
+import { initialValues } from '../../initialValues/initialValues';
+
 const getLocal = (type) => JSON.parse(localStorage.getItem(type));
 
 export const filtersListLogic = () => {
   const list = [];
+  const { currentPrices } = initialValues;
 
   getLocal('category') &&
     getLocal('category').length > 0 &&
@@ -12,7 +15,8 @@ export const filtersListLogic = () => {
   getLocal('color') && getLocal('color').length > 0 && list.push('color');
 
   getLocal('price') &&
-    (getLocal('price').min !== 20 || getLocal('price').max !== 78) &&
+    (getLocal('price').min !== currentPrices.minPrice ||
+      getLocal('price').max !== currentPrices.maxPrice) &&
     list.push('price');
 
   getLocal('availables') && list.push('availables');

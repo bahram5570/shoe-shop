@@ -19,7 +19,7 @@ const Shoes = () => {
 
   return (
     <Fragment>
-      <div className="flex justify-between">
+      <div className="flex justify-between pt-2">
         <Filters
           onCloseFilters={() => setShowFilters(!showFilters)}
           showFilters={showFilters}
@@ -33,12 +33,13 @@ const Shoes = () => {
               md:z-10
               md:h-fit
               flex 
+              md:mr-4
               px-4 
               py-2 
               mb-6 
               shadow-[0_0_10px_#888888]
               rounded-lg
-              ${dark && 'md:bg-neutral-200'}
+              ${dark ? 'md:bg-neutral-200' : 'md:bg-neutral-50'}
             `}
           >
             <section className="flex items-center w-full md:hidden">

@@ -1,15 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { mode } from '../redux/slices/darkModeSlice';
+import DarkMode from './DarkMode';
 import { showHeader } from '../redux/slices/headerSlice';
 import {
   FaHome,
   FaShoePrints,
   FaBars,
+  FaShoppingBag,
   FaSignInAlt,
   FaShoppingCart,
-  FaSun,
-  FaMoon,
   FaUserCircle,
 } from 'react-icons/fa';
 
@@ -24,12 +23,17 @@ const Headers = () => {
   const cartQt = useSelector((state) => state.cartRedux).length;
 
   return (
-    <header className="fixed w-full px-4 py-2 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
+    <header className="fixed w-screen px-4 py-1 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
       <nav className="flex items-center justify-between w-full">
-        <h1 className="flex text-2xl italic font-headerFont text-yellowColor pointer-events-none">
-          <FaShoePrints className="w-auto h-8 mr-2" />
-          Shoe Shop
-        </h1>
+        <div className="flex items-center">
+          <h1 className="flex mr-6 text-2xl italic font-headerFont text-yellowColor pointer-events-none">
+            <FaShoePrints className="w-auto h-8 mr-2" />
+            Shoe Shop
+          </h1>
+
+          <DarkMode dark={dark} />
+        </div>
+
         <FaBars
           onClick={() => dispatch(showHeader())}
           className={`z-10 w-auto h-6 cursor-pointer sm:hidden duration-300 ${
@@ -60,32 +64,29 @@ const Headers = () => {
             sm:h-fit
           `}
         >
-          <li className="flex">
+          <li className="">
             <NavLink
               to="/Home"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <FaHome className="w-6 h-auto" />
+              <span className="flex flex-col items-center">
+                <FaHome className="w-6 h-auto" />
+                Home
+              </span>
             </NavLink>
           </li>
 
           <li className="">
             <NavLink
               end
-              to="/Shoes"
+              to="/Shop"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              Shoes
+              <span className="flex flex-col items-center">
+                <FaShoppingBag className="w-6 h-auto pt-2 sm:pt-0" />
+                Shop
+              </span>
             </NavLink>
-          </li>
-
-          <li className="flex justify-center">
-            <button
-              onClick={() => dispatch(mode())}
-              className="border-2 rounded-2xl flex justify-center items-center w-8 h-8 outline-none"
-            >
-              {dark ? <FaMoon /> : <FaSun />}
-            </button>
           </li>
 
           <li className="relative flex sm:mx-2">
@@ -93,7 +94,10 @@ const Headers = () => {
               to="/Cart"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <FaShoppingCart className="w-6 h-auto pt-2 sm:pt-0" />
+              <span className="flex flex-col items-center">
+                <FaShoppingCart className="w-6 h-auto pt-2 sm:pt-0" />
+                Cart
+              </span>
               <span
                 className="
                   absolute 
@@ -102,10 +106,10 @@ const Headers = () => {
                   justify-center 
                   w-5 
                   h-5 
-                  top-2 
-                  sm:top-0 
+                  top-1 
+                  sm:top-1 
                   right-4 
-                  sm:right-0 
+                  sm:right-1 
                   bg-redColor 
                   text-zinc-50 
                   rounded-xl"
@@ -120,8 +124,11 @@ const Headers = () => {
               to="/Login"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              {userStatus && <FaUserCircle className="w-6 h-auto" />}
-              {!userStatus && <FaSignInAlt className="w-6 h-auto" />}
+              <span className="flex flex-col items-center">
+                {userStatus && <FaUserCircle className="w-6 h-auto" />}
+                {!userStatus && <FaSignInAlt className="w-6 h-auto" />}
+                {userStatus ? 'Profile' : 'Login'}
+              </span>
             </NavLink>
           </li>
         </ul>

@@ -33,17 +33,17 @@ const SummeryCart = ({ items, onCheckout }) => {
 
       <span className="flex justify-between my-5 text-xl">
         <p>Original Price:</p>
-        <p>{originalPrice.toFixed(2)} $</p>
+        <p>${originalPrice.toFixed(2)}</p>
       </span>
 
       <span className="flex justify-between my-5 text-xl">
         <p>Discount:</p>
-        <p>{discount.toFixed(2)} $</p>
+        <p>${discount.toFixed(2)}</p>
       </span>
 
       <span className="flex justify-between my-5 text-xl pt-2 border-t-2 border-neutral-400">
         <p>Sale Price:</p>
-        <p>{salePrice.toFixed(2)} $</p>
+        <p>${salePrice.toFixed(2)}</p>
       </span>
 
       <button

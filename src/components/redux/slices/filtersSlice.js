@@ -5,12 +5,15 @@ import { initialSortMode } from '../initialProductsData';
 import { sortingLogic } from '../logics/sortingLogic';
 import { searchLogic } from '../logics/searchLogic';
 import { filtersListLogic } from '../logics/filtersListLogic';
+import { initialValues } from '../../initialValues/initialValues';
 
 const initialState = {
   outputData: initialFilterData(),
   sortMode: initialSortMode(),
   filtersList: filtersListLogic(),
 };
+
+const { currentPrices } = initialValues;
 
 const filtersSlice = createSlice({
   name: 'filtersSlice',
@@ -21,8 +24,8 @@ const filtersSlice = createSlice({
       const sizeItems = JSON.parse(localStorage.getItem('size')) || [];
       const colorItems = JSON.parse(localStorage.getItem('color')) || [];
       const priceItems = JSON.parse(localStorage.getItem('price')) || {
-        min: 20,
-        max: 78,
+        min: currentPrices.minPrice,
+        max: currentPrices.maxPrice,
       };
       const availablesItems =
         JSON.parse(localStorage.getItem('availables')) || false;

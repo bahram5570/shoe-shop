@@ -58,7 +58,7 @@ const PriceRange = ({ items }) => {
   };
 
   return (
-    <div className="pb-7 mt-4 px-2">
+    <div className="pb-10 mt-4 px-2">
       <div className="flex justify-between pb-2">
         <p>${priceValue.min}</p>
         <p>${priceValue.max}</p>
@@ -75,6 +75,7 @@ const PriceRange = ({ items }) => {
             rounded-xl 
             pointer-events-none"
         />
+        
         <div
           style={{
             left: linePosition(priceValue.min, 'min'),
@@ -85,6 +86,7 @@ const PriceRange = ({ items }) => {
           <span className="w-4 h-7 bg-blue-800 absolute left-0 -top-3 rounded" />
           <span className="w-4 h-7 bg-blue-800 absolute right-0 -top-3 rounded" />
         </div>
+
         <input
           type="range"
           className="priceRange"

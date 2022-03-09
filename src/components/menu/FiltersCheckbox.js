@@ -44,16 +44,13 @@ const FiltersCheckbox = ({ items, type }) => {
   const outputs = items.map((x) => (
     <span
       key={x}
-      className={`
+      className="
         flex 
         items-center 
         w-full
-        border-b-2
-        ${dark ? 'border-neutral-50' : 'border-neutral-200'}
         md:hover:translate-x-1 
         duration-200 
-        py-2
-      `}
+        py-2"
     >
       <input
         onChange={(w) => checkedHandler(x)}
@@ -68,7 +65,7 @@ const FiltersCheckbox = ({ items, type }) => {
           h-7 
           border-2 
           rounded-md
-          checked:bg-slate-600
+          checked:bg-cyan-400
           checked:shadow-none
           duration-150
           ${
@@ -78,17 +75,17 @@ const FiltersCheckbox = ({ items, type }) => {
           }
         `}
       />
-      <label htmlFor={x} className="cursor-pointer ml-2 relative">
+      <label htmlFor={x} className="cursor-pointer w-full ml-2 relative">
         {x}
         <FaCheck
           className={`
-          absolute 
-          -left-7 
-          top-1 
-          w-4 
-          h-auto 
-          ${dark ? 'text-neutral-200' : 'text-neutral-50'}
-        `}
+            absolute 
+            -left-7 
+            top-1 
+            w-4 
+            h-auto 
+            ${dark ? 'text-neutral-200' : 'text-neutral-50'}
+          `}
         />
       </label>
     </span>

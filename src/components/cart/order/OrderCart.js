@@ -62,7 +62,7 @@ const OrderCart = ({ onBack, onOrder }) => {
       </section>
 
       <section className="flex justify-end my-4 text-xl md:text-2xl">
-        <h2>Total Price: {salePrice.toFixed(2)} $</h2>
+        <h2>Total Price: ${salePrice.toFixed(2)}</h2>
       </section>
 
       <section className="flex justify-end">
