@@ -33,14 +33,6 @@ const Filters = (props) => {
     <div
       className={`
         accordion
-        duration-300
-        
-        z-40
-        bg-[#000000dd]
-        md:bg-transparent
-        md:h-screen
-        overscroll-contain
-        overflow-y-auto
         fixed
         top-0
         left-0
@@ -48,11 +40,18 @@ const Filters = (props) => {
         bottom-0
         md:sticky
         md:top-4
+        md:h-screen
         min-w-[320px]
         md:min-w-[320px]
         md:mr-6
         p-2
+        duration-300
+        bg-[#000000dd]
+        md:bg-transparent
+        overscroll-auto
+        overflow-y-auto
         -translate-y-2
+        z-40
         ${props.showFilters ? '' : 'top-full'}
       `}
     >

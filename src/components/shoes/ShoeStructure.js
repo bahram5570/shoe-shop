@@ -33,9 +33,8 @@ const ShoeStructure = ({ items }) => {
         duration-150 
         shadow-[0_0_10px_#aaaaaa]
         rounded-lg 
-        sm:cursor-pointer 
-        ring-neutral-400 
-        sm:hover:ring-4
+        sm:cursor-pointer         
+        ${dark ? 'sm:hover:shadow-[0_0_20px_#ffffff]' : 'sm:hover:shadow-[0_0_20px_#000000]'}
         ${dark ? 'shadow-none bg-neutral-200' : ''}
       `}
     >

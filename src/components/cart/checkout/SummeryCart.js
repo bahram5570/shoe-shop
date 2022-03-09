@@ -1,9 +1,11 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {clearCart} from '../../redux/slices/cartSlice';
 import { pricing } from '../tools/pricing';
 import { currentDate } from '../tools/currentDate';
 
 const SummeryCart = ({ items, onCheckout }) => {
   const dark = useSelector((state) => state.darkModeRedux);
+  const dispatch = useDispatch();
 
   const {totalItems, originalPrice, discount, salePrice} = pricing(items);
 
@@ -59,6 +61,22 @@ const SummeryCart = ({ items, onCheckout }) => {
         `}
       >
         Checkout
+      </button>
+
+      <button
+        onClick={() => dispatch(clearCart())}
+        className={`
+          w-full
+          mt-4
+          py-1 
+          rounded-2xl
+          outline-none
+          text-lg
+          bg-redColor
+          text-neutral-50
+        `}
+      >
+        Clear Cart
       </button>
     </div>
   );

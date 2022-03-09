@@ -18,14 +18,13 @@ const DarkMode = ({ dark }) => {
         border-white 
         rounded-2xl 
         hover:scale-110 
-        duration-100 
+        duration-200 
         cursor-pointer"
     >
       <span
         className={`
           h-6 
           w-6 
-          bg-white 
           rounded-xl 
           flex 
           justify-center 
@@ -33,7 +32,7 @@ const DarkMode = ({ dark }) => {
           absolute 
           duration-200
           top-0.5 
-          ${dark ? 'left-10' : 'left-0.5'}
+          ${dark ? 'left-10 bg-cyan-400' : 'left-0.5 bg-yellowColor'}
         `}
       >
         {dark ? (
