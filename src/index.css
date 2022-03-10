@@ -61,6 +61,10 @@ body {
   }
 
   .buttonsCart {
-    @apply flex items-center text-xl px-6 py-1 outline-none rounded-md text-white
+    @apply flex items-center text-xl px-6 py-1 outline-none rounded-md text-white;
+  }
+
+  .homeHeaders {
+    @apply md:mr-10 w-max text-4xl md:text-6xl xl:text-8xl my-6 rotate-12;
   }
 }

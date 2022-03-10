@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import DarkMode from './DarkMode';
 import { showHeader } from '../redux/slices/headerSlice';
+import brand from '../data/images/home/brand.png';
 import {
   FaHome,
-  FaShoePrints,
   FaBars,
   FaShoppingBag,
   FaSignInAlt,
@@ -37,8 +37,19 @@ const Headers = () => {
     >
       <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
-          <h1 className="flex mr-6 text-2xl sm:text-4xl italic font-headerFont text-yellowColor pointer-events-none">
-            <FaShoePrints className="w-auto h-8 sm:h-10 mr-2" />
+          <h1
+            className="
+            flex 
+            items-center 
+            mr-6 
+            text-2xl 
+            sm:text-4xl 
+            italic 
+            font-headerFont 
+            text-cyan-500 
+            pointer-events-none"
+          >
+            <img src={brand} alt="brand" className="h-8 sm:h-12 w-auto mr-2" />
             Shoe Shop
           </h1>
 
@@ -80,7 +91,7 @@ const Headers = () => {
               to="/Home"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <span className="flex flex-col items-center">
+              <span className="flex flex-col items-center outline-none">
                 <FaHome className="w-6 h-auto" />
                 Home
               </span>
@@ -93,7 +104,7 @@ const Headers = () => {
               to="/Shop"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <span className="flex flex-col items-center">
+              <span className="flex flex-col items-center outline-none">
                 <FaShoppingBag className="w-6 h-auto pt-2 sm:pt-0" />
                 Shop
               </span>
@@ -105,7 +116,7 @@ const Headers = () => {
               to="/Cart"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <span className="flex flex-col items-center">
+              <span className="flex flex-col items-center outline-none">
                 <FaShoppingCart className="w-6 h-auto pt-2 sm:pt-0" />
                 Cart
               </span>
@@ -135,7 +146,7 @@ const Headers = () => {
               to="/Login"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >
-              <span className="flex flex-col items-center">
+              <span className="flex flex-col items-center outline-none">
                 {userStatus && <FaUserCircle className="w-6 h-auto" />}
                 {!userStatus && <FaSignInAlt className="w-6 h-auto" />}
                 {userStatus ? 'Profile' : 'Login'}

@@ -14,7 +14,7 @@ const Layout = (props) => {
       <main
         onClick={() => dispatch(showHeader('outside'))}
         className={`min-h-screen px-5 py-16 sm:px-6 sm:py-20 ${
-          dark ? 'bg-[#444445]' : 'bg-neutral-50'
+          dark ? 'bg-[#444445]' : 'bg-gradient-to-br from-cyan-50'
         }`}
       >
         {props.children}
