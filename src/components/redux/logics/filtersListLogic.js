@@ -14,6 +14,8 @@ export const filtersListLogic = () => {
 
   getLocal('color') && getLocal('color').length > 0 && list.push('color');
 
+  getLocal('gender') && getLocal('gender').length > 0 && list.push('gender');
+
   getLocal('price') &&
     (getLocal('price').min !== currentPrices.minPrice ||
       getLocal('price').max !== currentPrices.maxPrice) &&

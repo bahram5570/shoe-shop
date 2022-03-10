@@ -8,8 +8,13 @@ import { initialValues } from '../initialValues/initialValues';
 import { FaAngleDown } from 'react-icons/fa';
 
 const Filters = (props) => {
-  const { currentCategories, currentSizes, currentColors, currentPrices } =
-    initialValues;
+  const {
+    currentCategories,
+    currentSizes,
+    currentColors,
+    currentGenders,
+    currentPrices,
+  } = initialValues;
 
   const dark = useSelector((state) => state.darkModeRedux);
   const filtersList = useSelector(
@@ -56,7 +61,6 @@ const Filters = (props) => {
       `}
     >
       <div className="md:shadow-[0_0_10px_#888888] p-4 rounded-xl">
-        
         {/* Search */}
         <section className="hidden md:block">
           <Search />
@@ -179,7 +183,7 @@ const Filters = (props) => {
           </div>
         </section>
 
-        {/* Price */}
+        {/* Gender */}
         <section
           className={`filter_section ${
             dark
@@ -194,12 +198,45 @@ const Filters = (props) => {
             aria-expanded="true"
           >
             <div className="flex items-center">
+              {hasFilter('gender')}
+              Gender
+            </div>
+            <FaAngleDown className="w-6 h-auto text-neutral-600" />
+          </button>
+          <div
+            id="a4"
+            className={`
+            accordion-collapse 
+            collapse
+            divide-y-2
+            ${dark ? 'divide-neutral-400' : 'divide-neutral-300'}
+          `}
+          >
+            <FiltersCheckbox items={currentGenders} type="gender" />
+          </div>
+        </section>
+
+        {/* Price */}
+        <section
+          className={`filter_section ${
+            dark
+              ? 'bg-neutral-200'
+              : 'bg-neutral-50 sm:shadow-[0_0_5px_#888888]'
+          }`}
+        >
+          <button
+            className="w-full px-4 mb-2 outline-none flex justify-between items-center font-extrabold"
+            data-bs-toggle="collapse"
+            data-bs-target="#a5"
+            aria-expanded="true"
+          >
+            <div className="flex items-center">
               {hasFilter('price')}
               Price
             </div>
             <FaAngleDown className="w-6 h-auto text-neutral-600" />
           </button>
-          <div id="a4" className="accordion-collapse collapse">
+          <div id="a5" className="accordion-collapse collapse">
             <PriceRange items={currentPrices} />
           </div>
         </section>

@@ -11,7 +11,8 @@ export const useLikes = (dataLikes, userLikes, id) => {
 };
 
 const ProductDetails = ({ items }) => {
-  const { brand, category, description, likes, price, off } = items;
+  const { brand, category, gender, description, likes, price, off } = items;
+  // console.log(items)
 
   const dark = useSelector((state) => state.darkModeRedux);
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
@@ -62,6 +63,7 @@ const ProductDetails = ({ items }) => {
               />
             )}
 
+            {/* Like error */}
             {loginFirst && (
               <p className="absolute -top-10 -left-10 w-max px-4 py-1 rounded-md bg-cyan-500 text-white">
                 Login please!
@@ -70,11 +72,15 @@ const ProductDetails = ({ items }) => {
             )}
           </span>
         </div>
-        <h2 className={`mb-6 mt-2 text-2xl ${dark ? '' : 'text-neutral-600'}`}>
-          "{category}"
+
+        <h2 className={`mb-6 mt-2 ${dark ? '' : 'text-neutral-700'}`}>
+          <span className="text-2xl mr-2">{category}</span>
+          <span className="">"{gender.join(', ')}"</span>
         </h2>
+
         <p className="mb-2 text-xl font-bold">Price: ${price}</p>
         <p className="mb-2 text-xl font-bold text-redColor">OFF: {off}%</p>
+
         <span>
           <p className="font-bold">Details:</p>
           <p className="px-4 text-justify">" {description} "</p>

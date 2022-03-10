@@ -46,7 +46,6 @@ import b4_cover from './images/b4_cover.jpg';
 import b4_a from './images/b4_a.jpg';
 import b4_b from './images/b4_b.jpg';
 
-
 export const data = {
   s1: {
     id: 's1',
@@ -58,6 +57,7 @@ export const data = {
     category: 'Sneaker',
     colors: [{ name: 'Blue', code: '#0000ff' }],
     size: [39, 40],
+    gender: ['Men'],
     qt: 5,
     description:
       "Step out in ultimate comfort and style in a pair of these men's blue lace up casual shoes by Podium. They showcase fine stitch detailing, a rounded toe front, comfortable memory foam insole and a gripped outer sole. Perfect for both sportswear and everyday use.",
@@ -73,6 +73,7 @@ export const data = {
       { name: 'White', code: '#ffffff' },
     ],
     size: [39, 40, 41, 42],
+    gender: ['Men'],
     qt: 2,
     likes: 1,
     description:
@@ -90,6 +91,7 @@ export const data = {
       { name: 'White', code: '#ffffff' },
     ],
     size: [38, 39, 40, 41, 42],
+    gender: ['Men'],
     qt: 3,
     likes: 0,
     description:
@@ -107,6 +109,7 @@ export const data = {
       { name: 'White', code: '#ffffff' },
     ],
     size: [40, 41, 42],
+    gender: ['Men'],
     qt: 0,
     likes: 3,
     description:
@@ -124,6 +127,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
     ],
     size: [40, 41, 42],
+    gender: ['Men'],
     qt: 6,
     likes: 0,
     description:
@@ -142,6 +146,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
     ],
     size: [39, 40, 41],
+    gender: ['Men'],
     qt: 4,
     likes: 0,
     description:
@@ -159,6 +164,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
     ],
     size: [41, 42],
+    gender: ['Men'],
     qt: 0,
     likes: 0,
     description:
@@ -173,6 +179,7 @@ export const data = {
     off: 6,
     colors: [{ name: 'Black', code: '#000000' }],
     size: [40, 41, 42],
+    gender: ['Men'],
     qt: 2,
     likes: 0,
     description:
@@ -190,6 +197,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
     ],
     size: [38, 39, 40, 41],
+    gender: ['Men'],
     qt: 6,
     likes: 0,
     description:
@@ -207,6 +215,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
     ],
     size: [40, 41, 42],
+    gender: ['Men'],
     qt: 0,
     likes: 0,
     description:
@@ -224,6 +233,7 @@ export const data = {
       { name: 'Black', code: '#000000' },
     ],
     size: [39, 40, 41, 42],
+    gender: ['Men'],
     qt: 4,
     likes: 0,
     description:
@@ -242,6 +252,7 @@ export const data = {
       { name: 'Grey', code: '#555555' },
     ],
     size: [39, 40, 41],
+    gender: ['Men'],
     qt: 7,
     likes: 0,
     description:

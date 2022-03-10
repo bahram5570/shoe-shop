@@ -23,6 +23,7 @@ const filtersSlice = createSlice({
       const categoryItems = JSON.parse(localStorage.getItem('category')) || [];
       const sizeItems = JSON.parse(localStorage.getItem('size')) || [];
       const colorItems = JSON.parse(localStorage.getItem('color')) || [];
+      const genderItems = JSON.parse(localStorage.getItem('gender')) || [];
       const priceItems = JSON.parse(localStorage.getItem('price')) || {
         min: currentPrices.minPrice,
         max: currentPrices.maxPrice,
@@ -30,12 +31,14 @@ const filtersSlice = createSlice({
       const availablesItems =
         JSON.parse(localStorage.getItem('availables')) || false;
 
+      // Category
       const categoryFiltering = productsData.filter((x) =>
         categoryItems.length === 0
           ? productsData
           : categoryItems.includes(x.category)
       );
 
+      // Size
       const sizeFiltering = [];
 
       if (sizeItems.length === 0) {
@@ -48,6 +51,7 @@ const filtersSlice = createSlice({
         });
       }
 
+      // Colors
       const colorFiltering = [];
 
       if (colorItems.length === 0) {
@@ -61,10 +65,26 @@ const filtersSlice = createSlice({
         });
       }
 
-      const priceFiltering = colorFiltering.filter(
+      // Gender
+      const genderFiltering = [];
+
+      if (genderItems.length === 0) {
+        genderFiltering.push(...colorFiltering);
+      } else {
+        colorFiltering.forEach((element) => {
+          for (let i = 0; i < element.gender.length; i++) {
+            genderItems.includes(element.gender[i]) &&
+              genderFiltering.push(element);
+          }
+        });
+      }
+
+      // Price
+      const priceFiltering = genderFiltering.filter(
         (x) => x.price >= priceItems.min && x.price <= priceItems.max
       );
 
+      // Available
       const availableFiltering = availablesItems
         ? priceFiltering.filter((x) => x.qt > 0)
         : priceFiltering;
@@ -106,6 +126,7 @@ const filtersSlice = createSlice({
       localStorage.removeItem('size');
       localStorage.removeItem('price');
       localStorage.removeItem('color');
+      localStorage.removeItem('gender');
       localStorage.removeItem('availables');
       localStorage.removeItem('outputDataID');
 
