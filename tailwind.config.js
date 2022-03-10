@@ -17,7 +17,7 @@ module.exports = {
         cartPadding: "0.15rem"
       },
       gridTemplateColumns: {
-        shoesGrid: 'repeat(auto-fit, minmax(260px, 1fr))',
+        shoesGrid: 'repeat(auto-fit, minmax(220px, 1fr))',
         radioGrid: 'repeat(auto-fit, minmax(30px, 1fr))'
       },
       boxShadow: {

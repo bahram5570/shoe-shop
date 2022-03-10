@@ -23,11 +23,22 @@ const Headers = () => {
   const cartQt = useSelector((state) => state.cartRedux).length;
 
   return (
-    <header className="fixed w-screen px-4 py-1 text-white sm:absolute sm:top-0 bg-zinc-800 z-40">
+    <header
+      className="
+      fixed 
+      sm:absolute 
+      top-0 
+      w-screen 
+      py-1 
+      px-4 
+      text-white 
+      bg-zinc-800 
+      z-40"
+    >
       <nav className="flex items-center justify-between w-full">
         <div className="flex items-center">
-          <h1 className="flex mr-6 text-2xl italic font-headerFont text-yellowColor pointer-events-none">
-            <FaShoePrints className="w-auto h-8 mr-2" />
+          <h1 className="flex mr-6 text-2xl sm:text-4xl italic font-headerFont text-yellowColor pointer-events-none">
+            <FaShoePrints className="w-auto h-8 sm:h-10 mr-2" />
             Shoe Shop
           </h1>
 
@@ -36,32 +47,32 @@ const Headers = () => {
 
         <FaBars
           onClick={() => dispatch(showHeader())}
-          className={`z-10 w-auto h-6 cursor-pointer sm:hidden duration-300 ${
+          className={`z-10 w-auto h-8 cursor-pointer sm:hidden duration-300 ${
             showMenu && 'rotate-90'
           }`}
         />
 
         <ul
           className={`
-            ${showMenu ? 'right-0' : '-right-20'}
             absolute 
+            sm:relative 
             top-0 
+            ${showMenu ? 'right-0' : '-right-20'}
             sm:right-0
             flex 
             flex-col 
-            duration-300
-            w-20 
-            h-screen 
-            sm:w-fit 
             sm:flex-row 
             sm:items-center 
-            sm:relative 
+            h-screen 
+            sm:h-fit
+            duration-300
+            w-20 
+            sm:w-fit 
             pt-14 
             sm:pt-0 
-            bg-zinc-800 
             bg-opacity-90 
             sm:bg-opacity-100 
-            sm:h-fit
+            bg-zinc-800 
           `}
         >
           <li className="">
