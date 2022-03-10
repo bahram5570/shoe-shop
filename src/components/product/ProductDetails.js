@@ -11,8 +11,8 @@ export const useLikes = (dataLikes, userLikes, id) => {
 };
 
 const ProductDetails = ({ items }) => {
-  const { brand, category, gender, description, likes, price, off } = items;
-  // console.log(items)
+  const { brand, category, gender, name, description, likes, price, off } =
+    items;
 
   const dark = useSelector((state) => state.darkModeRedux);
   const userStatus = useSelector((state) => state.signinRedux).loggedUser;
@@ -73,13 +73,17 @@ const ProductDetails = ({ items }) => {
           </span>
         </div>
 
-        <h2 className={`mb-6 mt-2 ${dark ? '' : 'text-neutral-700'}`}>
+        <h2 className="text-xl mt-2">{name}</h2>
+
+        <h2 className={`mt-2 mb-6 ${!dark && 'text-neutral-700'}`}>
           <span className="text-2xl mr-2">{category}</span>
-          <span className="">"{gender.join(', ')}"</span>
+          <span>"{gender.join(', ')}"</span>
         </h2>
 
         <p className="mb-2 text-xl font-bold">Price: ${price}</p>
-        <p className="mb-2 text-xl font-bold text-redColor">OFF: {off}%</p>
+        {off > 0 && (
+          <p className="mb-2 text-xl font-bold text-redColor">OFF: {off}%</p>
+        )}
 
         <span>
           <p className="font-bold">Details:</p>

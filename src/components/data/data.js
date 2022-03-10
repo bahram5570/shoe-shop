@@ -55,7 +55,13 @@ export const data = {
     likes: 0,
     images: [s1_cover, s1_a, s1_b],
     category: 'Sneaker',
-    colors: [{ name: 'Blue', code: '#0000ff' }],
+    name: 'Mens Blue Lace Up Casual Shoe',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Green', code: '#00ff00' },
+      { name: 'Red', code: '#dd0000' },
+      { name: 'White', code: '#ffffff' },
+    ],
     size: [39, 40],
     gender: ['Men'],
     qt: 5,
@@ -65,6 +71,7 @@ export const data = {
   s2: {
     brand: 'Penguin',
     category: 'Sneaker',
+    name: 'Steadman Mens Black Trainer',
     price: 52,
     off: 20,
     colors: [
@@ -84,6 +91,7 @@ export const data = {
   s3: {
     brand: 'Skechers',
     category: 'Sneaker',
+    name: 'Skech Air Dynamight Mens Trainer',
     price: 70,
     off: 5,
     colors: [
@@ -102,9 +110,11 @@ export const data = {
   s4: {
     brand: 'Lambretta',
     category: 'Sneaker',
+    name: 'Sting Mens Lace Up Shoe',
     price: 32,
     off: 10,
     colors: [
+      { name: 'Red', code: '#ff0000' },
       { name: 'Green', code: '#00ff00' },
       { name: 'White', code: '#ffffff' },
     ],
@@ -120,6 +130,7 @@ export const data = {
   o1: {
     brand: 'Beckett',
     category: 'Oxford',
+    name: 'Mens Black Gibson Style Lace Up Shoe',
     price: 30,
     off: 3,
     colors: [
@@ -138,6 +149,7 @@ export const data = {
   o2: {
     brand: 'Cotswold',
     category: 'Oxford',
+    name: 'Suedley Mens Brown Leather Lace Up Shoe',
     price: 78,
     off: 0,
     colors: [
@@ -157,6 +169,7 @@ export const data = {
   o3: {
     brand: 'Amblers',
     category: 'Oxford',
+    name: 'Unisex FS45 Safety Shoe in Black',
     price: 35,
     off: 5,
     colors: [
@@ -175,6 +188,7 @@ export const data = {
   o4: {
     brand: 'Bottesini',
     category: 'Oxford',
+    name: 'Mens Black Lace Up Leather Shoe',
     price: 42,
     off: 6,
     colors: [{ name: 'Black', code: '#000000' }],
@@ -190,11 +204,13 @@ export const data = {
   b1: {
     brand: 'Earth Works',
     category: 'Boot',
+    name: 'Suedley Mens Brown Leather Lace Up Shoe',
     price: 50,
     off: 0,
     colors: [
       { name: 'Brown', code: '#804000' },
       { name: 'Black', code: '#000000' },
+      { name: 'Blue', code: '#0000ff' },
     ],
     size: [38, 39, 40, 41],
     gender: ['Men'],
@@ -208,11 +224,14 @@ export const data = {
   b2: {
     brand: 'CAT',
     category: 'Boot',
+    name: 'Mens Median Boot in Black',
     price: 73,
     off: 5,
     colors: [
       { name: 'Grey', code: '#555555' },
       { name: 'Black', code: '#000000' },
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Brown', code: '#804000' },
     ],
     size: [40, 41, 42],
     gender: ['Men'],
@@ -226,6 +245,7 @@ export const data = {
   b3: {
     brand: 'Amblers',
     category: 'Boot',
+    name: 'Mens FS161 Black Waterproof Boot',
     price: 68,
     off: 0,
     colors: [
@@ -244,6 +264,7 @@ export const data = {
   b4: {
     brand: 'Groundwork',
     category: 'Boot',
+    name: 'GR387 Adults Safety Boot in Black',
     price: 46,
     off: 10,
     colors: [
