@@ -89,7 +89,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 gap-4 md:flex md:justify-around my-10">
+      <section className="grid grid-cols-2 gap-4 md:flex md:justify-around my-12">
         <HomeStructure name="Men" image={man} />
         <HomeStructure name="Women" image={woman} />
         <HomeStructure name="Kids" image={kid} />

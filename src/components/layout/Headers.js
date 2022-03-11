@@ -41,7 +41,8 @@ const Headers = () => {
             className="
             flex 
             items-center 
-            mr-6 
+            mr-4
+            sm:mr-6 
             text-2xl 
             sm:text-4xl 
             italic 

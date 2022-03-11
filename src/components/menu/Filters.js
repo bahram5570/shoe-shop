@@ -183,7 +183,7 @@ const Filters = (props) => {
           </div>
         </section>
 
-        {/* Gender */}
+        {/* Gender (Type) */}
         <section
           className={`filter_section ${
             dark
@@ -199,7 +199,7 @@ const Filters = (props) => {
           >
             <div className="flex items-center">
               {hasFilter('gender')}
-              Gender
+              Type
             </div>
             <FaAngleDown className="w-6 h-auto text-neutral-600" />
           </button>

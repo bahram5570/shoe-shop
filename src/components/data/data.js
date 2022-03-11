@@ -46,6 +46,70 @@ import b4_cover from './images/b4_cover.jpg';
 import b4_a from './images/b4_a.jpg';
 import b4_b from './images/b4_b.jpg';
 
+import sw1_cover from './images/sw1_cover.jpg';
+import sw1_a from './images/sw1_a.jpg';
+import sw1_b from './images/sw1_b.jpg';
+
+import sw2_cover from './images/sw2_cover.jpg';
+import sw2_a from './images/sw2_a.jpg';
+import sw2_b from './images/sw2_b.jpg';
+
+import sw3_cover from './images/sw3_cover.jpg';
+import sw3_a from './images/sw3_a.jpg';
+import sw3_b from './images/sw3_b.jpg';
+
+import sw4_cover from './images/sw4_cover.jpg';
+import sw4_a from './images/sw4_a.jpg';
+import sw4_b from './images/sw4_b.jpg';
+
+import bw1_cover from './images/bw1_cover.jpg';
+import bw1_a from './images/bw1_a.jpg';
+import bw1_b from './images/bw1_b.jpg';
+
+import bw2_cover from './images/bw2_cover.jpg';
+import bw2_a from './images/bw2_a.jpg';
+import bw2_b from './images/bw2_b.jpg';
+
+import bw3_cover from './images/bw3_cover.jpg';
+import bw3_a from './images/bw3_a.jpg';
+import bw3_b from './images/bw3_b.jpg';
+
+import bw4_cover from './images/bw4_cover.jpg';
+import bw4_a from './images/bw4_a.jpg';
+import bw4_b from './images/bw4_b.jpg';
+
+import bk1_cover from './images/bk1_cover.jpg';
+import bk1_a from './images/bk1_a.jpg';
+import bk1_b from './images/bk1_b.jpg';
+
+import bk2_cover from './images/bk2_cover.jpg';
+import bk2_a from './images/bk2_a.jpg';
+import bk2_b from './images/bk2_b.jpg';
+
+import bk3_cover from './images/bk3_cover.jpg';
+import bk3_a from './images/bk3_a.jpg';
+import bk3_b from './images/bk3_b.jpg';
+
+import bk4_cover from './images/bk4_cover.jpg';
+import bk4_a from './images/bk4_a.jpg';
+import bk4_b from './images/bk4_b.jpg';
+
+import sk1_cover from './images/sk1_cover.jpg';
+import sk1_a from './images/sk1_a.jpg';
+import sk1_b from './images/sk1_b.jpg';
+
+import sk2_cover from './images/sk2_cover.jpg';
+import sk2_a from './images/sk2_a.jpg';
+import sk2_b from './images/sk2_b.jpg';
+
+import sk3_cover from './images/sk3_cover.jpg';
+import sk3_a from './images/sk3_a.jpg';
+import sk3_b from './images/sk3_b.jpg';
+
+import sk4_cover from './images/sk4_cover.jpg';
+import sk4_a from './images/sk4_a.jpg';
+import sk4_b from './images/sk4_b.jpg';
+
 export const data = {
   s1: {
     id: 's1',
@@ -91,15 +155,15 @@ export const data = {
   s3: {
     brand: 'Skechers',
     category: 'Sneaker',
-    name: 'Skech Air Dynamight Mens Trainer',
+    name: 'Skech Air Dynamight Trainer',
     price: 70,
     off: 5,
     colors: [
       { name: 'Black', code: '#000000' },
       { name: 'White', code: '#ffffff' },
     ],
-    size: [38, 39, 40, 41, 42],
-    gender: ['Men'],
+    size: [36, 37, 38, 39, 40, 41, 42],
+    gender: ['Men', 'Women'],
     qt: 3,
     likes: 0,
     description:
@@ -272,13 +336,324 @@ export const data = {
       { name: 'Black', code: '#000000' },
       { name: 'Grey', code: '#555555' },
     ],
-    size: [39, 40, 41],
-    gender: ['Men'],
+    size: [37, 38, 39, 40, 41],
+    gender: ['Men', 'Women'],
     qt: 7,
     likes: 0,
     description:
       'By Groundwork Safety Footwear, these unisex safety boots embrace a black leather upper with a lace up fastening for a secure fit. Additionally, they feature a steel toe cap, slip resistant outsole, shock absorption and are oil resistant. They conform to safety regulations EN ISO 20345.',
     images: [b4_cover, b4_a, b4_b],
     id: 'b4',
+  },
+  bw1: {
+    brand: 'Amblers',
+    category: 'Boot',
+    name: 'Womens AS601 Lydia in Black',
+    price: 44,
+    off: 10,
+    colors: [
+      { name: 'Brown', code: '#804000' },
+      { name: 'Black', code: '#000000' },
+      { name: 'Grey', code: '#555555' },
+    ],
+    size: [36, 37, 38, 39, 40, 41],
+    gender: ['Women'],
+    qt: 3,
+    likes: 2,
+    description:
+      'By Amblers Safety, womens boots in black. Composite lightweight lace up ladies safety boot with quick-access side zip, breathable mesh lining, padded PU comfort collar and dual density PU outsole.',
+    images: [bw1_cover, bw1_a, bw1_b],
+    id: 'bw1',
+  },
+  bw2: {
+    brand: 'CAT',
+    category: 'Boot',
+    name: 'Mens & Womens Mae Boot in Grey',
+    price: 100,
+    off: 5,
+    colors: [
+      { name: 'Black', code: '#000000' },
+      { name: 'Grey', code: '#555555' },
+    ],
+    size: [36, 37, 38, 39, 40, 41],
+    gender: ['Men', 'Women'],
+    qt: 2,
+    likes: 4,
+    description:
+      'By CAT, women’s boots in grey. From the high-performing, slip-resistant outsole to its protective steel toe and electrical hazard properties, this chukka boot can easily handle the tough environments of industrial work sites.',
+    images: [bw2_cover, bw2_a, bw2_b],
+    id: 'bw2',
+  },
+  bw3: {
+    brand: 'Cotswold',
+    category: 'Boot',
+    name: 'Chipping Womens Lace Up Boot in Black',
+    price: 55,
+    off: 2,
+    colors: [{ name: 'Black', code: '#000000' }],
+    size: [38, 39, 40],
+    gender: ['Women'],
+    qt: 2,
+    likes: 0,
+    description:
+      'A ladies lace up country boot with classic leathers and padded collar, the memory foam footbed adds superior comfort. Chipping is a stylish performer in wet weather with its internal waterproof membrane and rear pull loop.',
+    images: [bw3_cover, bw3_a, bw3_b],
+    id: 'bw3',
+  },
+  bw4: {
+    brand: 'Skechers',
+    category: 'Boot',
+    name: 'Mountain Kiss Womens Black Suede Boot',
+    price: 60,
+    off: 0,
+    colors: [
+      { name: 'Black', code: '#000000' },
+      { name: 'White', code: '#ffffff' },
+      { name: 'Grey', code: '#555555' },
+    ],
+    size: [38, 39, 40],
+    gender: ['Women'],
+    qt: 0,
+    likes: 3,
+    description:
+      "Designed by Skechers, these women's ankle boots embrace a black suede upper with a faux fur collar and soft warm lining. They feature a lace up fastening for an adjustable fit, while their memory foam insole provides comfort beneath your feet.",
+    images: [bw4_cover, bw4_a, bw4_b],
+    id: 'bw4',
+  },
+  sw1: {
+    id: 'sw1',
+    brand: 'Skechers',
+    price: 69,
+    off: 5,
+    likes: 0,
+    images: [sw1_cover, sw1_a, sw1_b],
+    category: 'Sneaker',
+    name: 'Womens Lace Up Casual Shoe',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Green', code: '#00ff00' },
+      { name: 'Red', code: '#dd0000' },
+      { name: 'White', code: '#ffffff' },
+    ],
+    size: [38, 39, 40],
+    gender: ['Women'],
+    qt: 3,
+    description:
+      "By Skechers, these women's trainers embrace a white knitted upper with pink detailing. They feature a lace up fastening for a secure fit, while their air cooled memory foam insole provides comfort and support underfoot. These trainers are vegan friendly and are machine washable on a cool, gentle cycle.",
+  },
+  sw2: {
+    id: 'sw2',
+    brand: 'Podium',
+    price: 22,
+    off: 0,
+    likes: 0,
+    images: [sw2_cover, sw2_a, sw2_b],
+    category: 'Sneaker',
+    name: 'Womens Lace-Up Trainers',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Green', code: '#00ff00' },
+    ],
+    size: [38, 39, 40],
+    gender: ['Women'],
+    qt: 2,
+    description:
+      'These trainers will ensure your feet stay comfy on those daily dog walks or your active lifestyle. They provide you with a cushioned grip sole, along with a flexible mesh upper keeping your feet cool. Pink laces and contrast detailing on the sole, offer the shoe a more stylish aesthetic, giving you a trainer that is fashionable yet practical for your daily activities.',
+  },
+  sw3: {
+    id: 'sw3',
+    brand: 'Lilley',
+    price: 20,
+    off: 0,
+    likes: 1,
+    images: [sw3_cover, sw3_a, sw3_b],
+    category: 'Sneaker',
+    name: 'Womens Black Sporty Casual Shoe',
+    colors: [
+      { name: 'Black', code: '#000000' },
+      { name: 'Grey', code: '#555555' },
+    ],
+    size: [38],
+    gender: ['Women'],
+    qt: 2,
+    description:
+      "By Lilley, these women's casual shoes embrace a black and grey marl upper with bright pink detailing. They feature bungee laces for an quick slip on fitting, while their memory foam insole and gripped outsole ensures comfort beneath your feet.",
+  },
+  sw4: {
+    id: 'sw4',
+    brand: 'Osaga',
+    price: 30,
+    off: 5,
+    likes: 0,
+    images: [sw4_cover, sw4_a, sw4_b],
+    category: 'Sneaker',
+    name: 'Slip On Womens Trainer',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Grey', code: '#555555' },
+    ],
+    size: [38, 39],
+    gender: ['Women'],
+    qt: 4,
+    description:
+      "From Osaga, these women's trainers showcase a navy upper, with bright pink linings. They feature a light weight design with a simple slip on fitting with elastic laces, while their memory foam insole provides comfort beneath your feet.",
+  },
+  bk1: {
+    brand: 'SPROX',
+    category: 'Boot',
+    name: 'Boys Easy Fasten Boot in Camel',
+    price: 28,
+    off: 5,
+    colors: [
+      { name: 'Brown', code: '#804000' },
+      { name: 'Black', code: '#000000' },
+    ],
+    size: [32, 33, 34, 35],
+    gender: ['Kids'],
+    qt: 2,
+    likes: 1,
+    description:
+      'Designed by Sprox, these boys’ boots embrace a camel upper, with navy detailing and faux sheep skin lining. They feature triple touch fasten straps for quick and easy fitting, while their gripped outsole makes these boots perfect for their next adventure.',
+    images: [bk1_cover, bk1_a, bk1_b],
+    id: 'bk1',
+  },
+  bk2: {
+    brand: 'Trespass',
+    category: 'Boot',
+    name: 'Gillion II Kids Waterproof Hiking Boot',
+    price: 29,
+    off: 0,
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Brown', code: '#804000' },
+      { name: 'Black', code: '#000000' },
+    ],
+    size: [32, 33, 34],
+    gender: ['Kids'],
+    qt: 3,
+    likes: 1,
+    description:
+      'By Trespass, these sturdy kids hiking boots offer plenty of support. They feature a Tres-Tex waterproof and breathable membrane, arch stabilising and supportive shank, cushioned footbed and a rugged grip sole. Great for outdoor adventures in all weather conditions.',
+    images: [bk2_cover, bk2_a, bk2_b],
+    id: 'bk2',
+  },
+  bk3: {
+    brand: 'Cotswold',
+    category: 'Boot',
+    name: 'Nebraska Kids Hiker Boot in Brown Leather',
+    price: 59,
+    off: 4,
+    colors: [
+      { name: 'Brown', code: '#804000' },
+      { name: 'Black', code: '#000000' },
+    ],
+    size: [32, 33],
+    gender: ['Kids'],
+    qt: 1,
+    likes: 0,
+    description:
+      'By Cotswold, Nebraska kids boots in brown. Leather hiking boot from Cotswold with Mir-Tex waterproofing technology. The lining is a breathable, waterproof membrane that gives you the added security that your feet will always stay dry. Slip and oil resistant energy rebounding sole.',
+    images: [bk3_cover, bk3_a, bk3_b],
+    id: 'bk3',
+  },
+  bk4: {
+    brand: 'SPROX',
+    category: 'Boot',
+    name: 'Kids Brown Zip Up Boot',
+    price: 59,
+    off: 0,
+    colors: [
+      { name: 'Black', code: '#000000' },
+      { name: 'White', code: '#ffffff' },
+      { name: 'Grey', code: '#555555' },
+    ],
+    size: [32, 33, 34],
+    gender: ['Kids'],
+    qt: 0,
+    likes: 0,
+    description:
+      'Get your little one set for the cooler months with these boots from Sprox. They embrace a brown upper with fine stitch detailing, along with a knitted collar for the finishing touch. A zip up fastening makes these boots great for quick and easy fitting.',
+    images: [bk4_cover, bk4_a, bk4_b],
+    id: 'bk4',
+  },
+  sk1: {
+    id: 'sk1',
+    brand: 'Skechers',
+    price: 42,
+    off: 5,
+    likes: 0,
+    images: [sk1_cover, sk1_a, sk1_b],
+    category: 'Sneaker',
+    name: 'Microspec Max Torvix Kids Trainer',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Red', code: '#dd0000' },
+      { name: 'White', code: '#ffffff' },
+    ],
+    size: [32, 33, 34],
+    gender: ['Kids'],
+    qt: 2,
+    description:
+      'From Skechers, these kids’ trainers embrace a black upper with white brand detailing. They feature both elastic laces and a touch fasten strap for quick and easy fitting, while their lightweight and flexible outsole ensures comfort and support underfoot. These trainers are machine washable on a cool, gentle cycle.',
+  },
+  sk2: {
+    id: 'sk2',
+    brand: 'Skechers',
+    price: 40,
+    off: 0,
+    likes: 0,
+    images: [sk2_cover, sk2_a, sk2_b],
+    category: 'Sneaker',
+    name: 'Shark Kids Surf Patrol Grey Trainer',
+    colors: [
+      { name: 'Grey', code: '#555555' },
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Red', code: '#dd0000' },
+      { name: 'White', code: '#ffffff' },
+    ],
+    size: [32, 33, 34],
+    gender: ['Kids'],
+    qt: 3,
+    description:
+      "Designed by Skechers, these kids' trainers embrace a grey upper with shark detailing. They feature both elasticated laces and a touch fasten strap for easy fitting, while their air cooled memory foam insole ensures comfort and support beneath their feet. These trainers are machine washable on a cool, gentle cycle.",
+  },
+  sk3: {
+    id: 'sk3',
+    brand: 'XL',
+    price: 25,
+    off: 3,
+    likes: 0,
+    images: [sk3_cover, sk3_a, sk3_b],
+    category: 'Sneaker',
+    name: 'Boys White & Royal Blue Easy Fasten Trainer',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'White', code: '#ffffff' },
+    ],
+    size: [32, 33, 34],
+    gender: ['Kids'],
+    qt: 3,
+    description:
+      'From XL, these boys trainers embrace a white upper with black and royal blue detailing. They feature both elastic laces and a touch fasten strap for quick fitting, while their padded insole and flexible outsole ensures comfort underfoot.',
+  },
+  sk4: {
+    id: 'sk4',
+    brand: 'XL',
+    price: 20,
+    off: 5,
+    likes: 4,
+    images: [sk4_cover, sk4_a, sk4_b],
+    category: 'Sneaker',
+    name: 'Kids Easy Fasten Trainers',
+    colors: [
+      { name: 'Blue', code: '#0000ff' },
+      { name: 'Green', code: '#00ff00' },
+      { name: 'White', code: '#ffffff' },
+    ],
+    size: [32, 33, 34, 35],
+    gender: ['Kids'],
+    qt: 2,
+    description:
+      'Get a sporty look with these kids blue and orange trainers by XL. They embrace a blue mesh upper, with an orange interior and orange gripped sole. For quick and easy fitting there is a touch fasten strap and elasticated laces.',
   },
 };
