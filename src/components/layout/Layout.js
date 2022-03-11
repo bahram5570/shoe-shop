@@ -1,6 +1,8 @@
 import Headers from './Headers';
+import Footer from './Footer';
 import { useSelector, useDispatch } from 'react-redux';
 import { showHeader } from '../redux/slices/headerSlice';
+import Scroller from '../scroller/Scroller';
 
 const Layout = (props) => {
   const dark = useSelector((state) => state.darkModeRedux);
@@ -9,6 +11,8 @@ const Layout = (props) => {
 
   return (
     <div className="min-h-screen relative">
+      <Scroller />
+
       <Headers />
 
       <main
@@ -20,9 +24,7 @@ const Layout = (props) => {
         {props.children}
       </main>
 
-      <footer className="bg-zinc-800 absolute bottom-0 w-full text-center text-slate-50 py-2">
-        All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 };

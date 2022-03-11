@@ -21,6 +21,7 @@ import woman from '../data/images/home/woman.png';
 import kid from '../data/images/home/kid.png';
 import online from '../data/images/home/online.jpg';
 
+
 const Home = () => {
   const dark = useSelector((state) => state.darkModeRedux);
 
