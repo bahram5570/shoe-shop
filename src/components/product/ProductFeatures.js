@@ -61,8 +61,7 @@ const ProductFeatures = ({ items, onSelection }) => {
                   flex 
                   items-center 
                   justify-center 
-                  cursor-pointer
-                "
+                  cursor-pointer"
               >
                 {x}
               </label>

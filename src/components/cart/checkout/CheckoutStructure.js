@@ -45,7 +45,6 @@ const CheckoutStructure = ({ items }) => {
 
       <div className="md:flex md:items-center md:w-full">
         <div className="md:w-6/12 lg:w-4/12 xl:flex xl:justify-between xl:w-5/12">
-          
           {/* Brand */}
           <h2 className="text-xl lg:text-2xl">{items.brand}</h2>
 
@@ -61,8 +60,10 @@ const CheckoutStructure = ({ items }) => {
                 mr-2
                 rounded-xl
                 border-2
-                ${items.color.name === 'White' ? 'border-black' : 'border-white'}
-                `}
+                ${
+                  items.color.name === 'White' ? 'border-black' : 'border-white'
+                }
+              `}
             />
             <p>{items.color.name}</p>
           </span>
@@ -133,11 +134,15 @@ const CheckoutStructure = ({ items }) => {
             </button>
           )}
 
-          <p className={`
+          <p
+            className={`
             text-xl 
             md:my-1
             ${dark && 'text-black md:text-white'}
-          `}>{items.qt}</p>
+          `}
+          >
+            {items.qt}
+          </p>
 
           <button
             onClick={() => qtHandler('increment')}

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import FiltersCheckbox from './FiltersCheckbox';
 import ButtonsSection from './ButtonsSection';
@@ -33,6 +34,22 @@ const Filters = (props) => {
       `}
     />
   );
+
+  const [screenStatus, setScreenStatus] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const screenWidth = () => {
+      setScreenStatus(window.innerWidth);
+    };
+
+    const getWidth = () => {
+      window.addEventListener('resize', screenWidth);
+    };
+
+    getWidth();
+
+    return () => window.removeEventListener('resize', screenWidth);
+  }, []);
 
   return (
     <div
@@ -107,10 +124,10 @@ const Filters = (props) => {
             id="a1"
             className={`
             accordion-collapse 
-            show 
             collapse
             divide-y-2
             ${dark ? 'divide-neutral-400' : 'divide-neutral-300'}
+            ${screenStatus < 768 ? '' : 'show'}
           `}
           >
             <FiltersCheckbox items={currentCategories} type="category" />

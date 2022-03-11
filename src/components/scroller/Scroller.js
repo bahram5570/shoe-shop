@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { animateScroll } from 'react-scroll';
 import { useSelector } from 'react-redux';
+import { animateScroll } from 'react-scroll';
 import { FaArrowAltCircleUp } from 'react-icons/fa';
 
 const Scroller = () => {
@@ -10,7 +10,7 @@ const Scroller = () => {
 
   useEffect(() => {
     const scrollTracker = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 200) {
         setShow(true);
       } else {
         setShow(false);
@@ -25,26 +25,26 @@ const Scroller = () => {
     <FaArrowAltCircleUp
       onClick={() => animateScroll.scrollToTop()}
       className={`
-            ${show ? '' : 'hidden'}
-            fixed
-            bottom-6
-            right-4
-            sm:right-6
-            z-10
-            w-10
-            sm:w-12
-            h-auto
-            sm:cursor-pointer
-            animate-pulse
-            border-2
-            rounded-full
-            p-1
-            ${
-              dark
-                ? 'fill-white border-white bg-black'
-                : 'fill-black border-black bg-white'
-            }
-         `}
+        ${show ? '' : 'hidden'}
+        fixed
+        bottom-10
+        right-4
+        sm:right-6
+        z-10
+        w-10
+        sm:w-12
+        h-auto
+        sm:cursor-pointer
+        animate-pulse
+        border-2
+        rounded-full
+        p-1
+        ${
+          dark
+            ? 'fill-white border-white bg-black'
+            : 'fill-black border-black bg-white'
+        }
+      `}
     />
   );
 };

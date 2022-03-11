@@ -2,24 +2,24 @@ const ProfileStructure = ({ type, name, dark, icon, formik, isDisabled }) => {
   return (
     <div
       className={`
-      w-full 
-      relative
-      text-lg
-      ${isDisabled ? 'mt-3' : 'mt-8'}
-    `}
+        w-full 
+        relative
+        text-lg
+        ${isDisabled ? 'mt-3' : 'mt-8'}
+      `}
     >
       {!isDisabled && (
         <p
           className={`
-        absolute
-        -top-6
-        right-0
-        text-right 
-        text-sm 
-        mb-1 
-        text-redColor
-        ${formik.touched[name] ? '' : 'opacity-0'}
-      `}
+            absolute
+            -top-6
+            right-0
+            text-right 
+            text-sm 
+            mb-1 
+            text-redColor
+            ${formik.touched[name] ? '' : 'opacity-0'}
+          `}
         >
           {formik.errors[name]}
         </p>

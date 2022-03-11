@@ -25,11 +25,11 @@ const ProfileButtons = ({
     >
       <div
         className={`
-            flex 
-            items-center 
-            text-3xl
-            ${dark ? 'text-white' : ''}
-            `}
+          flex 
+          items-center 
+          text-3xl
+          ${dark ? 'text-white' : ''}
+        `}
       >
         <FaUserCircle />
         <h2 className="ml-2">{data.Username}</h2>
@@ -54,10 +54,10 @@ const ProfileButtons = ({
             {
               <FaSignOutAlt
                 className={`
-                    w-7 
-                    h-auto 
-                    ml-4
-                    ${dark ? 'text-white' : ''}
+                  w-7 
+                  h-auto 
+                  ml-4
+                  ${dark ? 'text-white' : ''}
                 `}
               />
             }

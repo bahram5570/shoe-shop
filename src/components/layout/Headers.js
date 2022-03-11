@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import DarkMode from './DarkMode';
 import { showHeader } from '../redux/slices/headerSlice';
+import DarkMode from './DarkMode';
 import brand from '../data/images/home/brand.png';
 import {
   FaHome,
@@ -39,16 +39,16 @@ const Headers = () => {
         <div className="flex items-center">
           <h1
             className="
-            flex 
-            items-center 
-            mr-4
-            sm:mr-6 
-            text-2xl 
-            sm:text-4xl 
-            italic 
-            font-headerFont 
-            text-cyan-500 
-            pointer-events-none"
+              flex 
+              items-center 
+              mr-4
+              sm:mr-6 
+              text-2xl 
+              sm:text-4xl 
+              italic 
+              font-headerFont 
+              text-cyan-500 
+              pointer-events-none"
           >
             <img src={brand} alt="brand" className="h-8 sm:h-12 w-auto mr-2" />
             Shoe Shop
@@ -89,7 +89,6 @@ const Headers = () => {
         >
           <li className="">
             <NavLink
-            
               to="/Home"
               className={(x) => (x.isActive ? 'bg-zinc-50 text-zinc-900' : '')}
             >

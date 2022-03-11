@@ -52,7 +52,7 @@ const Signup = ({ onShow }) => {
   };
 
   useEffect(() => {
-    if (signupStatus === "success") {
+    if (signupStatus === 'success') {
       dispatch(userSignup(null));
       onShow();
     }
@@ -157,7 +157,7 @@ const Signup = ({ onShow }) => {
       />
 
       {/* Existense user */}
-      {signupStatus === "fail" && (
+      {signupStatus === 'fail' && (
         <p className="text-redColor mt-4">
           This username already exists! Please select another one.
         </p>

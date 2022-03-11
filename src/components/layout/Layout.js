@@ -1,7 +1,7 @@
-import Headers from './Headers';
-import Footer from './Footer';
 import { useSelector, useDispatch } from 'react-redux';
 import { showHeader } from '../redux/slices/headerSlice';
+import Headers from './Headers';
+import Footer from './Footer';
 import Scroller from '../scroller/Scroller';
 
 const Layout = (props) => {

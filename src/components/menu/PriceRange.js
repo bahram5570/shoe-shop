@@ -75,7 +75,7 @@ const PriceRange = ({ items }) => {
             rounded-xl 
             pointer-events-none"
         />
-        
+
         <div
           style={{
             left: linePosition(priceValue.min, 'min'),

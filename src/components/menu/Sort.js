@@ -24,23 +24,23 @@ const Sort = () => {
   return (
     <div
       className={`
-      filter_section
-      md:mb-0
-      md:flex
-      w-full
-      ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}
-    `}
+        filter_section
+        md:mb-0
+        md:flex
+        w-full
+        ${dark ? 'bg-neutral-200' : 'bg-neutral-50'}
+      `}
     >
       <p
         className="
-        hidden 
-        font-extrabold 
-        md:flex 
-        items-center 
-        mr-2 
-        md:min-w-fit 
-        md:text-sm 
-        lg:text-base"
+          hidden 
+          font-extrabold 
+          md:flex 
+          items-center 
+          mr-2 
+          md:min-w-fit 
+          md:text-sm 
+          lg:text-base"
       >
         <FaSortAmountDown className="mr-1" />
         Sort By:

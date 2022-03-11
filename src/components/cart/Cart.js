@@ -92,7 +92,7 @@ const Cart = () => {
 
         dispatch(clearCart());
         dispatch(userUpdate());
-        navigate('/Shoes');
+        navigate('/Shop');
       }, 3000);
     }
   }, [shopStatus, dispatch, navigate]);

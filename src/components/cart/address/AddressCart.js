@@ -13,7 +13,7 @@ const AddressCart = ({ onAddress, onBack }) => {
         address: '',
         postal: '',
       };
-  
+
   const validationSchema = yup.object({
     name: yup.string().required('Please enter your name'),
     phone: yup

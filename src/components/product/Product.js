@@ -6,17 +6,22 @@ import SlideShow from './SlideShow';
 import ProductDetails from './ProductDetails';
 import ProductFeatures from './ProductFeatures';
 import AddToCart from './AddToCart';
+import PageNotFound from '../main/PageNotFound';
 import { FaReply } from 'react-icons/fa';
 
 const Product = () => {
   const dark = useSelector((state) => state.darkModeRedux);
 
-  const params = useParams();
-  const item = data[params.id];
-
   const [selectedProduct, setSelectedProduct] = useState({});
 
   const navigate = useNavigate();
+
+  const params = useParams();
+  const item = data[params.id];
+
+  if (item === undefined) {
+    return <PageNotFound />;
+  }
 
   return (
     <div
@@ -34,7 +39,10 @@ const Product = () => {
           <SlideShow items={item.images} />
         </div>
         <div>
-          <ProductFeatures items={item} onSelection={(e) => setSelectedProduct(e)} />
+          <ProductFeatures
+            items={item}
+            onSelection={(e) => setSelectedProduct(e)}
+          />
           <ProductDetails items={item} />
         </div>
       </section>

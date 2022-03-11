@@ -75,6 +75,7 @@ const FiltersCheckbox = ({ items, type }) => {
           }
         `}
       />
+
       <label htmlFor={x} className="cursor-pointer w-full ml-2 relative">
         {x}
         <FaCheck

@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import 'tw-elements';
-import { BsChevronDoubleLeft, BsChevronDoubleRight } from 'react-icons/bs';
 import ImageShow from './imageShow';
+import { BsChevronDoubleLeft, BsChevronDoubleRight } from 'react-icons/bs';
 
 const SlideShow = ({ items }) => {
   const [showImage, setShowImage] = useState(null);

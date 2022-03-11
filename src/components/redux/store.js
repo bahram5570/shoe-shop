@@ -15,6 +15,6 @@ export const store = configureStore({
     signinRedux: signinSlice,
     cartRedux: cartSlice,
     headerRedux: headerSlice,
-    likesRedux: likeSlice
+    likesRedux: likeSlice,
   },
 });

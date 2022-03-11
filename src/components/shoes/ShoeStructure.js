@@ -14,15 +14,15 @@ const ShoeStructure = ({ items }) => {
       key={x.name}
       style={{ background: x.code }}
       className={`
-      block 
-      mx-0.5
-      rounded-xl
-      ${
-        x.name === 'White'
-          ? 'border-2 border-black p-1 sm:p-1.5'
-          : 'p-1.5 sm:p-2 '
-      }
-    `}
+        block 
+        mx-0.5
+        rounded-xl
+        ${
+          x.name === 'White'
+            ? 'border-2 border-black p-1 sm:p-1.5'
+            : 'p-1.5 sm:p-2 '
+        }
+      `}
     />
   ));
 

@@ -8,7 +8,6 @@ import {
   FaMoneyBillAlt,
 } from 'react-icons/fa';
 
-
 const PaymentCart = ({ onBack, onPayment }) => {
   const initialValue = localStorage.getItem('paymentCart')
     ? JSON.parse(localStorage.getItem('paymentCart'))
@@ -47,7 +46,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
           text="Account Balance"
           icon={<FaIdCard className="w-10 h-auto mr-4 text-cyan-500" />}
         />
-        
+
         <PaymentCartStructure
           onRadio={(e) => setCheck(e)}
           name="Cash"

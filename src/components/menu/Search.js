@@ -26,7 +26,7 @@ const Search = () => {
         outline-none 
         w-full
         ${dark ? 'bg-neutral-200' : 'bg-neutral-50 shadow-[0_0_5px_#888888]'}
-        `}
+      `}
       onChange={searchHandler}
     />
   );

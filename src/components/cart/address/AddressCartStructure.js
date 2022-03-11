@@ -14,14 +14,14 @@ const AddressCartStructure = ({ type, name, placeholder, formik }) => {
         name={name}
         placeholder={placeholder}
         className="
-            w-full 
-            p-2 
-            my-5 
-            rounded 
-            outline-none 
-            md:text-lg 
-            shadow-[0_0_8px_#333333] 
-            focus:scale-105 duration-200"
+          w-full 
+          p-2 
+          my-5 
+          rounded 
+          outline-none 
+          md:text-lg 
+          shadow-[0_0_8px_#333333] 
+          focus:scale-105 duration-200"
         {...formik.getFieldProps(name)}
       />
     </span>

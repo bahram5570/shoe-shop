@@ -21,7 +21,6 @@ import woman from '../data/images/home/woman.png';
 import kid from '../data/images/home/kid.png';
 import online from '../data/images/home/online.jpg';
 
-
 const Home = () => {
   const dark = useSelector((state) => state.darkModeRedux);
 
@@ -48,7 +47,7 @@ const Home = () => {
         />
       </section>
 
-      <section className="my-10 md:my-0">
+      <section className="md:my-2">
         <div className="flex flex-col md:flex-row md:justify-between items-center">
           <img
             src={leather}

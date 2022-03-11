@@ -195,7 +195,11 @@ const Profile = ({ onSignout }) => {
               pt-3
               text-lg
               border-b-2
-              ${dark ? 'text-cyan-300 border-cyan-300' : 'text-[#0088ff] border-cyan-400'}
+              ${
+                dark
+                  ? 'text-cyan-300 border-cyan-300'
+                  : 'text-[#0088ff] border-cyan-400'
+              }
             `}
           >
             Show Deatils

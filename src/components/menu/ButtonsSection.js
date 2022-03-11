@@ -47,8 +47,7 @@ const ButtonsSection = ({ onCloseFilters }) => {
             text-redColor
             flex
             items-center
-            mb-1
-            "
+            mb-1"
         >
           <FaReply className="mr-2" />
           Back

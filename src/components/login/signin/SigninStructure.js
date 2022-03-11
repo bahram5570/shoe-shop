@@ -3,14 +3,14 @@ const SigninStructure = ({ type, name, dark, icon, formik }) => {
     <div className="mt-8 w-full relative">
       <p
         className={`
-        absolute
-        -top-6
-        right-0
-        text-right 
-        text-sm mb-1 
-        text-redColor
-        ${formik.touched[name] ? '' : 'opacity-0'}
-      `}
+          absolute
+          -top-6
+          right-0
+          text-right 
+          text-sm mb-1 
+          text-redColor
+          ${formik.touched[name] ? '' : 'opacity-0'}
+        `}
       >
         {formik.errors[name]}
       </p>
