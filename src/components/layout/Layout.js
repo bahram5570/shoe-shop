@@ -17,9 +17,15 @@ const Layout = (props) => {
 
       <main
         onClick={() => dispatch(showHeader('outside'))}
-        className={`min-h-screen px-5 py-16 sm:px-6 sm:py-20 ${
-          dark ? 'bg-[#444445]' : 'bg-gradient-to-br from-cyan-50'
-        }`}
+        style={{ maxWidth: window.screen.availWidth }}
+        className={`
+          min-h-screen 
+          px-5 
+          md:px-0 
+          py-16 
+          sm:py-20 
+          ${dark ? 'bg-[#444445]' : 'bg-gradient-to-br from-cyan-50'}
+        `}
       >
         {props.children}
       </main>

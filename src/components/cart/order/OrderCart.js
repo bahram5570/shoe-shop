@@ -44,10 +44,12 @@ const OrderCart = ({ onBack, onOrder }) => {
     >
       <section className="mb-8">
         <OrderProfile text={addressCart.name} icon={<FaUserAlt />} />
+
         <OrderProfile
           text={`${currentUser.Phone}, ${addressCart.phone}`}
           icon={<FaPhoneAlt />}
         />
+
         <OrderProfile text={currentUser.Email} icon={<FaEnvelope />} />
         <OrderProfile text={addressCart.city} icon={<FaCity />} />
         <OrderProfile text={addressCart.address} icon={<FaMapMarkerAlt />} />

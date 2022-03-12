@@ -42,7 +42,7 @@ const AddressCart = ({ onAddress, onBack }) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="flex flex-col items-center">
+    <form onSubmit={formik.handleSubmit} className="flex flex-col items-center px-4">
       <AddressCartStructure
         type="text"
         name="name"

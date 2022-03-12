@@ -14,8 +14,8 @@ const DarkMode = ({ dark }) => {
         my-1.5
         w-[70px]
         h-8
-        sm:w-[90px] 
-        sm:h-10 
+        md:w-[85px] 
+        md:h-9 
         border-2 
         border-white 
         rounded-full 
@@ -27,8 +27,8 @@ const DarkMode = ({ dark }) => {
         className={`
           h-6
           w-6
-          sm:h-8 
-          sm:w-8 
+          md:h-7 
+          md:w-7 
           rounded-full 
           flex 
           justify-center 
@@ -38,7 +38,7 @@ const DarkMode = ({ dark }) => {
           top-0.5 
           ${
             dark
-              ? 'left-10 sm:left-[52px] bg-cyan-400'
+              ? 'left-10 md:left-[51px] bg-cyan-400'
               : 'left-0.5 bg-yellowColor'
           }
         `}
@@ -46,7 +46,7 @@ const DarkMode = ({ dark }) => {
         {dark ? (
           <BsMoonFill className="text-black w-8/12 h-full" />
         ) : (
-          <BsSunFill className="text-black w-8/12 h-full" />
+          <BsSunFill className="text-black w-7/12 h-full" />
         )}
       </span>
 
@@ -57,10 +57,11 @@ const DarkMode = ({ dark }) => {
           items-center 
           absolute 
           top-1.5
-          ${dark ? 'left-2 sm:left-1.5' : 'right-2 sm:right-1.5'}
+          sm:top-1
+          ${dark ? 'left-1 md:left-1.5' : 'right-1 md:right-1.5'}
         `}
       >
-        <p className="text-xs sm:text-base">{dark ? 'Dark' : 'Light'}</p>
+        <p className="text-xs md:text-base">{dark ? 'Dark' : 'Light'}</p>
       </span>
     </div>
   );

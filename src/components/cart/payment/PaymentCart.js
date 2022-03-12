@@ -21,7 +21,7 @@ const PaymentCart = ({ onBack, onPayment }) => {
   };
 
   return (
-    <form onSubmit={submitHandler} className="flex flex-col items-center">
+    <form onSubmit={submitHandler} className="flex flex-col items-center px-4">
       <section>
         <PaymentCartStructure
           onRadio={(e) => setCheck(e)}

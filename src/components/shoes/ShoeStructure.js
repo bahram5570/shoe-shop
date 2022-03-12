@@ -31,17 +31,18 @@ const ShoeStructure = ({ items }) => {
       onClick={() => navigate(items.id)}
       className={`
         relative
-        h-fit
+        h-full
         sm:max-w-[270px]
         overflow-hidden 
         duration-150 
-        shadow-[0_0_10px_#aaaaaa]
-        rounded-lg 
+        shadow-[0_0_4px_#aaaaaa]
+        rounded-lg
+        sm:hover:scale-105 
         sm:cursor-pointer         
         ${
           dark
-            ? 'sm:hover:shadow-[0_0_20px_#ffffff]'
-            : 'sm:hover:shadow-[0_0_20px_#000000]'
+            ? ''
+            : 'sm:hover:shadow-[0_0_4px_#000000]'
         }
         ${dark ? 'shadow-none bg-neutral-200' : ''}
       `}

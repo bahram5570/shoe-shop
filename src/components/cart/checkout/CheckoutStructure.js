@@ -32,9 +32,12 @@ const CheckoutStructure = ({ items }) => {
         md:h-fit
         pr-2
         lg:pr-4
-        shadow-[0_0_10px_#aaaaaa] 
         rounded-md
-        ${dark && 'text-white'}
+        ${
+          dark
+            ? 'text-white shadow-[0_0_3px_#ffffff]'
+            : 'shadow-[0_0_3px_#555555]'
+        }
       `}
     >
       <img

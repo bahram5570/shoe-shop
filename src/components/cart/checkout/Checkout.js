@@ -3,7 +3,7 @@ import SummeryCart from './SummeryCart';
 
 const Checkout = ({ currentCart, onCheckout }) => {
   return (
-    <div className="md:flex md:justify-between">
+    <div className="md:flex md:justify-between sm:px-8">
       <section className="w-full md:mr-8">
         {currentCart.map((x) => (
           <CheckoutStructure key={x.id + x.color + x.size} items={x} />

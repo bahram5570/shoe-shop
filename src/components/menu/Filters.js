@@ -77,7 +77,7 @@ const Filters = (props) => {
         ${props.showFilters ? '' : 'top-full'}
       `}
     >
-      <div className="md:shadow-[0_0_10px_#888888] p-4 rounded-xl">
+      <div className="md:shadow-[0_0_5px_#888888] p-4 rounded-xl">
         {/* Search */}
         <section className="hidden md:block">
           <Search />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../redux/slices/cartSlice';
+import { addToCart } from '../redux/slices/cartSlice';
 
 const AddToCart = ({ item }) => {
   const dark = useSelector((state) => state.darkModeRedux);
@@ -24,9 +25,11 @@ const AddToCart = ({ item }) => {
     }
   }, [item, currnetCart]);
 
+  const navigate = useNavigate();
+
   const addToCartHandler = () => {
     if (exist) {
-      dispatch(removeFromCart(item));
+      navigate('/Cart')
     } else {
       dispatch(addToCart(item));
     }
@@ -42,7 +45,7 @@ const AddToCart = ({ item }) => {
         sm:min-w-[224px] 
         h-fit 
         relative
-        ${dark ? 'shadow-[0_0_12px_#ffffff]' : 'shadow-[0_0_12px_#555555]'}
+        ${dark ? 'shadow-[0_0_3px_#ffffff]' : 'shadow-[0_0_3px_#555555]'}
       `}
     >
       <h1 className="mb-6 text-xl font-bold text-center">Item Summery</h1>
@@ -79,18 +82,17 @@ const AddToCart = ({ item }) => {
         disabled={item.qt === 0}
         className={`
           w-full 
-          py-1 
-          duration-100 
-          rounded-2xl
+          duration-100           
           active:scale-90 
           outline-none
           disabled:hidden
-          ${!exist ? 'bg-greenColor text-neutral-50' : ''}
-          ${exist ? 'ring-2' : ''}
-          ${dark ? 'ring-white text-white' : 'ring-redColor text-redColor'}
+          py-1
+          bg-greenColor 
+          text-neutral-50 
+          ${!exist ? 'rounded-2xl' : 'rounded-lg'}          
         `}
       >
-        {!exist ? '+Add To Cart' : 'Remove From Cart'}
+        {!exist ? '+Add To Cart' : 'Got To Checkout'}
       </button>
     </div>
   );

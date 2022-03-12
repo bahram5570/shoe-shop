@@ -42,15 +42,15 @@ const Headers = () => {
               flex 
               items-center 
               mr-4
-              sm:mr-6 
+              md:mr-6 
               text-2xl 
-              sm:text-4xl 
+              md:text-4xl 
               italic 
               font-headerFont 
               text-cyan-500 
               pointer-events-none"
           >
-            <img src={brand} alt="brand" className="h-8 sm:h-12 w-auto mr-2" />
+            <img src={brand} alt="brand" className="h-8 md:h-12 w-auto mr-2" />
             Shoe Shop
           </h1>
 

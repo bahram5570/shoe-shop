@@ -25,7 +25,7 @@ const Product = () => {
 
   return (
     <div
-      className={`block sm:flex justify-between ${dark ? 'text-white' : ''}`}
+      className={`block md:px-8 sm:flex justify-between ${dark ? 'text-white' : ''}`}
     >
       <section className="block lg:flex">
         <div className="sm:w-9/12 sm:min-w-[350px]">

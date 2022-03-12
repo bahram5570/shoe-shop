@@ -20,8 +20,8 @@ const SummeryCart = ({ items, onCheckout }) => {
         sticky
         ${
           dark
-            ? 'shadow-[0_0_12px_#ffffff] text-white'
-            : 'shadow-[0_0_12px_#555555]'
+            ? 'shadow-[0_0_3px_#ffffff] text-white'
+            : 'shadow-[0_0_3px_#555555]'
         }
       `}
     >
@@ -52,7 +52,8 @@ const SummeryCart = ({ items, onCheckout }) => {
         onClick={() => onCheckout()}
         className={`
           w-full
-          py-1 
+          py-1.5 
+          sm:py-1 
           rounded-2xl
           outline-none
           text-lg
@@ -68,7 +69,8 @@ const SummeryCart = ({ items, onCheckout }) => {
         className={`
           w-full
           mt-4
-          py-1 
+          py-1.5 
+          sm:py-1
           rounded-2xl
           outline-none
           text-lg

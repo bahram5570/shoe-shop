@@ -27,7 +27,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <main className={`font-headerFont ${dark && 'text-white'}`}>
+    <main className={`font-headerFont md:px-4 ${dark && 'text-white'}`}>
       <section className="relative flex justify-center items-center">
         <span className="absolute top-0 md:static">
           <h2 className="homeHeaders shadow-[4px_6px_7px_#ff5555]">
